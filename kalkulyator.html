@@ -3,272 +3,282 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Инженерный калькулятор — CELKONSAN | Ограждения и металлоконструкции</title>
-<meta name="description" content="Онлайн-калькулятор веса дорожных ограждений и металлоконструкций. Расчёт тоннажа металла, трудозатрат и площади горячего цинкования. CELKONSAN Алматы.">
+<title>Инженерный калькулятор — CELKONSAN | Ограждения, металлоконструкции, цинкование</title>
+<meta name="description" content="Онлайн-калькулятор: вес дорожных ограждений, металлоконструкций и площадь горячего цинкования своего металла (трубы, профиль, лист, уголок). CELKONSAN Алматы.">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
-    --bg:#0a0e14; --panel:#11161f; --line:#1d2733; --grid:#15202e;
-    --blue:#2f81f7; --blue2:#1f6feb; --txt:#e6edf3; --dim:#7d8896;
-    --accent:#f0b429; --green:#3fb950;
+    --bg:#0a0e14;--panel:#11161f;--line:#1d2733;--grid:#15202e;
+    --blue:#2f81f7;--blue2:#1f6feb;--txt:#e6edf3;--dim:#7d8896;
+    --accent:#f0b429;--green:#3fb950;
     --mono:'SF Mono',ui-monospace,'Cascadia Code','Roboto Mono',monospace;
     --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   }
   body{background:var(--bg);color:var(--txt);font-family:var(--sans);min-height:100vh;
-    background-image:linear-gradient(var(--grid) 1px,transparent 1px),
-      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
     background-size:32px 32px;line-height:1.5}
   .wrap{max-width:1200px;margin:0 auto;padding:1.5rem}
-
-  .topbar{display:flex;align-items:center;justify-content:space-between;
-    padding-bottom:1.25rem;border-bottom:1px solid var(--line);margin-bottom:1.25rem}
+  .back{display:inline-block;margin-bottom:1rem;color:var(--blue);font-size:13px;font-weight:600;text-decoration:none}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding-bottom:1.25rem;border-bottom:1px solid var(--line);margin-bottom:1.25rem}
   .brand{display:flex;align-items:center;gap:.75rem}
-  .brand-mark{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--blue);
-    border:1px solid var(--blue);padding:.2rem .5rem;border-radius:3px}
+  .brand-mark{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--blue);border:1px solid var(--blue);padding:.2rem .5rem;border-radius:3px}
   .brand h1{font-size:15px;font-weight:600;letter-spacing:.5px}
   .brand h1 span{color:var(--dim);font-weight:400}
-  .badge{font-family:var(--mono);font-size:10px;color:var(--dim);
-    border:1px solid var(--line);padding:.3rem .6rem;border-radius:3px}
+  .badge{font-family:var(--mono);font-size:10px;color:var(--dim);border:1px solid var(--line);padding:.3rem .6rem;border-radius:3px}
 
-  /* MODE TABS */
-  .modes{display:flex;gap:.5rem;margin-bottom:1.5rem}
-  .modes button{flex:1;background:var(--panel);border:1px solid var(--line);color:var(--dim);
-    padding:.9rem;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;
-    font-family:var(--sans);transition:all .15s;display:flex;align-items:center;
-    justify-content:center;gap:.5rem}
+  .modes{display:flex;gap:.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+  .modes button{flex:1;min-width:150px;background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:.9rem;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;font-family:var(--sans);transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.5rem}
   .modes button .ic{font-size:18px}
   .modes button:hover{border-color:var(--blue2);color:var(--txt)}
-  .modes button.on{background:var(--blue2);border-color:var(--blue);color:#fff;
-    box-shadow:0 0 0 1px var(--blue)}
+  .modes button.on{background:var(--blue2);border-color:var(--blue);color:#fff;box-shadow:0 0 0 1px var(--blue)}
 
-  .layout{display:grid;grid-template-columns:340px 1fr;gap:1.5rem;align-items:start}
-
+  .layout{display:grid;grid-template-columns:360px 1fr;gap:1.5rem;align-items:start}
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  .panel-h{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--dim);
-    text-transform:uppercase;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);
-    display:flex;align-items:center;gap:.5rem}
-  .panel-h::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);
-    box-shadow:0 0 8px var(--blue)}
+  .panel-h{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--dim);text-transform:uppercase;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.5rem}
+  .panel-h::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue)}
   .panel-b{padding:1.1rem}
 
-  .field{margin-bottom:1.1rem}
-  .field:last-child{margin-bottom:0}
-  .field label{display:block;font-size:11px;color:var(--dim);margin-bottom:.45rem;
-    letter-spacing:.3px;text-transform:uppercase;font-family:var(--mono)}
+  .field{margin-bottom:1.1rem}.field:last-child{margin-bottom:0}
+  .field label{display:block;font-size:11px;color:var(--dim);margin-bottom:.45rem;letter-spacing:.3px;text-transform:uppercase;font-family:var(--mono)}
   .seg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
-  .seg.three{grid-template-columns:1fr 1fr 1fr}
-  .seg.col{grid-template-columns:1fr}
-  .seg button{background:#0d121a;border:1px solid var(--line);color:var(--dim);
-    padding:.6rem .3rem;border-radius:5px;cursor:pointer;font-size:12px;font-weight:600;
-    transition:all .15s;font-family:var(--sans)}
+  .seg.three{grid-template-columns:1fr 1fr 1fr}.seg.col{grid-template-columns:1fr}
+  .seg button{background:#0d121a;border:1px solid var(--line);color:var(--dim);padding:.6rem .3rem;border-radius:5px;cursor:pointer;font-size:12px;font-weight:600;transition:all .15s;font-family:var(--sans)}
   .seg button:hover{border-color:var(--blue2);color:var(--txt)}
   .seg button.on{background:var(--blue2);border-color:var(--blue);color:#fff;box-shadow:0 0 0 1px var(--blue)}
 
   .slider-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
   .slider-val{font-family:var(--mono);font-size:20px;font-weight:700}
   .slider-val small{font-size:12px;color:var(--dim);font-weight:400}
-  input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;
-    background:var(--line);outline:none;cursor:pointer}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
-    border-radius:50%;background:var(--blue);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 0 1px var(--blue)}
+  input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--line);outline:none;cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 0 1px var(--blue)}
   input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:3px solid var(--bg)}
 
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .num label{display:block;font-size:10px;color:var(--dim);margin-bottom:.3rem;letter-spacing:.5px;text-transform:uppercase;font-family:var(--mono)}
+  input[type=number]{background:#0d121a;border:1px solid var(--line);color:var(--txt);padding:.6rem .7rem;border-radius:5px;font-family:var(--mono);font-size:15px;width:100%;outline:none}
+  input[type=number]:focus{border-color:var(--blue)}
+
+  .addbtn{width:100%;margin-top:1rem;padding:.85rem;background:var(--green);color:#06210f;border:none;border-radius:7px;font-weight:700;font-size:13px;cursor:pointer;transition:opacity .2s}
+  .addbtn:hover{opacity:.85}
+  .clearbtn{width:100%;margin-top:.5rem;padding:.6rem;background:transparent;color:var(--dim);border:1px solid var(--line);border-radius:7px;font-size:12px;cursor:pointer}
+
   .viewport{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  #canvas3d{width:100%;height:340px;display:block;background:radial-gradient(circle at 50% 40%,#16202e 0%,#0a0e14 80%)}
-  .vp-foot{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1.1rem;
-    border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.5px}
+  #canvas3d{width:100%;height:340px;display:block;background:radial-gradient(circle at 50% 40%,#1b2738 0%,#0c1119 80%)}
+  .vp-foot{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1.1rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.5px}
   .vp-foot .dot{color:var(--green)}
 
   .results{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
   .result{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.1rem;position:relative;overflow:hidden}
   .result::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
   .result .k{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dim);text-transform:uppercase;margin-bottom:.6rem}
-  .result .v{font-family:var(--mono);font-size:30px;font-weight:700;line-height:1}
+  .result .v{font-family:var(--mono);font-size:28px;font-weight:700;line-height:1}
   .result .v small{font-size:13px;color:var(--dim);font-weight:400;margin-left:.2rem}
   .result.hl .v{color:var(--accent)}
   .result .sub{font-size:11px;color:var(--dim);margin-top:.5rem}
 
   .breakdown{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-top:1rem;overflow:hidden}
-  .bd-row{display:flex;justify-content:space-between;padding:.7rem 1.1rem;border-bottom:1px solid var(--line);font-size:13px}
+  .bd-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.1rem;border-bottom:1px solid var(--line);font-size:13px;gap:.5rem}
   .bd-row:last-child{border-bottom:none}
-  .bd-row .lbl{color:var(--dim)}
-  .bd-row .val{font-family:var(--mono);font-weight:600}
+  .bd-row .lbl{color:var(--dim);flex:1}
+  .bd-row .val{font-family:var(--mono);font-weight:600;white-space:nowrap}
+  .bd-row.total{background:#0d121a}.bd-row.total .lbl{color:var(--txt);font-weight:700}.bd-row.total .val{color:var(--accent)}
+  .bd-row .rm{background:none;border:none;color:#6b7682;cursor:pointer;font-size:15px;padding:0 .2rem}
+  .bd-row .rm:hover{color:#d12030}
+  .bd-empty{padding:1.5rem 1.1rem;text-align:center;color:var(--dim);font-size:12px}
 
   .cta{display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap}
   .cta a{flex:1;min-width:160px;text-align:center;padding:.9rem;border-radius:7px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s}
   .cta .wa{background:#25D366;color:#fff}.cta .wa:hover{background:#1faa53}
   .cta .pdf{background:#0d121a;color:var(--txt);border:1px solid var(--line)}.cta .pdf:hover{border-color:var(--blue)}
-
   .note{font-size:11px;color:var(--dim);margin-top:1rem;line-height:1.6;padding:.8rem 1rem;border-left:2px solid var(--accent);background:rgba(240,180,41,.05)}
-  .back{display:inline-block;margin-bottom:1rem;color:var(--blue);font-size:13px;font-weight:600;text-decoration:none}
 
-  @media(max-width:880px){.layout{grid-template-columns:1fr}.results{grid-template-columns:1fr}#canvas3d{height:280px}
-    .modes button .tx{font-size:11px}}
+  @media(max-width:880px){.layout{grid-template-columns:1fr}.results{grid-template-columns:1fr}#canvas3d{height:280px}.modes button .tx{font-size:11px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <a href="index.html" class="back">← На главную</a>
-
   <div class="topbar">
-    <div class="brand">
-      <span class="brand-mark">ÇK</span>
-      <h1>CELKONSAN <span>/ Инженерный калькулятор</span></h1>
-    </div>
+    <div class="brand"><span class="brand-mark">ÇK</span><h1>CELKONSAN <span>/ Инженерный калькулятор</span></h1></div>
     <span class="badge" id="stdBadge">ГОСТ 26804-2012</span>
   </div>
 
-  <!-- MODE SWITCHER -->
   <div class="modes" id="modes">
-    <button class="on" data-m="barrier"><span class="ic">🛣️</span><span class="tx">Дорожные ограждения</span></button>
+    <button class="on" data-m="barrier"><span class="ic">🛣️</span><span class="tx">Ограждения</span></button>
     <button data-m="steel"><span class="ic">🏗️</span><span class="tx">Металлоконструкции</span></button>
+    <button data-m="galv"><span class="ic">🔧</span><span class="tx">Цинкование металла</span></button>
   </div>
 
   <div class="layout">
-
-    <!-- LEFT: INPUTS -->
     <div class="panel">
       <div class="panel-h" id="inpTitle">Параметры</div>
       <div class="panel-b">
 
-        <!-- BARRIER INPUTS -->
+        <!-- BARRIER -->
         <div id="inpBarrier">
-          <div class="field">
-            <label>Тип ограждения</label>
+          <div class="field"><label>Тип ограждения</label>
             <div class="seg" id="bType">
-              <button class="on" data-v="11ДО">Одностороннее</button>
-              <button data-v="11ДД">Двустороннее</button>
-              <button data-v="11МО">Мостовое</button>
-              <button data-v="11МД">Барьер двойной</button>
+              <button class="on" data-v="11ДО">Одностороннее</button><button data-v="11ДД">Двустороннее</button>
+              <button data-v="11МО">Мостовое</button><button data-v="11МД">Барьер двойной</button>
             </div>
           </div>
-          <div class="field">
-            <label>Шаг стоек</label>
-            <div class="seg three" id="bStep">
-              <button data-v="2">2 м</button><button data-v="3">3 м</button><button class="on" data-v="4">4 м</button>
-            </div>
+          <div class="field"><label>Шаг стоек</label>
+            <div class="seg three" id="bStep"><button data-v="2">2 м</button><button data-v="3">3 м</button><button class="on" data-v="4">4 м</button></div>
           </div>
-          <div class="field">
-            <div class="slider-row"><label style="margin:0">Длина участка</label><div class="slider-val" id="bLenVal">100<small> м</small></div></div>
-            <input type="range" id="bLen" min="10" max="2000" step="10" value="100">
-          </div>
-          <div class="field">
-            <div class="slider-row"><label style="margin:0">Высота стойки</label><div class="slider-val" id="bHVal">1.5<small> м</small></div></div>
-            <input type="range" id="bH" min="1.1" max="2.5" step="0.1" value="1.5">
-          </div>
+          <div class="field"><div class="slider-row"><label style="margin:0">Длина участка</label><div class="slider-val" id="bLenVal">100<small> м</small></div></div><input type="range" id="bLen" min="10" max="2000" step="10" value="100"></div>
+          <div class="field"><div class="slider-row"><label style="margin:0">Высота стойки</label><div class="slider-val" id="bHVal">1.5<small> м</small></div></div><input type="range" id="bH" min="1.1" max="2.5" step="0.1" value="1.5"></div>
         </div>
 
-        <!-- STEEL INPUTS -->
+        <!-- STEEL -->
         <div id="inpSteel" style="display:none">
-          <div class="field">
-            <label>Тип сооружения</label>
+          <div class="field"><label>Тип сооружения</label>
             <div class="seg col" id="sType">
-              <button class="on" data-v="naves">Навес / козырёк</button>
-              <button data-v="angar">Ангар</button>
-              <button data-v="sklad">Склад</button>
-              <button data-v="ceh">Производственный цех</button>
+              <button class="on" data-v="naves">Навес / козырёк</button><button data-v="angar">Ангар</button>
+              <button data-v="sklad">Склад</button><button data-v="ceh">Производственный цех</button>
               <button data-v="karkas">Многоэтажный каркас</button>
             </div>
           </div>
-          <div class="field">
-            <div class="slider-row"><label style="margin:0">Площадь</label><div class="slider-val" id="sAreaVal">500<small> м²</small></div></div>
-            <input type="range" id="sArea" min="50" max="10000" step="50" value="500">
-          </div>
-          <div class="field">
-            <div class="slider-row"><label style="margin:0">Высота</label><div class="slider-val" id="sHVal">6<small> м</small></div></div>
-            <input type="range" id="sH" min="3" max="24" step="0.5" value="6">
-          </div>
-          <div class="field">
-            <label>Этажность</label>
-            <div class="seg three" id="sFloors">
-              <button class="on" data-v="1">1 этаж</button><button data-v="2">2 этажа</button><button data-v="3">3+ этажа</button>
+          <div class="field"><div class="slider-row"><label style="margin:0">Площадь</label><div class="slider-val" id="sAreaVal">500<small> м²</small></div></div><input type="range" id="sArea" min="50" max="10000" step="50" value="500"></div>
+          <div class="field"><div class="slider-row"><label style="margin:0">Высота</label><div class="slider-val" id="sHVal">6<small> м</small></div></div><input type="range" id="sH" min="3" max="24" step="0.5" value="6"></div>
+          <div class="field"><label>Этажность</label><div class="seg three" id="sFloors"><button class="on" data-v="1">1 этаж</button><button data-v="2">2 этажа</button><button data-v="3">3+ этажа</button></div></div>
+          <div class="field"><label>Тип кровли</label><div class="seg three" id="sRoof"><button class="on" data-v="gable">Двускатная</button><button data-v="single">Односкатная</button><button data-v="flat">Плоская</button></div></div>
+        </div>
+
+        <!-- GALV -->
+        <div id="inpGalv" style="display:none">
+          <div class="field"><label>Форма металла</label>
+            <div class="seg" id="gShape">
+              <button class="on" data-v="round">⌀ Труба круглая</button><button data-v="profile">▢ Труба профильная</button>
+              <button data-v="sheet">▭ Лист</button><button data-v="angle">∟ Уголок</button>
             </div>
           </div>
+          <!-- round -->
+          <div id="gf-round">
+            <div class="row2">
+              <div class="num"><label>Диаметр D, мм</label><input type="number" id="gD" value="108"></div>
+              <div class="num"><label>Стенка t, мм</label><input type="number" id="gt" value="4"></div>
+            </div>
+            <div class="row2" style="margin-top:.6rem">
+              <div class="num"><label>Длина L, м</label><input type="number" id="gL" value="6" step="0.1"></div>
+              <div class="num"><label>Кол-во, шт</label><input type="number" id="gQ" value="10"></div>
+            </div>
+          </div>
+          <!-- profile -->
+          <div id="gf-profile" style="display:none">
+            <div class="row2">
+              <div class="num"><label>Сторона A, мм</label><input type="number" id="pA" value="80"></div>
+              <div class="num"><label>Сторона B, мм</label><input type="number" id="pB" value="40"></div>
+            </div>
+            <div class="row2" style="margin-top:.6rem">
+              <div class="num"><label>Стенка t, мм</label><input type="number" id="pt" value="3"></div>
+              <div class="num"><label>Длина L, м</label><input type="number" id="pL" value="6" step="0.1"></div>
+            </div>
+            <div class="row2" style="margin-top:.6rem">
+              <div class="num"><label>Кол-во, шт</label><input type="number" id="pQ" value="10"></div>
+            </div>
+          </div>
+          <!-- sheet -->
+          <div id="gf-sheet" style="display:none">
+            <div class="row2">
+              <div class="num"><label>Ширина, мм</label><input type="number" id="shW" value="1250"></div>
+              <div class="num"><label>Длина, м</label><input type="number" id="shL" value="2.5" step="0.1"></div>
+            </div>
+            <div class="row2" style="margin-top:.6rem">
+              <div class="num"><label>Толщина, мм</label><input type="number" id="shT" value="3"></div>
+              <div class="num"><label>Кол-во, шт</label><input type="number" id="shQ" value="20"></div>
+            </div>
+          </div>
+          <!-- angle -->
+          <div id="gf-angle" style="display:none">
+            <div class="row2">
+              <div class="num"><label>Полка, мм</label><input type="number" id="anA" value="63"></div>
+              <div class="num"><label>Толщина t, мм</label><input type="number" id="anT" value="5"></div>
+            </div>
+            <div class="row2" style="margin-top:.6rem">
+              <div class="num"><label>Длина L, м</label><input type="number" id="anL" value="6" step="0.1"></div>
+              <div class="num"><label>Кол-во, шт</label><input type="number" id="anQ" value="20"></div>
+            </div>
+          </div>
+
+          <button class="addbtn" id="addPos">+ Добавить в смету</button>
+          <button class="clearbtn" id="clearPos">Очистить смету</button>
         </div>
 
       </div>
     </div>
 
-    <!-- RIGHT: 3D + RESULTS -->
     <div>
       <div class="viewport">
         <canvas id="canvas3d"></canvas>
-        <div class="vp-foot">
-          <span><span class="dot">●</span> 3D-модель — в реальном времени</span>
-          <span id="vpInfo">—</span>
-        </div>
+        <div class="vp-foot"><span><span class="dot">●</span> 3D-модель — в реальном времени</span><span id="vpInfo">—</span></div>
       </div>
-
       <div class="results" id="results"></div>
       <div class="breakdown" id="breakdown"></div>
-
       <div class="cta">
         <a class="wa" id="waBtn" href="#" target="_blank">💬 Получить точный расчёт в WhatsApp</a>
         <a class="pdf" href="#" onclick="window.print();return false">⎙ Печать / PDF</a>
       </div>
-
       <div class="note" id="note"></div>
     </div>
-
   </div>
 </div>
 
 <script>
-/* ============ DATA ============ */
-const BARRIER = {
-  '11ДО':{beam:13.5,sides:1,label:'Одностороннее'},
-  '11ДД':{beam:27.0,sides:2,label:'Двустороннее'},
-  '11МО':{beam:16.0,sides:1,label:'Мостовое'},
-  '11МД':{beam:32.0,sides:2,label:'Барьер двойной'}
-};
-const POST_KG_PER_M=6.8, CONSOLE_KG=2.4, FIX_KG_PER_BEAM=1.2, BEAM_SEG=4.0, B_AREA_PER_KG=0.019;
-
-// расход стали кг/м² по типу сооружения (оценка для каркаса + покрытие)
-const STEEL={
-  naves: {k:25,label:'Навес / козырёк'},
-  angar: {k:32,label:'Ангар'},
-  sklad: {k:45,label:'Склад'},
-  ceh:   {k:65,label:'Производственный цех'},
-  karkas:{k:90,label:'Многоэтажный каркас'}
-};
-const MH_FAB=30, MH_MONT=15, S_AREA_PER_KG=0.015; // нормо-часы/т (изгот/монтаж), м²/кг цинк
+/* ========= DATA ========= */
+const BARRIER={'11ДО':{beam:13.5,sides:1,label:'Одностороннее'},'11ДД':{beam:27,sides:2,label:'Двустороннее'},'11МО':{beam:16,sides:1,label:'Мостовое'},'11МД':{beam:32,sides:2,label:'Барьер двойной'}};
+const POST_KG_PER_M=6.8,CONSOLE_KG=2.4,FIX_KG_PER_BEAM=1.2,BEAM_SEG=4,B_AREA_PER_KG=0.019;
+const STEEL={naves:{k:25,label:'Навес / козырёк'},angar:{k:32,label:'Ангар'},sklad:{k:45,label:'Склад'},ceh:{k:65,label:'Производственный цех'},karkas:{k:90,label:'Многоэтажный каркас'}};
+const MH_FAB=30,MH_MONT=15,S_AREA_PER_KG=0.015;
+const RHO=7850; // плотность стали кг/м³
 
 let mode='barrier';
 let bs={type:'11ДО',step:4,len:100,h:1.5};
-let ss={type:'naves',area:500,h:6,floors:1};
+let ss={type:'naves',area:500,h:6,floors:1,roof:'gable'};
+let gShape='round';
+let positions=[];
 
-/* ============ CALC ============ */
-function calcBarrier(){
-  const d=BARRIER[bs.type];
-  const beamW=d.beam*bs.len;
-  const posts=Math.floor(bs.len/bs.step)+1;
-  const postW=posts*bs.h*POST_KG_PER_M*d.sides;
-  const consoleW=posts*CONSOLE_KG*d.sides;
-  const beams=Math.ceil(bs.len/BEAM_SEG)*d.sides;
-  const fixW=beams*FIX_KG_PER_BEAM;
-  const totalKg=beamW+postW+consoleW+fixW;
-  return {totalKg,beamW,postW,consoleW,fixW,posts,beams,area:totalKg*B_AREA_PER_KG,sides:d.sides};
-}
-function calcSteel(){
-  const d=STEEL[ss.type];
-  const hf=Math.max(0.85,Math.min(1.6,1+(ss.h-6)*0.03));
-  const ff=1+(ss.floors-1)*0.35; // этажность увеличивает каркас
-  const totalKg=ss.area*d.k*hf*ff;
-  const tons=totalKg/1000;
-  const fabH=tons*MH_FAB, montH=tons*MH_MONT, totH=fabH+montH;
-  const days=Math.ceil(totH/(8*6)); // бригада 6 чел
-  return {totalKg,tons,fabH,montH,totH,days,area:totalKg*S_AREA_PER_KG,k:d.k,hf,ff};
+/* ========= CALC ========= */
+function calcBarrier(){const d=BARRIER[bs.type];const beamW=d.beam*bs.len;const posts=Math.floor(bs.len/bs.step)+1;const postW=posts*bs.h*POST_KG_PER_M*d.sides;const consoleW=posts*CONSOLE_KG*d.sides;const beams=Math.ceil(bs.len/BEAM_SEG)*d.sides;const fixW=beams*FIX_KG_PER_BEAM;const totalKg=beamW+postW+consoleW+fixW;return{totalKg,beamW,postW,consoleW,fixW,posts,beams,area:totalKg*B_AREA_PER_KG,sides:d.sides};}
+function calcSteel(){const d=STEEL[ss.type];const hf=Math.max(.85,Math.min(1.6,1+(ss.h-6)*.03));const ff=1+(ss.floors-1)*.35;
+  // кровля: уклон добавляет металл (стропила/прогоны) и площадь
+  const PITCH={gable:14,single:8,flat:2}[ss.roof];           // угол, градусов
+  const slope=1/Math.cos(PITCH*Math.PI/180);
+  const roofFactor={gable:1.0,single:0.95,flat:0.88}[ss.roof];
+  const totalKg=ss.area*d.k*hf*ff*roofFactor;const tons=totalKg/1000;
+  const fabH=tons*MH_FAB,montH=tons*MH_MONT,totH=fabH+montH;const days=Math.ceil(totH/(8*6));
+  const roofArea=ss.area*slope;                              // площадь кровли по скату
+  return{totalKg,tons,fabH,montH,totH,days,area:totalKg*S_AREA_PER_KG,k:d.k,roofArea,pitch:PITCH};}
+
+function num(id){return parseFloat(document.getElementById(id).value)||0;}
+function calcGalvCurrent(){
+  if(gShape==='round'){
+    const D=num('gD'),t=num('gt'),L=num('gL'),q=num('gQ');const d=Math.max(D-2*t,0);
+    const area=(Math.PI*(D/1000)*L + Math.PI*(d/1000)*L)*q;
+    const csa=Math.PI/4*((D*D-d*d))/1e6;const weight=csa*L*RHO*q;
+    return{area,weight,label:`Труба ⌀${D}×${t} · ${L}м · ${q}шт`,shape:'round',dim:{D,t,L}};
+  }
+  if(gShape==='profile'){
+    const A=num('pA'),B=num('pB'),t=num('pt'),L=num('pL'),q=num('pQ');const ai=Math.max(A-2*t,0),bi=Math.max(B-2*t,0);
+    const area=(2*(A+B)/1000 + 2*(ai+bi)/1000)*L*q;
+    const csa=(A*B-ai*bi)/1e6;const weight=csa*L*RHO*q;
+    return{area,weight,label:`Профтруба ${A}×${B}×${t} · ${L}м · ${q}шт`,shape:'profile',dim:{A,B,L}};
+  }
+  if(gShape==='sheet'){
+    const W=num('shW'),L=num('shL'),t=num('shT'),q=num('shQ');const Wm=W/1000;
+    const area=2*Wm*L*q;const weight=Wm*L*(t/1000)*RHO*q;
+    return{area,weight,label:`Лист ${W}мм×${L}м×${t}мм · ${q}шт`,shape:'sheet',dim:{W,L,t}};
+  }
+  // angle
+  const a=num('anA'),t=num('anT'),L=num('anL'),q=num('anQ');const dev=(2*a-t)/1000;
+  const area=2*dev*L*q;const csa=(2*a-t)*t/1e6;const weight=csa*L*RHO*q;
+  return{area,weight,label:`Уголок ${a}×${t} · ${L}м · ${q}шт`,shape:'angle',dim:{a,L}};
 }
 
-/* ============ RENDER ============ */
-function render(){
-  if(mode==='barrier') renderBarrier();
-  else renderSteel();
-}
-function renderBarrier(){
-  const r=calcBarrier();
+/* ========= RENDER ========= */
+function render(){if(mode==='barrier')renderBarrier();else if(mode==='steel')renderSteel();else renderGalv();}
+
+function renderBarrier(){const r=calcBarrier();
   document.getElementById('results').innerHTML=`
     <div class="result hl"><div class="k">Вес металла</div><div class="v">${(r.totalKg/1000).toFixed(2)}<small>т</small></div><div class="sub">${Math.round(r.totalKg).toLocaleString('ru-RU')} кг</div></div>
     <div class="result"><div class="k">Площадь цинкования</div><div class="v">${Math.round(r.area)}<small>м²</small></div><div class="sub">горячее цинкование</div></div>
@@ -278,116 +288,188 @@ function renderBarrier(){
     <div class="bd-row"><span class="lbl">Стойки (${r.posts} шт)</span><span class="val">${Math.round(r.postW).toLocaleString('ru-RU')} кг</span></div>
     <div class="bd-row"><span class="lbl">Консоли-распорки</span><span class="val">${Math.round(r.consoleW).toLocaleString('ru-RU')} кг</span></div>
     <div class="bd-row"><span class="lbl">Крепёж</span><span class="val">${Math.round(r.fixW).toLocaleString('ru-RU')} кг</span></div>`;
-  const msg=`Здравствуйте, CELKONSAN! Расчёт дорожного ограждения:%0A• Тип: ${BARRIER[bs.type].label}%0A• Длина: ${bs.len} м%0A• Шаг стоек: ${bs.step} м%0A• Высота: ${bs.h} м%0A• Ориент. вес: ${(r.totalKg/1000).toFixed(2)} т%0AПрошу точную спецификацию и стоимость цинкования.`;
-  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=${msg}`;
-  document.getElementById('note').innerHTML=`<strong>Предварительный расчёт.</strong> Значения по типовым профилям ГОСТ 26804-2012, носят оценочный характер. Точную спецификацию предоставит инженер CELKONSAN после согласования чертежа.`;
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`Здравствуйте, CELKONSAN! Расчёт ограждения:\n• Тип: ${BARRIER[bs.type].label}\n• Длина: ${bs.len} м\n• Шаг стоек: ${bs.step} м\n• Высота: ${bs.h} м\n• Ориент. вес: ${(r.totalKg/1000).toFixed(2)} т\nПрошу точную спецификацию.`);
+  document.getElementById('note').innerHTML=`<strong>Предварительный расчёт.</strong> По типовым профилям ГОСТ 26804-2012, оценочно. Точную спецификацию даёт инженер CELKONSAN.`;
   document.getElementById('stdBadge').textContent='ГОСТ 26804-2012';
   update3D_barrier(r);
 }
-function renderSteel(){
-  const r=calcSteel();
+function renderSteel(){const r=calcSteel();
   document.getElementById('results').innerHTML=`
     <div class="result hl"><div class="k">Расход металла</div><div class="v">${r.tons.toFixed(1)}<small>т</small></div><div class="sub">${Math.round(r.totalKg).toLocaleString('ru-RU')} кг · ${r.k} кг/м²</div></div>
     <div class="result"><div class="k">Трудозатраты</div><div class="v">${Math.round(r.totH).toLocaleString('ru-RU')}<small>н-ч</small></div><div class="sub">изготовление + монтаж</div></div>
-    <div class="result"><div class="k">Срок (оценка)</div><div class="v">${r.days}<small>дн</small></div><div class="sub">бригада 6 чел</div></div>`;
+    <div class="result"><div class="k">Площадь кровли</div><div class="v">${Math.round(r.roofArea).toLocaleString('ru-RU')}<small>м²</small></div><div class="sub">скат ${r.pitch}° · трудозатраты ${Math.round(r.totH).toLocaleString('ru-RU')} н-ч</div></div>`;
   document.getElementById('breakdown').innerHTML=`
     <div class="bd-row"><span class="lbl">Изготовление конструкций</span><span class="val">${Math.round(r.fabH).toLocaleString('ru-RU')} н-ч</span></div>
     <div class="bd-row"><span class="lbl">Монтаж на объекте</span><span class="val">${Math.round(r.montH).toLocaleString('ru-RU')} н-ч</span></div>
-    <div class="bd-row"><span class="lbl">Площадь под цинкование</span><span class="val">${Math.round(r.area).toLocaleString('ru-RU')} м²</span></div>
-    <div class="bd-row"><span class="lbl">Удельный расход стали</span><span class="val">${r.k} кг/м²</span></div>`;
-  const msg=`Здравствуйте, CELKONSAN! Расчёт металлоконструкции:%0A• Тип: ${STEEL[ss.type].label}%0A• Площадь: ${ss.area} м²%0A• Высота: ${ss.h} м%0A• Этажность: ${ss.floors}%0A• Ориент. вес: ${r.tons.toFixed(1)} т%0A• Трудозатраты: ~${Math.round(r.totH)} н-ч%0AПрошу подготовить КМ/КМД и коммерческое предложение.`;
-  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=${msg}`;
-  document.getElementById('note').innerHTML=`<strong>Предварительная оценка.</strong> Расход металла зависит от пролётов, снеговой/ветровой нагрузки, кранов и норм. Точный вес по КМ/КМД и стоимость рассчитает конструкторский отдел CELKONSAN.`;
+    <div class="bd-row"><span class="lbl">Площадь кровли (по скату)</span><span class="val">${Math.round(r.roofArea).toLocaleString('ru-RU')} м²</span></div>
+    <div class="bd-row"><span class="lbl">Площадь под цинкование</span><span class="val">${Math.round(r.area).toLocaleString('ru-RU')} м²</span></div>`;
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`Здравствуйте, CELKONSAN! Расчёт металлоконструкции:\n• Тип: ${STEEL[ss.type].label}\n• Площадь: ${ss.area} м²\n• Высота: ${ss.h} м\n• Этажность: ${ss.floors}\n• Кровля: ${({gable:'двускатная',single:'односкатная',flat:'плоская'})[ss.roof]}\n• Ориент. вес: ${r.tons.toFixed(1)} т\nПрошу КМ/КМД и КП.`);
+  document.getElementById('note').innerHTML=`<strong>Предварительная оценка.</strong> Расход зависит от пролётов, нагрузок и норм. Точный вес — по КМ/КМД.`;
   document.getElementById('stdBadge').textContent='СП РК / СНиП';
   update3D_steel(r);
 }
+function renderGalv(){
+  const cur=calcGalvCurrent();
+  const totA=positions.reduce((s,p)=>s+p.area,0);
+  const totW=positions.reduce((s,p)=>s+p.weight,0);
+  document.getElementById('results').innerHTML=`
+    <div class="result hl"><div class="k">Площадь цинкования (итого)</div><div class="v">${ (totA||cur.area).toFixed(1)}<small>м²</small></div><div class="sub">${positions.length?'всего в смете':'текущая позиция'}</div></div>
+    <div class="result"><div class="k">Вес металла (итого)</div><div class="v">${(((totW||cur.weight))/1000).toFixed(2)}<small>т</small></div><div class="sub">${Math.round(totW||cur.weight).toLocaleString('ru-RU')} кг</div></div>
+    <div class="result"><div class="k">Позиций в смете</div><div class="v">${positions.length}<small>шт</small></div><div class="sub">текущая: ${cur.area.toFixed(1)} м²</div></div>`;
 
-/* ============ UI ============ */
+  let bd='';
+  if(positions.length===0){
+    bd=`<div class="bd-empty">Нажмите «Добавить в смету», чтобы собрать список позиций →<br>текущая позиция: ${cur.label} — ${cur.area.toFixed(2)} м²</div>`;
+  }else{
+    positions.forEach((p,i)=>{bd+=`<div class="bd-row"><span class="lbl">${p.label}</span><span class="val">${p.area.toFixed(2)} м²</span><button class="rm" onclick="removePos(${i})">✕</button></div>`;});
+    bd+=`<div class="bd-row total"><span class="lbl">ИТОГО площадь</span><span class="val">${totA.toFixed(2)} м²</span></div>`;
+    bd+=`<div class="bd-row total"><span class="lbl">ИТОГО вес</span><span class="val">${(totW/1000).toFixed(2)} т</span></div>`;
+  }
+  document.getElementById('breakdown').innerHTML=bd;
+
+  let waList = positions.length
+    ? positions.map((p,i)=>`${i+1}. ${p.label} — ${p.area.toFixed(1)} м²`).join('\n')+`\nИТОГО: ${totA.toFixed(1)} м² / ${(totW/1000).toFixed(2)} т`
+    : `${cur.label} — ${cur.area.toFixed(1)} м²`;
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`Здравствуйте, CELKONSAN! Нужно горячее цинкование своего металла:\n${waList}\nПрошу рассчитать стоимость цинкования.`);
+  document.getElementById('note').innerHTML=`<strong>Оценка площади.</strong> Учтены наружная и внутренняя поверхности (для труб/профиля), торцы не учитываются. Точную площадь и стоимость определит CELKONSAN по факту.`;
+  document.getElementById('stdBadge').textContent='ГОСТ 9.307-89';
+  update3D_galv(cur);
+}
+function removePos(i){positions.splice(i,1);render();}
+
+/* ========= UI ========= */
 document.querySelectorAll('#modes button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('#modes button').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); mode=b.dataset.m;
-  document.getElementById('inpBarrier').style.display = mode==='barrier'?'block':'none';
-  document.getElementById('inpSteel').style.display   = mode==='steel'?'block':'none';
+  document.querySelectorAll('#modes button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;
+  document.getElementById('inpBarrier').style.display=mode==='barrier'?'block':'none';
+  document.getElementById('inpSteel').style.display=mode==='steel'?'block':'none';
+  document.getElementById('inpGalv').style.display=mode==='galv'?'block':'none';
   render();
 });
-// barrier inputs
 document.querySelectorAll('#bType button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#bType button').forEach(x=>x.classList.remove('on'));b.classList.add('on');bs.type=b.dataset.v;render();});
 document.querySelectorAll('#bStep button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#bStep button').forEach(x=>x.classList.remove('on'));b.classList.add('on');bs.step=+b.dataset.v;render();});
 document.getElementById('bLen').oninput=e=>{bs.len=+e.target.value;document.getElementById('bLenVal').innerHTML=bs.len+'<small> м</small>';render();};
 document.getElementById('bH').oninput=e=>{bs.h=+e.target.value;document.getElementById('bHVal').innerHTML=bs.h.toFixed(1)+'<small> м</small>';render();};
-// steel inputs
 document.querySelectorAll('#sType button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sType button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ss.type=b.dataset.v;render();});
 document.querySelectorAll('#sFloors button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sFloors button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ss.floors=+b.dataset.v;render();});
+document.querySelectorAll('#sRoof button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sRoof button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ss.roof=b.dataset.v;render();});
 document.getElementById('sArea').oninput=e=>{ss.area=+e.target.value;document.getElementById('sAreaVal').innerHTML=ss.area.toLocaleString('ru-RU')+'<small> м²</small>';render();};
 document.getElementById('sH').oninput=e=>{ss.h=+e.target.value;document.getElementById('sHVal').innerHTML=ss.h+'<small> м</small>';render();};
+// galv
+document.querySelectorAll('#gShape button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#gShape button').forEach(x=>x.classList.remove('on'));b.classList.add('on');gShape=b.dataset.v;
+  ['round','profile','sheet','angle'].forEach(s=>document.getElementById('gf-'+s).style.display=(s===gShape?'block':'none'));render();});
+['gD','gt','gL','gQ','pA','pB','pt','pL','pQ','shW','shL','shT','shQ','anA','anT','anL','anQ'].forEach(id=>{const el=document.getElementById(id);if(el)el.oninput=()=>render();});
+document.getElementById('addPos').onclick=()=>{positions.push(calcGalvCurrent());render();};
+document.getElementById('clearPos').onclick=()=>{positions=[];render();};
 
-/* ============ THREE.JS ============ */
+/* ========= THREE.JS ========= */
 let scene,camera,renderer,group;
 function init3D(){
   const cv=document.getElementById('canvas3d');
-  scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0a0e14,25,90);
+  scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0c1119,28,95);
   camera=new THREE.PerspectiveCamera(50,cv.clientWidth/cv.clientHeight,0.1,400);
   renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
   renderer.setSize(cv.clientWidth,cv.clientHeight);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  scene.add(new THREE.AmbientLight(0x6688aa,0.7));
-  const d1=new THREE.DirectionalLight(0xffffff,0.9);d1.position.set(20,30,20);scene.add(d1);
-  const d2=new THREE.DirectionalLight(0x2f81f7,0.5);d2.position.set(-20,10,-15);scene.add(d2);
-  const grid=new THREE.GridHelper(120,40,0x1d2733,0x141b24);grid.position.y=-0.01;scene.add(grid);
-  group=new THREE.Group();scene.add(group);
-  animate();
+  // bright, even lighting so light-gray steel is clearly visible
+  scene.add(new THREE.HemisphereLight(0xffffff,0x3a4250,1.05));
+  scene.add(new THREE.AmbientLight(0xffffff,0.35));
+  const d1=new THREE.DirectionalLight(0xffffff,0.9);d1.position.set(15,25,18);scene.add(d1);
+  const d2=new THREE.DirectionalLight(0xbcd4ff,0.5);d2.position.set(-15,8,-12);scene.add(d2);
+  const grid=new THREE.GridHelper(120,40,0x2a3744,0x18222e);grid.position.y=-0.01;scene.add(grid);
+  group=new THREE.Group();scene.add(group);animate();
 }
+// light gray / near-white steel — clearly visible
+const matSteel=()=>new THREE.MeshStandardMaterial({color:0xdfe6ee,metalness:0.15,roughness:0.55});
+const matSteel2=()=>new THREE.MeshStandardMaterial({color:0xb6c0cc,metalness:0.15,roughness:0.6});
 function clearGroup(){while(group.children.length)group.remove(group.children[0]);}
-const steel=()=>new THREE.MeshStandardMaterial({color:0xb8c4d0,metalness:0.85,roughness:0.35});
-const steelD=()=>new THREE.MeshStandardMaterial({color:0x8896a4,metalness:0.8,roughness:0.4});
+function fitCamera(span){const d=span*1.5+6;camera.position.set(d*0.7,d*0.5,d*0.8);camera.lookAt(0,span*0.04,0);}
 
-function fitCamera(span){
-  const d=span*1.4+8;
-  camera.position.set(d*0.7,d*0.5,d*0.8);camera.lookAt(0,span*0.05,0);
-}
-function update3D_barrier(r){
-  if(!group)return;clearGroup();
-  const shown=Math.min(r.posts,40),span=(shown-1)*bs.step,off=-span/2,h=bs.h;
-  for(let i=0;i<shown;i++){const x=off+i*bs.step;
-    const p=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),steelD());p.position.set(x,h/2,0);group.add(p);
-    if(r.sides===2){const p2=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),steelD());p2.position.set(x,h/2,-0.6);group.add(p2);}}
-  const by=h*0.62;
-  const beam=new THREE.Mesh(new THREE.BoxGeometry(span+1,0.32,0.08),steel());beam.position.set(0,by,0.1);group.add(beam);
-  if(r.sides===2){const b2=new THREE.Mesh(new THREE.BoxGeometry(span+1,0.32,0.08),steel());b2.position.set(0,by,-0.7);group.add(b2);}
-  fitCamera(span);
-  document.getElementById('vpInfo').textContent='стоек: '+shown+'/'+r.posts;
-}
-function update3D_steel(r){
-  if(!group)return;clearGroup();
-  // footprint from area (assume rectangle ~1.5:1)
-  const W=Math.sqrt(ss.area*1.5), D=ss.area/W;
-  const bay=6; // 6m grid
-  const nx=Math.max(2,Math.min(12,Math.round(W/bay)+1));
-  const nz=Math.max(2,Math.min(10,Math.round(D/bay)+1));
-  const sx=W/(nx-1), sz=D/(nz-1), h=ss.h*ss.floors, ox=-W/2, oz=-D/2;
-  // columns
-  for(let i=0;i<nx;i++)for(let j=0;j<nz;j++){
-    const c=new THREE.Mesh(new THREE.BoxGeometry(0.2,h,0.2),steelD());
-    c.position.set(ox+i*sx,h/2,oz+j*sz);group.add(c);
+function update3D_barrier(r){clearGroup();const shown=Math.min(r.posts,40),span=(shown-1)*bs.step,off=-span/2,h=bs.h;
+  for(let i=0;i<shown;i++){const x=off+i*bs.step;const p=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),matSteel2());p.position.set(x,h/2,0);group.add(p);
+    if(r.sides===2){const p2=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),matSteel2());p2.position.set(x,h/2,-0.6);group.add(p2);}}
+  const by=h*0.62;const beam=new THREE.Mesh(new THREE.BoxGeometry(span+1,0.32,0.08),matSteel());beam.position.set(0,by,0.1);group.add(beam);
+  if(r.sides===2){const b2=new THREE.Mesh(new THREE.BoxGeometry(span+1,0.32,0.08),matSteel());b2.position.set(0,by,-0.7);group.add(b2);}
+  fitCamera(span);document.getElementById('vpInfo').textContent='стоек: '+shown+'/'+r.posts;}
+function update3D_steel(r){clearGroup();
+  // span = ширина (фронтон), length = длина; рамы повторяются по длине
+  const span=Math.sqrt(ss.area/1.5), length=ss.area/span, bay=6;
+  const frames=Math.max(2,Math.min(11,Math.round(length/bay)+1));
+  const fs=length/(frames-1), ox=-length/2, h=ss.h*ss.floors;
+  const hw=span/2;
+  // высота конька от типа кровли
+  const PITCH={gable:14,single:8,flat:2}[ss.roof];
+  const rise = ss.roof==='flat' ? span*0.03 : hw*Math.tan(PITCH*Math.PI/180);
+  const apex = ss.roof==='single' ? {x:hw, y:h+rise*2} : {x:0, y:h+rise};
+
+  const col=(x,z,height)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(0.22,height,0.22),matSteel2());m.position.set(x,height/2,z);group.add(m);};
+  const beamBetween=(p1,p2,thick)=>{ // p1,p2 = {x,y,z}
+    const dx=p2.x-p1.x,dy=p2.y-p1.y,dz=p2.z-p1.z;const len=Math.sqrt(dx*dx+dy*dy+dz*dz);
+    const g=new THREE.Mesh(new THREE.BoxGeometry(len,thick||0.16,thick||0.12),matSteel());
+    g.position.set((p1.x+p2.x)/2,(p1.y+p2.y)/2,(p1.z+p2.z)/2);
+    g.rotation.z=Math.atan2(dy,dx);g.rotation.y=Math.atan2(-dz,Math.sqrt(dx*dx+dy*dy));group.add(g);
+  };
+
+  for(let i=0;i<frames;i++){
+    const z=ox+i*fs;
+    // колонны по двум сторонам
+    col(-hw,z,h); col(hw,z,h);
+    // стропила (рафтеры) — двускат / односкат / плоская
+    if(ss.roof==='single'){
+      beamBetween({x:-hw,y:h,z}, {x:hw,y:h+rise*2,z}, 0.18);
+    }else{
+      beamBetween({x:-hw,y:h,z}, {x:apex.x,y:apex.y,z}, 0.18);
+      beamBetween({x:hw,y:h,z},  {x:apex.x,y:apex.y,z}, 0.18);
+    }
   }
-  // top beams along X
-  for(let j=0;j<nz;j++){const b=new THREE.Mesh(new THREE.BoxGeometry(W,0.22,0.14),steel());b.position.set(0,h,oz+j*sz);group.add(b);}
-  // top beams along Z
-  for(let i=0;i<nx;i++){const b=new THREE.Mesh(new THREE.BoxGeometry(0.14,0.22,D),steel());b.position.set(ox+i*sx,h,0);group.add(b);}
-  // floor beams for multi-storey
-  for(let f=1;f<ss.floors;f++){const y=ss.h*f;
-    for(let j=0;j<nz;j++){const b=new THREE.Mesh(new THREE.BoxGeometry(W,0.18,0.1),steelD());b.position.set(0,y,oz+j*sz);group.add(b);}}
-  // simple gable roof ridge (single storey only)
-  if(ss.floors===1){
-    const ridge=new THREE.Mesh(new THREE.BoxGeometry(W,0.16,0.1),steel());ridge.position.set(0,h+Math.min(D*0.12,2.5),0);group.add(ridge);
-    for(let i=0;i<nx;i++){const x=ox+i*sx;
-      const rf=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.14,D*0.55),steelD());
-      rf.position.set(x,h+Math.min(D*0.06,1.25),0);rf.rotation.x=0.32;group.add(rf);}
-  }
-  fitCamera(Math.max(W,D));
-  document.getElementById('vpInfo').textContent=`каркас ${nx}×${nz} · ${Math.round(W)}×${Math.round(D)} м`;
+  // конёк (ridge) вдоль длины
+  if(ss.roof!=='single'){ beamBetween({x:apex.x,y:apex.y,z:ox},{x:apex.x,y:apex.y,z:ox+length},0.14); }
+  // карнизные балки (eave) вдоль длины
+  beamBetween({x:-hw,y:h,z:ox},{x:-hw,y:h,z:ox+length},0.14);
+  beamBetween({x:hw,y:h,z:ox},{x:hw,y:h,z:ox+length},0.14);
+  // прогоны на скатах (по 2 на каждый скат)
+  const purl=(frac)=>{
+    const yL=h+(apex.y-h)*frac, xL=-hw+(apex.x+hw)*frac;
+    const yR=h+(apex.y-h)*frac, xR=hw+(apex.x-hw)*frac;
+    beamBetween({x:xL,y:yL,z:ox},{x:xL,y:yL,z:ox+length},0.08);
+    if(ss.roof!=='single') beamBetween({x:xR,y:yR,z:ox},{x:xR,y:yR,z:ox+length},0.08);
+  };
+  purl(0.33); purl(0.66);
+  // стеновые ригели (girts) — пара линий
+  beamBetween({x:-hw,y:h*0.5,z:ox},{x:-hw,y:h*0.5,z:ox+length},0.07);
+  beamBetween({x:hw,y:h*0.5,z:ox},{x:hw,y:h*0.5,z:ox+length},0.07);
+  // связи (тонкие диагонали) в торце
+  const braceMat=new THREE.MeshStandardMaterial({color:0x9aa6b2,metalness:0.1,roughness:0.7});
+  const brace=(p1,p2)=>{const dx=p2.x-p1.x,dy=p2.y-p1.y,dz=p2.z-p1.z;const len=Math.sqrt(dx*dx+dy*dy+dz*dz);
+    const g=new THREE.Mesh(new THREE.BoxGeometry(len,0.03,0.03),braceMat);
+    g.position.set((p1.x+p2.x)/2,(p1.y+p2.y)/2,(p1.z+p2.z)/2);
+    g.rotation.z=Math.atan2(dy,dx);g.rotation.y=Math.atan2(-dz,Math.sqrt(dx*dx+dy*dy));group.add(g);};
+  brace({x:-hw,y:0,z:ox},{x:hw,y:h,z:ox+fs});
+  brace({x:hw,y:0,z:ox},{x:-hw,y:h,z:ox+fs});
+
+  fitCamera(Math.max(span,length)*1.05);
+  document.getElementById('vpInfo').textContent=`${frames} рам · ${Math.round(span)}×${Math.round(length)} м · ${({gable:'двускат',single:'односкат',flat:'плоская'})[ss.roof]}`;
 }
-let t=0;
-function animate(){requestAnimationFrame(animate);t+=0.0035;if(group)group.rotation.y=Math.sin(t)*0.4+0.4;renderer.render(scene,camera);}
+function update3D_galv(cur){clearGroup();
+  const L=Math.max(cur.dim.L||3,1);const ex=4.5; // exaggerate cross-section for visibility
+  if(cur.shape==='round'){
+    const rad=Math.max((cur.dim.D/1000)/2*ex,0.08);
+    const m=new THREE.Mesh(new THREE.CylinderGeometry(rad,rad,L,32,1,false),matSteel());
+    m.rotation.z=Math.PI/2;group.add(m);
+    const inner=new THREE.Mesh(new THREE.CylinderGeometry(rad*0.7,rad*0.7,L*1.001,24),new THREE.MeshStandardMaterial({color:0x6b7682,metalness:0.1,roughness:0.8}));
+    inner.rotation.z=Math.PI/2;group.add(inner);
+  }else if(cur.shape==='profile'){
+    const a=Math.max((cur.dim.A/1000)*ex,0.1),b=Math.max((cur.dim.B/1000)*ex,0.1);
+    const m=new THREE.Mesh(new THREE.BoxGeometry(L,b,a),matSteel());group.add(m);
+  }else if(cur.shape==='sheet'){
+    const w=Math.max((cur.dim.W/1000),0.3),t=Math.max((cur.dim.t/1000)*ex*3,0.03);
+    const m=new THREE.Mesh(new THREE.BoxGeometry(L,t,w),matSteel());group.add(m);
+  }else{ // angle
+    const a=Math.max((cur.dim.a/1000)*ex,0.15),t=Math.max(a*0.16,0.04);
+    const f1=new THREE.Mesh(new THREE.BoxGeometry(L,t,a),matSteel());f1.position.set(0,0,0);group.add(f1);
+    const f2=new THREE.Mesh(new THREE.BoxGeometry(L,a,t),matSteel());f2.position.set(0,a/2,-a/2+t/2);group.add(f2);
+  }
+  fitCamera(Math.max(L,1.5));document.getElementById('vpInfo').textContent=cur.label;
+}
+let t=0;function animate(){requestAnimationFrame(animate);t+=0.0035;if(group)group.rotation.y=Math.sin(t)*0.4+0.4;renderer.render(scene,camera);}
 window.addEventListener('resize',()=>{const cv=document.getElementById('canvas3d');camera.aspect=cv.clientWidth/cv.clientHeight;camera.updateProjectionMatrix();renderer.setSize(cv.clientWidth,cv.clientHeight);});
 
 init3D();render();
