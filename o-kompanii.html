@@ -47,28 +47,128 @@
         footer { padding: 2rem; background: #000; color: #fff; text-align: center; font-size: 12px; }
         .back-link { display: inline-block; margin-bottom: 2rem; color: #0052cc; font-weight: 600; }
         
+
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s; text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; }
+            .bottom-nav { display: flex; }
+        }
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 1rem; }
             nav { flex-direction: column; gap: 0.5rem; }
             .hero h1 { font-size: 28px; }
             .timeline-item { padding-left: 1.5rem; }
+
+        /* HAMBURGER MENU */
+        .hamburger { 
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 0.5rem; margin-left: 1rem;
+        }
+        .hamburger span { 
+            width: 24px; height: 2px; background: #000; 
+            transition: all 0.3s ease; display: block;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        
+        /* MOBILE NAV */
+        .nav-mobile { 
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; border-bottom: 1px solid #f0f0f0; flex-direction: column;
+            padding: 1rem 2rem; gap: 1rem; z-index: 99;
+        }
+        .nav-mobile.active { display: flex; }
+        .nav-mobile a { 
+            padding: 0.75rem 0; font-size: 14px; color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s; text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; }
+            .bottom-nav { display: flex; }
+        }
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .hamburger { display: flex; }
+        }
         }
     </style>
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-            <a href="/">
-                <img src="celkonsan_logo.png" alt="CELKONSAN" style="height: 40px; width: auto;">
-            </a>
+        <div class="header-logo">
+            <a href="/"><img src="celkonsan_logo.png" alt="CELKONSAN" style="height: 45px; width: auto;"></a>
         </div>
-        <nav>
+        
+        <nav class="nav-desktop">
             <a href="/">Главная</a>
             <a href="galvanizaciya.html">Горячее цинкование</a>
             <a href="barieri.html">Дорожные ограждения</a>
-            <a href="o-kompanii.html" class="active">О компании</a>
+            <a href="o-kompanii.html">О компании</a>
         </nav>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </header>
+    
+    <!-- MOBILE MENU -->
+    <nav class="nav-mobile" id="mobileMenu">
+        <a href="/">Главная</a>
+        <a href="galvanizaciya.html">Горячее цинкование</a>
+        <a href="barieri.html">Дорожные ограждения</a>
+        <a href="o-kompanii.html">О компании</a>
+    </nav>
 
     <section class="hero">
         <div class="container">
@@ -195,5 +295,56 @@
     <footer>
         <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.hamburger').classList.remove('active');
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+    </script>
+
+
+    <!-- MOBILE BOTTOM NAV (APP-LIKE) -->
+    <nav class="bottom-nav" id="bottomNav">
+        <div class="nav-items">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Главная</span>
+            </a>
+            <a href="galvanizaciya.html" class="nav-item" onclick="setActive(event)">
+                <span class="nav-icon">🔥</span>
+                <span class="nav-label">Цинкование</span>
+            </a>
+            <a href="barieri.html" class="nav-item" onclick="setActive(event)">
+                <span class="nav-icon">🛣️</span>
+                <span class="nav-label">Ограждения</span>
+            </a>
+            <a href="o-kompanii.html" class="nav-item" onclick="setActive(event)">
+                <span class="nav-icon">ℹ️</span>
+                <span class="nav-label">О нас</span>
+            </a>
+            <a href="tel:+77477571465" class="nav-item">
+                <span class="nav-icon">📞</span>
+                <span class="nav-label">Звонить</span>
+            </a>
+        </div>
+    </nav>
+
+    <script>
+        function setActive(e) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            e.target.closest('.nav-item').classList.add('active');
+        }
+    </script>
+
 </body>
 </html>

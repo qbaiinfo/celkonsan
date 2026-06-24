@@ -4,32 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CELKONSAN — Горячее цинкование (гальванизация) в Казахстане | Алматы</title>
-    <meta name="description" content="CELKONSAN — услуги горячего цинкования (гальванизация) металла, производство дорожных ограждений W-beam и барьеров безопасности. 1000 т/месяц производительность. ISO 9001. Алматы, Казахстан.">
-    <meta name="keywords" content="горячее цинкование, гальванизация, цинкование металла, дорожные ограждения, W-beam, барьеры, Казахстан, Алматы, защита конструкций">
-    <meta name="language" content="ru">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="CELKONSAN — Горячее цинкование в Казахстане">
-    <meta property="og:description" content="Услуги горячего цинкования и производство дорожных ограждений в Алматы">
-    <meta property="og:url" content="https://celkonsan.kz">
+    <meta name="description" content="CELKONSAN — услуги горячего цинкования (гальванизация) металла, производство дорожных ограждений W-beam и барьеров безопасности.">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "CELKONSAN A.S.",
-      "description": "Услуги горячего цинкования (гальванизация) металла и производство дорожных ограждений",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "7-я улица, 130а/5",
         "addressLocality": "Алматы",
-        "addressRegion": "Алатауский район",
         "addressCountry": "KZ"
       },
-      "telephone": "+77477571465",
-      "email": "info@celkonsan.kz",
-      "url": "https://celkonsan.kz"
+      "telephone": "+77477571465"
     }
     </script>
     
@@ -38,22 +26,97 @@
         html { scroll-behavior: smooth; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
-            background: #fff; color: #000; line-height: 1.6; 
+            background: #fff; color: #000; line-height: 1.6;
         }
         a { color: inherit; text-decoration: none; }
         
-        /* HEADER & NAV */
+        /* DESKTOP HEADER */
         header { 
             position: sticky; top: 0; z-index: 100; 
             padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #f0f0f0;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo img { height: 45px; width: auto; }
-        nav { display: flex; gap: 2rem; font-size: 13px; letter-spacing: 0.5px; }
-        nav a { color: #666; transition: color 0.2s; }
-        nav a:hover { color: #000; }
-        .nav-lang { margin-left: auto; font-size: 11px; letter-spacing: 1px; }
-        .nav-lang a { margin-left: 0.75rem; color: #999; }
+        .header-logo img { height: 45px; width: auto; }
+        
+        .nav-desktop { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-desktop a { 
+            font-size: 13px; letter-spacing: 0.5px; color: #666; 
+            transition: color 0.2s; font-weight: 500;
+        }
+        .nav-desktop a:hover { color: #000; }
+        
+        .nav-lang { 
+            display: flex; gap: 0.75rem; align-items: center;
+            font-size: 11px; letter-spacing: 1px; font-weight: 700;
+            margin-left: 1.5rem; padding-left: 1.5rem; border-left: 1px solid #e0e0e0;
+        }
+        .nav-lang a { color: #999; }
+        
+        /* HAMBURGER */
+        .hamburger { 
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 0.5rem; margin-left: 1rem;
+        }
+        .hamburger span { 
+            width: 24px; height: 2px; background: #000; 
+            transition: all 0.3s ease; display: block;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        
+        .nav-mobile { 
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; border-bottom: 1px solid #f0f0f0; flex-direction: column;
+            padding: 1rem 2rem; gap: 1rem; z-index: 99;
+        }
+        .nav-mobile.active { display: flex; }
+        .nav-mobile a { 
+            padding: 0.75rem 0; font-size: 14px; color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        .bottom-nav.active { display: flex; }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        /* MAIN CONTENT (pad bottom for mobile) */
+        main { 
+            padding-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            main { padding-bottom: 80px; }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header { padding: 1rem; }
+            .header-logo img { height: 35px; }
+            .nav-desktop { display: none; }
+            .hamburger { display: flex; }
+            .nav-lang { display: none; }
+            .bottom-nav { display: flex; }
+        }
         
         /* HERO */
         .hero {
@@ -67,8 +130,8 @@
             pointer-events: none;
         }
         .hero-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; width: 100%; }
-        .hero h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
-        .hero-subtitle { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 450px; line-height: 1.8; font-weight: 300; }
+        .hero h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 450px; line-height: 1.8; }
         
         /* STATS */
         .stats { padding: 5rem 2rem; background: #f8f8f8; }
@@ -79,15 +142,14 @@
         /* SERVICES */
         .services { padding: 5rem 2rem; }
         .services .container { max-width: 1000px; margin: 0 auto; }
-        .section-title { font-size: 36px; font-weight: 700; margin-bottom: 3rem; letter-spacing: -1px; text-transform: uppercase; }
+        .section-title { font-size: 36px; font-weight: 700; margin-bottom: 3rem; }
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .service-card { padding: 2rem; border: 1px solid #e0e0e0; transition: all 0.3s; position: relative; cursor: pointer; }
+        .service-card { padding: 2rem; border: 1px solid #e0e0e0; position: relative; }
         .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: #0052cc; transition: width 0.3s; }
         .service-card:hover::before { width: 100%; }
-        .service-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
-        .service-card p { font-size: 14px; line-height: 1.7; color: #666; margin-bottom: 1.5rem; }
-        .service-link { color: #0052cc; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .service-link:hover { text-decoration: underline; }
+        .service-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 1rem; }
+        .service-card p { font-size: 14px; color: #666; margin-bottom: 1.5rem; }
+        .service-link { color: #0052cc; font-weight: 600; font-size: 13px; }
         
         /* CONTACT */
         .contact { padding: 5rem 2rem; background: #000; color: #fff; }
@@ -100,197 +162,222 @@
         .cta-button:hover { background: #003d9e; }
         
         /* FOOTER */
-        footer { padding: 2rem; background: #0a0a0a; color: #fff; border-top: 1px solid #222; font-size: 12px; }
-        .footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+        footer { padding: 2rem; background: #0a0a0a; color: #fff; text-align: center; font-size: 12px; }
         
-        /* RESPONSIVE */
         @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1rem; }
-            nav { flex-direction: column; gap: 1rem; font-size: 12px; }
             .hero { height: 60vh; padding: 2rem 1rem 3rem; }
             .hero h1 { font-size: 28px; }
-            .stats .container { gap: 2rem; }
             .service-grid { grid-template-columns: 1fr; }
-            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- DESKTOP HEADER -->
     <header>
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-            <img src="celkonsan_logo.png" alt="CELKONSAN" style="height: 40px; width: auto;">
+        <div class="header-logo">
+            <img src="celkonsan_logo.png" alt="CELKONSAN">
         </div>
-        <nav>
+        
+        <nav class="nav-desktop">
             <a href="/">Главная</a>
             <a href="galvanizaciya.html">Горячее цинкование</a>
             <a href="barieri.html">Дорожные ограждения</a>
             <a href="o-kompanii.html">О компании</a>
-            <a href="blog.html">Блог</a>
         </nav>
+        
         <div class="nav-lang">
             <span>РУ</span>
             <a href="#kz">КЗ</a>
             <a href="#en">EN</a>
         </div>
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
     </header>
+    
+    <nav class="nav-mobile" id="mobileMenu">
+        <a href="/">Главная</a>
+        <a href="galvanizaciya.html">Горячее цинкование</a>
+        <a href="barieri.html">Дорожные ограждения</a>
+        <a href="o-kompanii.html">О компании</a>
+    </nav>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Горячее<br/>цинкование</h1>
-            <p class="hero-subtitle">Защита металлических конструкций от коррозии. Производство дорожных систем безопасности в Казахстане.</p>
-        </div>
-    </section>
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Горячее цинкование</h1>
+                <p class="hero-subtitle">Защита металлических конструкций от коррозии. Производство дорожных систем безопасности в Казахстане.</p>
+            </div>
+        </section>
 
-    <!-- STATS -->
-    <section class="stats">
-        <div class="container">
-            <div class="stat">
-                <div class="stat-num">1 000</div>
-                <div class="stat-label">т/месяц</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">6+</div>
-                <div class="stat-label">лет в Казахстане</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">50+</div>
-                <div class="stat-label">проектов</div>
-            </div>
-            <div class="stat">
-                <div class="stat-num">ISO<br/>9001</div>
-                <div class="stat-label">сертификат</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="services">
-        <div class="container">
-            <h2 class="section-title">Услуги</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <h3>Горячее цинкование</h3>
-                    <p>Защитное гальванопокрытие толщиной 200+ микрон. Современная линия обработки конструкций любых размеров.</p>
-                    <a href="galvanizaciya.html" class="service-link">Подробнее →</a>
+        <!-- STATS -->
+        <section class="stats">
+            <div class="container">
+                <div class="stat">
+                    <div class="stat-num">1 000</div>
+                    <div class="stat-label">т/месяц</div>
                 </div>
-
-                <div class="service-card">
-                    <h3>Дорожные ограждения</h3>
-                    <p>Производство W-beam, Guard rail и барьеров безопасности. Полное решение для инфраструктуры.</p>
-                    <a href="barieri.html" class="service-link">Подробнее →</a>
+                <div class="stat">
+                    <div class="stat-num">6+</div>
+                    <div class="stat-label">лет в Казахстане</div>
                 </div>
-
-                <div class="service-card">
-                    <h3>Монтажные работы</h3>
-                    <p>Полный цикл установки и инженерная поддержка. Техническая сертификация и гарантия.</p>
-                    <a href="o-kompanii.html" class="service-link">Подробнее →</a>
+                <div class="stat">
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">проектов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">ISO 9001</div>
+                    <div class="stat-label">сертификат</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CONTACT -->
-    <section class="contact">
-        <div class="container">
-            <h2 class="section-title">Контакт</h2>
-            <div class="contact-grid">
-                <div>
-                    <div class="contact-label">Телефон</div>
-                    <div class="contact-value">+7 747 757 1465</div>
-                </div>
-                <div>
-                    <div class="contact-label">Email</div>
-                    <div class="contact-value">info@celkonsan.kz</div>
-                </div>
-                <div>
-                    <div class="contact-label">Адрес</div>
-                    <div class="contact-value">
-                        <a href="https://2gis.kz/almaty/geo/70030077061627028" target="_blank" style="color: #fff; text-decoration: underline;">
-                            📍 7-я улица, 130а/5<br/>Алматы
-                        </a>
+        <!-- SERVICES -->
+        <section class="services">
+            <div class="container">
+                <h2 class="section-title">Услуги</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <h3>🔥 Горячее цинкование</h3>
+                        <p>Защитное гальванопокрытие толщиной 200+ микрон. Современная линия обработки конструкций любых размеров.</p>
+                        <a href="galvanizaciya.html" class="service-link">Подробнее →</a>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>🛣️ Дорожные ограждения</h3>
+                        <p>Производство W-beam, Guard rail и барьеров безопасности. Полное решение для инфраструктуры.</p>
+                        <a href="barieri.html" class="service-link">Подробнее →</a>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>🔧 Монтажные работы</h3>
+                        <p>Полный цикл установки и инженерная поддержка. Техническая сертификация и гарантия.</p>
+                        <a href="o-kompanii.html" class="service-link">Подробнее →</a>
                     </div>
                 </div>
-                <div>
-                    <div class="contact-label">Режим</div>
-                    <div class="contact-value">Пн–Пт 08:00–17:00</div>
-                </div>
             </div>
-            <button class="cta-button">Отправить запрос</button>
-        </div>
-    </section>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title">Контакт</h2>
+                <div class="contact-grid">
+                    <div>
+                        <div class="contact-label">📞 Телефон</div>
+                        <div class="contact-value">+7 747 757 1465</div>
+                    </div>
+                    <div>
+                        <div class="contact-label">✉️ Email</div>
+                        <div class="contact-value">info@celkonsan.kz</div>
+                    </div>
+                    <div>
+                        <div class="contact-label">📍 Адрес</div>
+                        <div class="contact-value">
+                            <a href="https://2gis.kz/almaty/geo/70030077061627028" target="_blank" style="color: #fff; text-decoration: underline;">
+                                7-я улица, 130а/5<br/>Алматы
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="contact-label">🕐 Режим</div>
+                        <div class="contact-value">Пн–Пт 08:00–17:00</div>
+                    </div>
+                </div>
+                <button class="cta-button">Отправить запрос</button>
+            </div>
+        </section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане с 2018 года</p>
-        </div>
+        <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане с 2018 года</p>
     </footer>
 
+    <!-- MOBILE BOTTOM NAV (APP-LIKE) -->
+    <nav class="bottom-nav" id="bottomNav">
+        <div class="nav-items">
+            <a href="/" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-label">Главная</span>
+            </a>
+            <a href="galvanizaciya.html" class="nav-item" onclick="setActive(event)">
+                <span class="nav-icon">🔥</span>
+                <span class="nav-label">Цинкование</span>
+            </a>
+            <a href="barieri.html" class="nav-item" onclick="setActive(event)">
+                <span class="nav-icon">🛣️</span>
+                <span class="nav-label">Ограждения</span>
+            </a>
+            <a href="o-kompanii.html" class="nav-item" onclick="setActive(event)">
+                <span class="nav-icon">ℹ️</span>
+                <span class="nav-label">О нас</span>
+            </a>
+            <a href="tel:+77477571465" class="nav-item">
+                <span class="nav-icon">📞</span>
+                <span class="nav-label">Звонить</span>
+            </a>
+        </div>
+    </nav>
+
     <!-- CHAT WIDGET -->
-    <div id="chat-widget" style="position: fixed; bottom: 30px; right: 30px; z-index: 999;">
-        <button id="chat-btn" style="width: 60px; height: 60px; border-radius: 50%; background: #0052cc; color: #fff; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    <div id="chat-widget" style="position: fixed; bottom: 100px; right: 30px; z-index: 99;">
+        <button id="chat-btn" style="width: 60px; height: 60px; border-radius: 50%; background: #0052cc; color: #fff; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s ease;">
             💬
         </button>
-
         <div id="chat-modal" style="position: absolute; bottom: 90px; right: 0; width: 380px; background: #fff; border-radius: 12px; box-shadow: 0 5px 40px rgba(0,0,0,0.16); display: none; flex-direction: column; height: 500px; overflow: hidden;">
             <div style="background: #0052cc; color: #fff; padding: 1.5rem; text-align: center;">
-                <h3 style="margin: 0 0 0.5rem; font-size: 18px;">Привет! 👋</h3>
+                <h3 style="margin: 0 0 0.5rem;">Привет! 👋</h3>
                 <p style="margin: 0; font-size: 14px; opacity: 0.9;">Как мы можем вам помочь?</p>
             </div>
-
             <div style="flex: 1; padding: 1.5rem; overflow-y: auto; font-size: 14px; line-height: 1.6; color: #666;">
                 <p style="margin: 0 0 1rem;">Добро пожаловать в CELKONSAN! 🏭</p>
-                <p style="margin: 0;">Напишите нам в WhatsApp или позвоните.</p>
             </div>
-
             <div style="padding: 1.5rem; border-top: 1px solid #e0e0e0; display: flex; gap: 1rem; flex-direction: column;">
-                <a href="https://wa.me/77477571465?text=Привет%2C%20CELKONSAN!%20Мне%20нужна%20консультация." target="_blank" style="padding: 12px; background: #25D366; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px; transition: background 0.3s;" onmouseover="this.style.background='#20ba58'" onmouseout="this.style.background='#25D366'">
+                <a href="https://wa.me/77477571465" target="_blank" style="padding: 12px; background: #25D366; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px;">
                     💬 WhatsApp: +7 747 757 1465
                 </a>
-                <a href="tel:+77477571465" style="padding: 12px; background: #0052cc; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px; transition: background 0.3s;" onmouseover="this.style.background='#003d9e'" onmouseout="this.style.background='#0052cc'">
+                <a href="tel:+77477571465" style="padding: 12px; background: #0052cc; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px;">
                     📞 Позвонить
                 </a>
             </div>
-
             <button onclick="document.getElementById('chat-modal').style.display='none'" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; color: #fff;">✕</button>
         </div>
     </div>
 
     <script>
+        function toggleMenu() {
+            document.querySelector('.hamburger').classList.toggle('active');
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+        
+        document.querySelectorAll('.nav-mobile a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.hamburger').classList.remove('active');
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+        
+        function setActive(e) {
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            e.target.closest('.nav-item').classList.add('active');
+        }
+        
         const chatBtn = document.getElementById('chat-btn');
         const chatModal = document.getElementById('chat-modal');
-
+        
         chatBtn.addEventListener('click', function() {
-            if (chatModal.style.display === 'none' || chatModal.style.display === '') {
-                chatModal.style.display = 'flex';
-                chatBtn.style.background = '#003d9e';
-            } else {
-                chatModal.style.display = 'none';
-                chatBtn.style.background = '#0052cc';
-            }
+            chatModal.style.display = chatModal.style.display === 'flex' ? 'none' : 'flex';
         });
-
+        
         document.addEventListener('click', function(event) {
             if (!event.target.closest('#chat-widget')) {
                 chatModal.style.display = 'none';
-                chatBtn.style.background = '#0052cc';
             }
         });
     </script>
-
-    <style>
-        @media (max-width: 480px) {
-            #chat-modal {
-                width: 90vw !important;
-                height: 400px !important;
-                bottom: 90px !important;
-                left: 50% !important;
-                right: auto !important;
-                transform: translateX(-50%);
-            }
-        }
-    </style>
 </body>
 </html>
