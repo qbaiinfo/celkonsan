@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании CELKONSAN — История и команда</title>
+    <meta name="description" content="CELKONSAN — филиал промышленного предприятия в Казахстане с 2018 года. Команда профессионалов, опыт, сертификаты.">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #000; line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        
+        header { 
+            position: sticky; top: 0; z-index: 100; 
+            padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #f0f0f0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo img { height: 40px; width: auto; }
+        nav { display: flex; gap: 2rem; font-size: 13px; }
+        nav a { color: #666; transition: color 0.2s; }
+        nav a:hover { color: #000; }
+        nav a.active { color: #0052cc; font-weight: 700; }
+        
+        .hero { padding: 4rem 2rem; background: #f8f8f8; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 1rem; }
+        
+        section { padding: 4rem 2rem; }
+        h2 { font-size: 32px; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; }
+        h3 { font-size: 18px; font-weight: 700; margin: 2rem 0 1rem; }
+        p { font-size: 15px; line-height: 1.8; color: #666; margin-bottom: 1rem; }
+        
+        .timeline { margin: 2rem 0; }
+        .timeline-item { padding-left: 2rem; margin-bottom: 2rem; position: relative; }
+        .timeline-item::before { content: '●'; position: absolute; left: 0; font-size: 12px; color: #0052cc; }
+        .year { font-weight: 700; color: #0052cc; }
+        
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .team-member { text-align: center; padding: 1.5rem; }
+        .member-name { font-weight: 700; margin: 1rem 0 0.5rem; }
+        .member-role { font-size: 13px; color: #999; }
+        
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .cert-item { padding: 1.5rem; border: 1px solid #e0e0e0; text-align: center; }
+        
+        footer { padding: 2rem; background: #000; color: #fff; text-align: center; font-size: 12px; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: #0052cc; font-weight: 600; }
+        
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+            nav { flex-direction: column; gap: 0.5rem; }
+            .hero h1 { font-size: 28px; }
+            .timeline-item { padding-left: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <a href="/">
+                <img src="celkonsan_logo.png" alt="CELKONSAN" style="height: 40px; width: auto;">
+            </a>
+        </div>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="galvanizaciya.html">Горячее цинкование</a>
+            <a href="barieri.html">Дорожные ограждения</a>
+            <a href="o-kompanii.html" class="active">О компании</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <a href="/" class="back-link">← Вернуться на главную</a>
+            <h1>О CELKONSAN</h1>
+            <p style="font-size: 16px;">Профессионалы горячего цинкования и дорожной безопасности в Казахстане.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>История</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="year">2018</span>
+                    <p>Открытие филиала CELKONSAN в Казахстане. Запуск первой линии горячего цинкования в Алматы.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2019</span>
+                    <p>Получение сертификата ISO 9001 на систему управления качеством. Расширение производственных мощностей.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2020</span>
+                    <p>Начало производства дорожных ограждений W-beam и Guard rail. Первые крупные проекты.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2021–2023</span>
+                    <p>Реализация 50+ инфраструктурных проектов в Казахстане и Центральной Азии.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="year">2024</span>
+                    <p>Переезд в новый производственный комплекс (Industrial Zone, Алматы). Увеличение производительности до 1000 т/месяц.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f8f8f8;">
+        <div class="container">
+            <h2>Команда</h2>
+            <p>Компания CELKONSAN объединяет более 20 специалистов высокой квалификации.</p>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div style="width: 100px; height: 100px; background: #e0e0e0; border-radius: 50%; margin: 0 auto;"></div>
+                    <div class="member-name">Орхан Уатхан</div>
+                    <div class="member-role">Генеральный директор</div>
+                </div>
+                <div class="team-member">
+                    <div style="width: 100px; height: 100px; background: #e0e0e0; border-radius: 50%; margin: 0 auto;"></div>
+                    <div class="member-name">Инженерный отдел</div>
+                    <div class="member-role">5+ специалистов</div>
+                </div>
+                <div class="team-member">
+                    <div style="width: 100px; height: 100px; background: #e0e0e0; border-radius: 50%; margin: 0 auto;"></div>
+                    <div class="member-name">Производство</div>
+                    <div class="member-role">10+ операторов</div>
+                </div>
+                <div class="team-member">
+                    <div style="width: 100px; height: 100px; background: #e0e0e0; border-radius: 50%; margin: 0 auto;"></div>
+                    <div class="member-name">Монтажная бригада</div>
+                    <div class="member-role">5+ монтажников</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Сертификаты и стандарты</h2>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <strong>ISO 9001:2015</strong>
+                    <p>Система управления качеством</p>
+                </div>
+                <div class="cert-item">
+                    <strong>GOST 9.307-89</strong>
+                    <p>Горячее цинкование</p>
+                </div>
+                <div class="cert-item">
+                    <strong>ST RK 1278-2004</strong>
+                    <p>Дорожные ограждения</p>
+                </div>
+                <div class="cert-item">
+                    <strong>TURKAK</strong>
+                    <p>Турецкая аккредитация</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f8f8f8;">
+        <div class="container">
+            <h2>Производственные мощности</h2>
+            <p><strong>Локация:</strong> 7-я улица, 130а/5, Алматы (Industrial Zone)<br/>
+            <strong>Площадь:</strong> 1000 м² (открытых площадей)<br/>
+            <strong>Производительность:</strong> 1000 т/месяц<br/>
+            <strong>Оборудование:</strong> Современные линии горячего цинкования, режущие станки, сварные цехи</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Почему выбирают CELKONSAN?</h2>
+            <p>✓ <strong>Опыт:</strong> 6+ лет на казахстанском рынке<br/>
+            ✓ <strong>Качество:</strong> Сертификация ISO 9001 и международные стандарты<br/>
+            ✓ <strong>Производительность:</strong> 1000 т/месяц — одна из крупнейших в регионе<br/>
+            ✓ <strong>Профессионализм:</strong> Команда опытных инженеров и операторов<br/>
+            ✓ <strong>Гарантия:</strong> Полная гарантия на все виды работ<br/>
+            ✓ <strong>Доступность:</strong> Конкурентные цены и гибкие условия</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Контакты</h2>
+            <p><strong>Телефон:</strong> +7 747 757 1465<br/>
+            <strong>Email:</strong> info@celkonsan.kz<br/>
+            <strong>Адрес:</strong> 7-я улица, 130а/5, Алтай м-н, Алатауский р-н, Алматы<br/>
+            <strong>Режим работы:</strong> Пн–Пт 08:00–17:00</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p>
+    </footer>
+</body>
+</html>

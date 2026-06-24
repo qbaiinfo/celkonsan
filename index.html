@@ -8,26 +8,17 @@
     <meta name="keywords" content="горячее цинкование, гальванизация, цинкование металла, дорожные ограждения, W-beam, барьеры, Казахстан, Алматы, защита конструкций">
     <meta name="language" content="ru">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="CELKONSAN">
-    <meta name="copyright" content="© 2024 CELKONSAN A.S.">
     
-    <!-- Open Graph для социальных сетей -->
-    <meta property="og:type" content="business.business">
+    <!-- Open Graph -->
     <meta property="og:title" content="CELKONSAN — Горячее цинкование в Казахстане">
-    <meta property="og:description" content="Услуги горячего цинкования, производство дорожных ограждений и защита металлических конструкций">
+    <meta property="og:description" content="Услуги горячего цинкования и производство дорожных ограждений в Алматы">
     <meta property="og:url" content="https://celkonsan.kz">
-    <meta property="og:site_name" content="CELKONSAN">
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://celkonsan.kz">
-    
-    <!-- Local Business Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "CELKONSAN A.S.",
-      "image": "https://celkonsan.kz/logo.png",
       "description": "Услуги горячего цинкования (гальванизация) металла и производство дорожных ограждений",
       "address": {
         "@type": "PostalAddress",
@@ -38,213 +29,89 @@
       },
       "telephone": "+77477571465",
       "email": "info@celkonsan.kz",
-      "url": "https://celkonsan.kz",
-      "priceRange": "$$",
-      "areaServed": ["KZ", "UZ", "KG"],
-      "knowsAbout": ["Горячее цинкование", "Гальванизация", "Дорожные ограждения", "Защита конструкций"],
-      "sameAs": ["https://celkonsan.kz"]
+      "url": "https://celkonsan.kz"
     }
     </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; 
             background: #fff; color: #000; line-height: 1.6; 
         }
-        
         a { color: inherit; text-decoration: none; }
         
-        /* HEADER / NAV */
+        /* HEADER & NAV */
         header { 
             position: sticky; top: 0; z-index: 100; 
-            padding: 1.5rem 2rem; background: #fff; border-bottom: 1px solid #f0f0f0;
+            padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #f0f0f0;
             display: flex; justify-content: space-between; align-items: center;
         }
-        .logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
-        .nav-lang { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
-        .nav-lang a { margin-left: 12px; color: #666; transition: color 0.2s; }
-        .nav-lang a:hover { color: #000; }
+        .logo img { height: 45px; width: auto; }
+        nav { display: flex; gap: 2rem; font-size: 13px; letter-spacing: 0.5px; }
+        nav a { color: #666; transition: color 0.2s; }
+        nav a:hover { color: #000; }
+        .nav-lang { margin-left: auto; font-size: 11px; letter-spacing: 1px; }
+        .nav-lang a { margin-left: 0.75rem; color: #999; }
         
-        /* HERO SECTION */
+        /* HERO */
         .hero {
-            position: relative; height: 80vh; min-height: 600px; 
+            position: relative; height: 70vh; min-height: 500px; 
             background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
             color: #fff; display: flex; align-items: flex-end; padding: 4rem 2rem 6rem;
-            overflow: hidden;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: radial-gradient(circle at 40% 50%, rgba(0, 82, 204, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
-        .hero-content { 
-            position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; width: 100%;
-        }
-        .hero h1 {
-            font-size: clamp(48px, 8vw, 72px); font-weight: 700; line-height: 1.1;
-            margin-bottom: 1.5rem; letter-spacing: -1.5px; text-transform: uppercase;
-        }
-        .hero-subtitle { 
-            font-size: 18px; color: rgba(255,255,255,0.8); max-width: 500px; line-height: 1.8;
-            font-weight: 300; letter-spacing: 0.3px;
-        }
+        .hero-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; width: 100%; }
+        .hero h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-transform: uppercase; }
+        .hero-subtitle { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 450px; line-height: 1.8; font-weight: 300; }
         
-        /* SECTION STRUCTURE */
-        section { position: relative; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        /* STATS */
+        .stats { padding: 5rem 2rem; background: #f8f8f8; }
+        .stats .container { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 3rem; }
+        .stat-num { font-size: 48px; font-weight: 700; color: #0052cc; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #666; }
         
-        /* STATS SECTION */
-        .stats { padding: 6rem 2rem; background: #f8f8f8; }
-        .stats .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; }
-        .stat { }
-        .stat-number { font-size: 56px; font-weight: 700; color: #0052cc; margin-bottom: 0.5rem; }
-        .stat-label { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #666; }
-        .stat-desc { font-size: 14px; color: #999; margin-top: 0.5rem; font-weight: 300; }
-        
-        /* SERVICES SECTION */
-        .services { padding: 6rem 2rem; }
-        .services .container { }
-        .section-title { 
-            font-size: 42px; font-weight: 700; margin-bottom: 1rem; letter-spacing: -1px;
-            text-transform: uppercase;
-        }
-        .section-subtitle { 
-            font-size: 16px; color: #666; margin-bottom: 4rem; font-weight: 300; max-width: 500px;
-        }
-        .services-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;
-            margin-bottom: 4rem;
-        }
-        .service-card { 
-            padding: 3rem 2.5rem; border: 1px solid #e0e0e0; background: #fff;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .service-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px;
-            background: #0052cc; transition: width 0.3s ease;
-        }
+        /* SERVICES */
+        .services { padding: 5rem 2rem; }
+        .services .container { max-width: 1000px; margin: 0 auto; }
+        .section-title { font-size: 36px; font-weight: 700; margin-bottom: 3rem; letter-spacing: -1px; text-transform: uppercase; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .service-card { padding: 2rem; border: 1px solid #e0e0e0; transition: all 0.3s; position: relative; cursor: pointer; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 3px; background: #0052cc; transition: width 0.3s; }
         .service-card:hover::before { width: 100%; }
-        .service-card h3 { 
-            font-size: 20px; font-weight: 700; margin-bottom: 1.5rem; 
-            letter-spacing: -0.5px; text-transform: uppercase;
-        }
-        .service-card p { 
-            font-size: 15px; line-height: 1.8; color: #666; margin-bottom: 2rem;
-            font-weight: 300;
-        }
-        .service-stat { 
-            padding-top: 1.5rem; border-top: 1px solid #e0e0e0; 
-            font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #999;
-        }
-        .service-stat-value { 
-            font-size: 24px; font-weight: 700; color: #000; margin-top: 0.5rem;
-        }
+        .service-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; }
+        .service-card p { font-size: 14px; line-height: 1.7; color: #666; margin-bottom: 1.5rem; }
+        .service-link { color: #0052cc; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .service-link:hover { text-decoration: underline; }
         
-        /* PROJECTS SECTION */
-        .projects { padding: 6rem 2rem; background: #f8f8f8; }
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
-        }
-        .project-card {
-            aspect-ratio: 1; background: #e0e0e0; border: 1px solid #d0d0d0;
-            display: flex; align-items: center; justify-content: center; position: relative;
-            overflow: hidden;
-        }
-        .project-placeholder {
-            text-align: center; color: #999;
-        }
-        .project-placeholder p {
-            font-size: 13px; letter-spacing: 0.5px;
-        }
-        
-        /* PROCESS SECTION */
-        .process { padding: 6rem 2rem; }
-        .process-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem;
-        }
-        .process-step {
-            padding: 2rem; border-left: 3px solid #0052cc; background: #f8f8f8;
-            position: relative;
-        }
-        .process-step-num {
-            font-size: 14px; letter-spacing: 1px; text-transform: uppercase; 
-            color: #0052cc; font-weight: 700; margin-bottom: 1rem;
-        }
-        .process-step-title {
-            font-size: 16px; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;
-        }
-        .process-step-desc{
-            font-size: 14px; color: #666; line-height: 1.7; font-weight: 300;
-        }
-        
-        /* REFERENCE SECTION */
-        .references { padding: 6rem 2rem; background: #f8f8f8; }
-        .ref-placeholder {
-            background: #fff; border: 1px solid #e0e0e0; padding: 4rem;
-            text-align: center; border-radius: 2px;
-        }
-        .ref-placeholder p {
-            font-size: 14px; color: #999; letter-spacing: 0.5px;
-        }
-        
-        /* CONTACT SECTION */
-        .contact { padding: 6rem 2rem; background: #000; color: #fff; }
-        .contact .container { }
+        /* CONTACT */
+        .contact { padding: 5rem 2rem; background: #000; color: #fff; }
+        .contact .container { max-width: 1000px; margin: 0 auto; }
         .contact .section-title { color: #fff; }
-        .contact-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        .contact-item { }
-        .contact-label {
-            font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
-            color: rgba(255,255,255,0.6); margin-bottom: 0.75rem;
-        }
-        .contact-value {
-            font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.5px;
-        }
-        .contact-cta {
-            padding: 1.5rem; background: #0052cc; color: #fff; border: none;
-            font-size: 14px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700;
-            cursor: pointer; width: 100%; transition: all 0.3s ease;
-        }
-        .contact-cta:hover { background: #003d9e; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .contact-label { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 0.75rem; }
+        .contact-value { font-size: 16px; font-weight: 700; }
+        .cta-button { padding: 1.2rem; background: #0052cc; color: #fff; border: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; cursor: pointer; width: 100%; transition: background 0.3s; }
+        .cta-button:hover { background: #003d9e; }
         
         /* FOOTER */
-        footer { 
-            padding: 3rem 2rem; background: #0a0a0a; color: #fff; 
-            border-top: 1px solid #222;
-            font-size: 13px;
-        }
-        .footer-content { 
-            max-width: 1200px; margin: 0 auto; 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
-        }
-        .footer-left p { color: rgba(255,255,255,0.7); margin-top: 0.5rem; }
-        .footer-right { text-align: right; }
-        .footer-right a { color: #0052cc; margin-left: 1rem; transition: color 0.2s; }
-        .footer-right a:hover { color: #0066ff; }
+        footer { padding: 2rem; background: #0a0a0a; color: #fff; border-top: 1px solid #222; font-size: 12px; }
+        .footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
         
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            header { padding: 1rem 1.5rem; }
-            .hero { height: 60vh; padding: 3rem 1.5rem 4rem; }
-            .hero h1 { font-size: 36px; }
-            .hero-subtitle { font-size: 16px; }
-            section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
-            .container { padding: 0 1.5rem; }
+            header { flex-direction: column; gap: 1rem; }
+            nav { flex-direction: column; gap: 1rem; font-size: 12px; }
+            .hero { height: 60vh; padding: 2rem 1rem 3rem; }
+            .hero h1 { font-size: 28px; }
             .stats .container { gap: 2rem; }
-            .stat-number { font-size: 42px; }
-            .section-title { font-size: 28px; margin-bottom: 1rem; }
-            .services-grid { gap: 1.5rem; }
-            .service-card { padding: 2rem 1.5rem; }
-            .process-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .footer-content { grid-template-columns: 1fr; text-align: left; }
-            .footer-right { text-align: left; }
-            .footer-right a { margin-left: 0; margin-right: 1rem; }
         }
     </style>
 </head>
@@ -252,26 +119,27 @@
     <!-- HEADER -->
     <header>
         <div style="display: flex; align-items: center; gap: 1.5rem;">
-            <img src="celkonsan_logo.png" alt="CELKONSAN" 
-                 style="height: 50px; width: auto; max-width: 300px;">
+            <img src="celkonsan_logo.png" alt="CELKONSAN" style="height: 40px; width: auto;">
         </div>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="galvanizaciya.html">Горячее цинкование</a>
+            <a href="barieri.html">Дорожные ограждения</a>
+            <a href="o-kompanii.html">О компании</a>
+            <a href="blog.html">Блог</a>
+        </nav>
         <div class="nav-lang">
             <span>РУ</span>
             <a href="#kz">КЗ</a>
             <a href="#en">EN</a>
-            <a href="#uz">UZ</a>
-            <a href="#ky">KY</a>
-            <a href="#tr">TR</a>
         </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Горячее цинкование<br/>(гальванизация) стали</h1>
-            <p class="hero-subtitle">
-                Профессиональные услуги защиты металлических конструкций от коррозии. Производство и монтаж дорожных ограждений W-beam и Guard rail для инфраструктурных проектов Казахстана и Центральной Азии.
-            </p>
+            <h1>Горячее<br/>цинкование</h1>
+            <p class="hero-subtitle">Защита металлических конструкций от коррозии. Производство дорожных систем безопасности в Казахстане.</p>
         </div>
     </section>
 
@@ -279,24 +147,20 @@
     <section class="stats">
         <div class="container">
             <div class="stat">
-                <div class="stat-number">1 000</div>
-                <div class="stat-label">Тонн в месяц</div>
-                <div class="stat-desc">Производительность предприятия</div>
+                <div class="stat-num">1 000</div>
+                <div class="stat-label">т/месяц</div>
             </div>
             <div class="stat">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">Лет опыта</div>
-                <div class="stat-desc">На глобальном рынке (с 1994 г.)</div>
+                <div class="stat-num">6+</div>
+                <div class="stat-label">лет в Казахстане</div>
             </div>
             <div class="stat">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Проектов</div>
-                <div class="stat-desc">Успешно реализовано</div>
+                <div class="stat-num">50+</div>
+                <div class="stat-label">проектов</div>
             </div>
             <div class="stat">
-                <div class="stat-number">ISO<br/>9001</div>
-                <div class="stat-label">Сертификация</div>
-                <div class="stat-desc">Качество гарантировано</div>
+                <div class="stat-num">ISO<br/>9001</div>
+                <div class="stat-label">сертификат</div>
             </div>
         </div>
     </section>
@@ -304,116 +168,25 @@
     <!-- SERVICES -->
     <section class="services">
         <div class="container">
-            <h2 class="section-title">Основные услуги</h2>
-            <p class="section-subtitle">Полный спектр решений для защиты и производства промышленных конструкций</p>
-            
-            <div class="services-grid">
+            <h2 class="section-title">Услуги</h2>
+            <div class="service-grid">
                 <div class="service-card">
                     <h3>Горячее цинкование</h3>
-                    <p>Услуга гальванизации металлических конструкций защитным гальванопокрытием толщиной 200+ микрон в соответствии с GOST 9.307-89. Современная линия цинкования позволяет обрабатывать конструкции любых размеров с высочайшей точностью.</p>
-                    <div class="service-stat">
-                        <div>Производительность цинкования</div>
-                        <div class="service-stat-value">250 т/месяц</div>
-                    </div>
+                    <p>Защитное гальванопокрытие толщиной 200+ микрон. Современная линия обработки конструкций любых размеров.</p>
+                    <a href="galvanizaciya.html" class="service-link">Подробнее →</a>
                 </div>
 
                 <div class="service-card">
                     <h3>Дорожные ограждения</h3>
-                    <p>Производство и монтаж металлических ограждений: W-beam, Guard rail и барьеры безопасности в соответствии с ST RK 1278-2004. Полное решение для защиты дорожного движения и инфраструктурных объектов.</p>
-                    <div class="service-stat">
-                        <div>Выполнено проектов</div>
-                        <div class="service-stat-value">50+</div>
-                    </div>
+                    <p>Производство W-beam, Guard rail и барьеров безопасности. Полное решение для инфраструктуры.</p>
+                    <a href="barieri.html" class="service-link">Подробнее →</a>
                 </div>
 
                 <div class="service-card">
                     <h3>Монтажные работы</h3>
-                    <p>Полный цикл услуг установки ограждений и защитных конструкций — от проектирования расстановки до монтажа и испытания на месте. Инженерная поддержка, консультации по выбору конструкций, техническая сертификация.</p>
-                    <div class="service-stat">
-                        <div>Охват</div>
-                        <div class="service-stat-value">Центр. Азия</div>
-                    </div>
+                    <p>Полный цикл установки и инженерная поддержка. Техническая сертификация и гарантия.</p>
+                    <a href="o-kompanii.html" class="service-link">Подробнее →</a>
                 </div>
-
-                <div class="service-card">
-                    <h3>Техническое обслуживание</h3>
-                    <p>Послепродажное обслуживание гальванизированных конструкций, осмотры, контроль качества цинкового покрытия и выдача технических паспортов. Гарантия соответствия международным стандартам.</p>
-                    <div class="service-stat">
-                        <div>Стандарт</div>
-                        <div class="service-stat-value">ISO 9001</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="projects">
-        <div class="container">
-            <h2 class="section-title">Реализованные проекты</h2>
-            <p class="section-subtitle">Портфель наших работ будет дополнен в ближайшее время</p>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-placeholder">
-                        <p>Фотографии проектов<br/>скоро добавятся</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-placeholder">
-                        <p>Галерея работ<br/>в разработке</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-placeholder">
-                        <p>Видеоматериалы<br/>монтажа</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="process">
-        <div class="container">
-            <h2 class="section-title">Как мы работаем</h2>
-            
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="process-step-num">Шаг 1</div>
-                    <div class="process-step-title">Консультация</div>
-                    <div class="process-step-desc">Вы отправляете чертежи и описание требований. Мы анализируем техническое задание и параметры проекта.</div>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-step-num">Шаг 2</div>
-                    <div class="process-step-title">Коммерческое предложение</div>
-                    <div class="process-step-desc">В течение 24 часов отправляем детальную смету, включая стоимость работ и материалов, сроки производства.</div>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-step-num">Шаг 3</div>
-                    <div class="process-step-title">Производство</div>
-                    <div class="process-step-desc">Изготовление и обработка конструкций согласно всем стандартам и требованиям заказчика. Контроль качества на каждом этапе.</div>
-                </div>
-
-                <div class="process-step">
-                    <div class="process-step-num">Шаг 4</div>
-                    <div class="process-step-title">Доставка & монтаж</div>
-                    <div class="process-step-desc">Транспортировка, установка на месте, проверка и выдача технических паспортов. Полная гарантия выполненных работ.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REFERENCES -->
-    <section class="references">
-        <div class="container">
-            <h2 class="section-title">Клиенты и референции</h2>
-            <p class="section-subtitle">Информация о крупнейших проектах и партнерах будет добавлена позже</p>
-            
-            <div class="ref-placeholder">
-                <p>Портфолио клиентов и описание реализованных проектов — скоро</p>
             </div>
         </div>
     </section>
@@ -421,136 +194,70 @@
     <!-- CONTACT -->
     <section class="contact">
         <div class="container">
-            <h2 class="section-title">Свяжитесь с нами</h2>
-            
+            <h2 class="section-title">Контакт</h2>
             <div class="contact-grid">
-                <div class="contact-item">
+                <div>
                     <div class="contact-label">Телефон</div>
                     <div class="contact-value">+7 747 757 1465</div>
                 </div>
-                <div class="contact-item">
+                <div>
                     <div class="contact-label">Email</div>
                     <div class="contact-value">info@celkonsan.kz</div>
                 </div>
-                <div class="contact-item">
+                <div>
                     <div class="contact-label">Адрес</div>
-                    <a href="https://2gis.kz/almaty/geo/70030077061627028" target="_blank" style="
-                        color: #0052cc; font-weight: 700; font-size: 18px;
-                        text-decoration: none; display: inline-block;
-                        transition: color 0.3s;
-                    " onmouseover="this.style.color='#003d9e'" onmouseout="this.style.color='#0052cc'">
-                        📍 7-я улица, 130а/5<br/>
-                        Алгабас м-н, Алатауский р-н<br/>
-                        Алматы
-                    </a>
+                    <div class="contact-value">
+                        <a href="https://2gis.kz/almaty/geo/70030077061627028" target="_blank" style="color: #fff; text-decoration: underline;">
+                            📍 7-я улица, 130а/5<br/>Алматы
+                        </a>
+                    </div>
                 </div>
-                <div class="contact-item">
+                <div>
                     <div class="contact-label">Режим</div>
-                    <div class="contact-value">Пн–Пт<br/>08:00–17:00</div>
+                    <div class="contact-value">Пн–Пт 08:00–17:00</div>
                 </div>
             </div>
-
-            <button class="contact-cta">Отправить техническое задание</button>
+            <button class="cta-button">Отправить запрос</button>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <div class="footer-left">
-                <strong>© CELKONSAN A.S. 2024</strong>
-                <p>Промышленное предприятие Казахстана. Специализация: горячее цинкование, производство и монтаж дорожных ограждений.</p>
-            </div>
-            <div class="footer-right">
-                <a href="#ru">РУ</a>
-                <a href="#kz">КЗ</a>
-                <a href="#en">EN</a>
-            </div>
+            <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане с 2018 года</p>
         </div>
     </footer>
 
     <!-- CHAT WIDGET -->
     <div id="chat-widget" style="position: fixed; bottom: 30px; right: 30px; z-index: 999;">
-        <!-- Chat Button -->
-        <button id="chat-btn" style="
-            width: 60px; height: 60px; border-radius: 50%; 
-            background: #0052cc; color: #fff; border: none; 
-            cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; transition: all 0.3s ease;
-        " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        <button id="chat-btn" style="width: 60px; height: 60px; border-radius: 50%; background: #0052cc; color: #fff; border: none; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 24px; transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
             💬
         </button>
 
-        <!-- Chat Modal -->
-        <div id="chat-modal" style="
-            position: absolute; bottom: 90px; right: 0; 
-            width: 380px; background: #fff; border-radius: 12px;
-            box-shadow: 0 5px 40px rgba(0,0,0,0.16);
-            display: none; flex-direction: column; height: 500px;
-            overflow: hidden;
-        ">
-            <!-- Header -->
-            <div style="
-                background: #0052cc; color: #fff; padding: 1.5rem;
-                text-align: center;
-            ">
+        <div id="chat-modal" style="position: absolute; bottom: 90px; right: 0; width: 380px; background: #fff; border-radius: 12px; box-shadow: 0 5px 40px rgba(0,0,0,0.16); display: none; flex-direction: column; height: 500px; overflow: hidden;">
+            <div style="background: #0052cc; color: #fff; padding: 1.5rem; text-align: center;">
                 <h3 style="margin: 0 0 0.5rem; font-size: 18px;">Привет! 👋</h3>
                 <p style="margin: 0; font-size: 14px; opacity: 0.9;">Как мы можем вам помочь?</p>
             </div>
 
-            <!-- Messages Area -->
-            <div style="
-                flex: 1; padding: 1.5rem; overflow-y: auto;
-                font-size: 14px; line-height: 1.6; color: #666;
-            ">
-                <p style="margin: 0 0 1rem;">
-                    Добро пожаловать в CELKONSAN! 🏭
-                </p>
-                <p style="margin: 0 0 1rem;">
-                    Если у вас есть вопросы о наших услугах горячего цинкования или дорожных ограждениях, мы здесь, чтобы помочь!
-                </p>
-                <p style="margin: 0;">
-                    Напишите нам в WhatsApp или позвоните.
-                </p>
+            <div style="flex: 1; padding: 1.5rem; overflow-y: auto; font-size: 14px; line-height: 1.6; color: #666;">
+                <p style="margin: 0 0 1rem;">Добро пожаловать в CELKONSAN! 🏭</p>
+                <p style="margin: 0;">Напишите нам в WhatsApp или позвоните.</p>
             </div>
 
-            <!-- Actions -->
-            <div style="
-                padding: 1.5rem; border-top: 1px solid #e0e0e0;
-                display: flex; gap: 1rem; flex-direction: column;
-            ">
-                <a href="https://wa.me/77477571465?text=Привет%2C%20CELKONSAN!%20Мне%20нужна%20консультация%20по%20услугам." 
-                   target="_blank"
-                   style="
-                    padding: 12px; background: #25D366; color: #fff; 
-                    text-decoration: none; border-radius: 8px;
-                    text-align: center; font-weight: 600; font-size: 14px;
-                    transition: background 0.3s;
-                " onmouseover="this.style.background='#20ba58'" onmouseout="this.style.background='#25D366'">
+            <div style="padding: 1.5rem; border-top: 1px solid #e0e0e0; display: flex; gap: 1rem; flex-direction: column;">
+                <a href="https://wa.me/77477571465?text=Привет%2C%20CELKONSAN!%20Мне%20нужна%20консультация." target="_blank" style="padding: 12px; background: #25D366; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px; transition: background 0.3s;" onmouseover="this.style.background='#20ba58'" onmouseout="this.style.background='#25D366'">
                     💬 WhatsApp: +7 747 757 1465
                 </a>
-                <a href="tel:+77477571465" 
-                   style="
-                    padding: 12px; background: #0052cc; color: #fff; 
-                    text-decoration: none; border-radius: 8px;
-                    text-align: center; font-weight: 600; font-size: 14px;
-                    transition: background 0.3s;
-                " onmouseover="this.style.background='#003d9e'" onmouseout="this.style.background='#0052cc'">
+                <a href="tel:+77477571465" style="padding: 12px; background: #0052cc; color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; font-size: 14px; transition: background 0.3s;" onmouseover="this.style.background='#003d9e'" onmouseout="this.style.background='#0052cc'">
                     📞 Позвонить
                 </a>
             </div>
 
-            <!-- Close Button -->
-            <button onclick="document.getElementById('chat-modal').style.display='none'" style="
-                position: absolute; top: 10px; right: 10px;
-                background: none; border: none; font-size: 20px;
-                cursor: pointer; color: #fff;
-            ">✕</button>
+            <button onclick="document.getElementById('chat-modal').style.display='none'" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 20px; cursor: pointer; color: #fff;">✕</button>
         </div>
     </div>
 
-    <!-- Chat Widget Script -->
     <script>
         const chatBtn = document.getElementById('chat-btn');
         const chatModal = document.getElementById('chat-modal');
@@ -565,7 +272,6 @@
             }
         });
 
-        // Close modal when clicking outside
         document.addEventListener('click', function(event) {
             if (!event.target.closest('#chat-widget')) {
                 chatModal.style.display = 'none';
@@ -574,7 +280,6 @@
         });
     </script>
 
-    <!-- Mobile Responsive -->
     <style>
         @media (max-width: 480px) {
             #chat-modal {
@@ -584,10 +289,6 @@
                 left: 50% !important;
                 right: auto !important;
                 transform: translateX(-50%);
-            }
-            #chat-widget {
-                bottom: 20px !important;
-                right: 20px !important;
             }
         }
     </style>
