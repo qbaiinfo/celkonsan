@@ -118,20 +118,76 @@
             .bottom-nav { display: flex; }
         }
         
-        /* HERO */
+        /* HERO — HEAVY INDUSTRY */
         .hero {
-            position: relative; height: 70vh; min-height: 500px; 
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            color: #fff; display: flex; align-items: flex-end; padding: 4rem 2rem 6rem;
+            position: relative; min-height: 88vh; overflow: hidden;
+            background: #0b0d10;
+            color: #fff; display: flex; align-items: center; padding: 6rem 2rem 4rem;
         }
+        /* steel texture + blueprint grid */
         .hero::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 40% 50%, rgba(0, 82, 204, 0.1) 0%, transparent 50%);
+            content: ''; position: absolute; inset: 0; z-index: 0;
+            background:
+              linear-gradient(180deg, rgba(11,13,16,0) 40%, rgba(11,13,16,.9) 100%),
+              linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px),
+              linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+              linear-gradient(135deg, #14181d 0%, #0b0d10 60%);
+            background-size: 100% 100%, 44px 44px, 44px 44px, 100% 100%;
             pointer-events: none;
         }
-        .hero-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; width: 100%; }
-        .hero h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; }
-        .hero-subtitle { font-size: 16px; color: rgba(255,255,255,0.8); max-width: 450px; line-height: 1.8; }
+        /* molten zinc glow at the bottom (hot-dip galvanizing) */
+        .hero::after {
+            content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 220px; z-index: 1;
+            background: radial-gradient(120% 100% at 30% 100%, rgba(255,138,24,.45) 0%, rgba(255,90,0,.18) 35%, transparent 70%);
+            filter: blur(2px); pointer-events: none;
+            animation: moltenPulse 4s ease-in-out infinite;
+        }
+        @keyframes moltenPulse { 0%,100%{opacity:.75} 50%{opacity:1} }
+
+        .hero-svg { position: absolute; right: -4%; top: 50%; transform: translateY(-50%);
+            height: 115%; width: auto; z-index: 1; opacity: .5; pointer-events: none; }
+
+        .hero-content { position: relative; z-index: 3; max-width: 1100px; margin: 0 auto; width: 100%; }
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: .6rem; margin-bottom: 1.5rem;
+            font-family: 'SF Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2px;
+            text-transform: uppercase; color: #ff8a18;
+            border: 1px solid rgba(255,138,24,.4); padding: .4rem .8rem; border-radius: 3px;
+            background: rgba(255,138,24,.06);
+        }
+        .hero-tag .dot { width:7px;height:7px;border-radius:50%;background:#ff8a18;box-shadow:0 0 10px #ff8a18; }
+        .hero h1 {
+            font-size: clamp(40px, 9vw, 96px); font-weight: 800; line-height: .95;
+            letter-spacing: -2px; text-transform: uppercase; margin-bottom: 1.5rem;
+        }
+        .hero h1 .accent { color: #ff8a18; display:block; }
+        .hero h1 .red-line { display:inline-block; width:90px; height:7px; background:#d12030; margin-top:1.2rem; }
+        .hero-subtitle { font-size: 17px; color: rgba(255,255,255,.7); max-width: 520px; line-height: 1.75; font-weight: 300; margin-bottom: 2.2rem; }
+        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .hero-cta a {
+            display: inline-flex; align-items: center; gap: .6rem; padding: 1.05rem 2rem;
+            font-weight: 700; font-size: 14px; border-radius: 7px; text-decoration: none; transition: all .2s;
+        }
+        .hero-cta .primary { background: #ff8a18; color: #0b0d10; box-shadow: 0 6px 26px rgba(255,138,24,.35); }
+        .hero-cta .primary:hover { background: #ffa040; transform: translateY(-2px); }
+        .hero-cta .ghost { background: rgba(255,255,255,.05); color: #fff; border: 1px solid rgba(255,255,255,.18); }
+        .hero-cta .ghost:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+        /* industrial credentials strip */
+        .hero-strip {
+            position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+            display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,.1);
+            background: rgba(11,13,16,.6); backdrop-filter: blur(6px);
+        }
+        .hero-strip .item {
+            flex: 1; padding: 1.1rem 1.5rem; border-right: 1px solid rgba(255,255,255,.08);
+            display: flex; flex-direction: column; gap: .2rem;
+        }
+        .hero-strip .item:last-child { border-right: none; }
+        .hero-strip .num { font-family: 'SF Mono', ui-monospace, monospace; font-size: 22px; font-weight: 700; color: #fff; }
+        .hero-strip .num .u { color: #ff8a18; font-size: 14px; }
+        .hero-strip .lbl { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,.5); }
+
         
         /* STATS */
         .stats { padding: 5rem 2rem; background: #f8f8f8; }
@@ -165,8 +221,12 @@
         footer { padding: 2rem; background: #0a0a0a; color: #fff; text-align: center; font-size: 12px; }
         
         @media (max-width: 768px) {
-            .hero { height: 60vh; padding: 2rem 1rem 3rem; }
-            .hero h1 { font-size: 28px; }
+            .hero { min-height: 90vh; padding: 5rem 1.25rem 7rem; }
+            .hero h1 { font-size: clamp(36px, 13vw, 60px); letter-spacing: -1px; }
+            .hero-svg { opacity: .25; right: -30%; }
+            .hero-strip { flex-wrap: wrap; }
+            .hero-strip .item { flex: 1 1 50%; border-bottom: 1px solid rgba(255,255,255,.08); }
+            .hero-strip .item:nth-child(2) { border-right: none; }
             .service-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
         }
@@ -207,11 +267,58 @@
     </nav>
 
     <main>
-        <!-- HERO -->
+        <!-- HERO — HEAVY INDUSTRY -->
         <section class="hero">
+            <!-- steel I-beam / W-beam decorative SVG -->
+            <svg class="hero-svg" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                    <linearGradient id="steelG" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0" stop-color="#aeb8c4"/>
+                        <stop offset="0.5" stop-color="#5b6673"/>
+                        <stop offset="1" stop-color="#2c333c"/>
+                    </linearGradient>
+                    <linearGradient id="moltenG" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#ffb800"/>
+                        <stop offset="1" stop-color="#ff5a00"/>
+                    </linearGradient>
+                </defs>
+                <!-- vertical H-beam -->
+                <rect x="150" y="20" width="100" height="26" fill="url(#steelG)"/>
+                <rect x="186" y="20" width="28" height="520" fill="url(#steelG)"/>
+                <rect x="150" y="514" width="100" height="26" fill="url(#steelG)"/>
+                <!-- bolt holes -->
+                <circle cx="200" cy="90" r="6" fill="#0b0d10"/>
+                <circle cx="200" cy="160" r="6" fill="#0b0d10"/>
+                <circle cx="200" cy="230" r="6" fill="#0b0d10"/>
+                <circle cx="200" cy="300" r="6" fill="#0b0d10"/>
+                <!-- W-beam barrier profile -->
+                <path d="M60 380 q20 -22 40 0 q20 22 40 0" stroke="url(#steelG)" stroke-width="14" fill="none"/>
+                <path d="M60 420 q20 -22 40 0 q20 22 40 0" stroke="url(#steelG)" stroke-width="14" fill="none"/>
+                <!-- molten dip glow -->
+                <ellipse cx="200" cy="560" rx="150" ry="22" fill="url(#moltenG)" opacity="0.55"/>
+            </svg>
+
             <div class="hero-content">
-                <h1>Горячее цинкование</h1>
-                <p class="hero-subtitle">Защита металлических конструкций от коррозии. Производство дорожных систем безопасности в Казахстане.</p>
+                <span class="hero-tag"><span class="dot"></span>Алматы · Горячее цинкование с 2018</span>
+                <h1>
+                    Сталь,<br/>
+                    <span class="accent">защищённая</span>
+                    на 50 лет
+                    <span class="red-line"></span>
+                </h1>
+                <p class="hero-subtitle">Горячее цинкование, металлоконструкции и дорожные ограждения. Промышленные мощности 1000 тонн в месяц — для инфраструктуры Казахстана.</p>
+                <div class="hero-cta">
+                    <a class="primary" href="kalkulyator.html">🧮 Рассчитать вес металла</a>
+                    <a class="ghost" href="https://wa.me/77477571465" target="_blank">💬 Получить консультацию</a>
+                </div>
+            </div>
+
+            <!-- industrial credentials strip -->
+            <div class="hero-strip">
+                <div class="item"><span class="num">1000<span class="u"> т/мес</span></span><span class="lbl">Производственная мощность</span></div>
+                <div class="item"><span class="num">200<span class="u"> мкм</span></span><span class="lbl">Толщина цинкового слоя</span></div>
+                <div class="item"><span class="num">ISO<span class="u"> 9001</span></span><span class="lbl">Сертификат качества</span></div>
+                <div class="item"><span class="num">50+<span class="u"> лет</span></span><span class="lbl">Защита от коррозии</span></div>
             </div>
         </section>
 
@@ -219,20 +326,20 @@
         <section class="stats">
             <div class="container">
                 <div class="stat">
-                    <div class="stat-num">1 000</div>
-                    <div class="stat-label">т/месяц</div>
+                    <div class="stat-num">50+</div>
+                    <div class="stat-label">реализованных проектов</div>
                 </div>
                 <div class="stat">
                     <div class="stat-num">6+</div>
                     <div class="stat-label">лет в Казахстане</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num">50+</div>
-                    <div class="stat-label">проектов</div>
+                    <div class="stat-num">3</div>
+                    <div class="stat-label">страны Центр. Азии</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-num">ISO 9001</div>
-                    <div class="stat-label">сертификат</div>
+                    <div class="stat-num">20+</div>
+                    <div class="stat-label">специалистов</div>
                 </div>
             </div>
         </section>
