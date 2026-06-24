@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Калькулятор дорожных ограждений — CELKONSAN</title>
-<meta name="description" content="Онлайн-калькулятор веса дорожных ограждений по ГОСТ 26804-2012. Расчёт тоннажа металла и площади горячего цинкования. CELKONSAN Алматы.">
+<title>Инженерный калькулятор — CELKONSAN | Ограждения и металлоконструкции</title>
+<meta name="description" content="Онлайн-калькулятор веса дорожных ограждений и металлоконструкций. Расчёт тоннажа металла, трудозатрат и площади горячего цинкования. CELKONSAN Алматы.">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -15,31 +15,35 @@
     --mono:'SF Mono',ui-monospace,'Cascadia Code','Roboto Mono',monospace;
     --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   }
-  body{
-    background:var(--bg); color:var(--txt); font-family:var(--sans);
-    min-height:100vh;
-    background-image:
-      linear-gradient(var(--grid) 1px,transparent 1px),
+  body{background:var(--bg);color:var(--txt);font-family:var(--sans);min-height:100vh;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),
       linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-    background-size:32px 32px;
-    line-height:1.5;
-  }
+    background-size:32px 32px;line-height:1.5}
   .wrap{max-width:1200px;margin:0 auto;padding:1.5rem}
 
-  /* TOP BAR */
   .topbar{display:flex;align-items:center;justify-content:space-between;
-    padding-bottom:1.25rem;border-bottom:1px solid var(--line);margin-bottom:1.5rem}
+    padding-bottom:1.25rem;border-bottom:1px solid var(--line);margin-bottom:1.25rem}
   .brand{display:flex;align-items:center;gap:.75rem}
-  .brand-mark{font-family:var(--mono);font-size:11px;letter-spacing:2px;
-    color:var(--blue);border:1px solid var(--blue);padding:.2rem .5rem;border-radius:3px}
+  .brand-mark{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--blue);
+    border:1px solid var(--blue);padding:.2rem .5rem;border-radius:3px}
   .brand h1{font-size:15px;font-weight:600;letter-spacing:.5px}
   .brand h1 span{color:var(--dim);font-weight:400}
   .badge{font-family:var(--mono);font-size:10px;color:var(--dim);
     border:1px solid var(--line);padding:.3rem .6rem;border-radius:3px}
 
+  /* MODE TABS */
+  .modes{display:flex;gap:.5rem;margin-bottom:1.5rem}
+  .modes button{flex:1;background:var(--panel);border:1px solid var(--line);color:var(--dim);
+    padding:.9rem;border-radius:8px;cursor:pointer;font-size:13px;font-weight:600;
+    font-family:var(--sans);transition:all .15s;display:flex;align-items:center;
+    justify-content:center;gap:.5rem}
+  .modes button .ic{font-size:18px}
+  .modes button:hover{border-color:var(--blue2);color:var(--txt)}
+  .modes button.on{background:var(--blue2);border-color:var(--blue);color:#fff;
+    box-shadow:0 0 0 1px var(--blue)}
+
   .layout{display:grid;grid-template-columns:340px 1fr;gap:1.5rem;align-items:start}
 
-  /* PANEL */
   .panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
   .panel-h{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--dim);
     text-transform:uppercase;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);
@@ -54,123 +58,134 @@
     letter-spacing:.3px;text-transform:uppercase;font-family:var(--mono)}
   .seg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
   .seg.three{grid-template-columns:1fr 1fr 1fr}
+  .seg.col{grid-template-columns:1fr}
   .seg button{background:#0d121a;border:1px solid var(--line);color:var(--dim);
     padding:.6rem .3rem;border-radius:5px;cursor:pointer;font-size:12px;font-weight:600;
     transition:all .15s;font-family:var(--sans)}
   .seg button:hover{border-color:var(--blue2);color:var(--txt)}
-  .seg button.on{background:var(--blue2);border-color:var(--blue);color:#fff;
-    box-shadow:0 0 0 1px var(--blue)}
+  .seg button.on{background:var(--blue2);border-color:var(--blue);color:#fff;box-shadow:0 0 0 1px var(--blue)}
 
   .slider-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.5rem}
-  .slider-val{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--txt)}
+  .slider-val{font-family:var(--mono);font-size:20px;font-weight:700}
   .slider-val small{font-size:12px;color:var(--dim);font-weight:400}
   input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;
     background:var(--line);outline:none;cursor:pointer}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;
-    border-radius:50%;background:var(--blue);cursor:pointer;border:3px solid var(--bg);
-    box-shadow:0 0 0 1px var(--blue)}
-  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;
-    background:var(--blue);cursor:pointer;border:3px solid var(--bg)}
+    border-radius:50%;background:var(--blue);cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 0 1px var(--blue)}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--blue);cursor:pointer;border:3px solid var(--bg)}
 
-  /* VIEWPORT */
   .viewport{background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-  #canvas3d{width:100%;height:340px;display:block;background:
-    radial-gradient(circle at 50% 40%,#16202e 0%,#0a0e14 80%)}
-  .vp-foot{display:flex;justify-content:space-between;align-items:center;
-    padding:.6rem 1.1rem;border-top:1px solid var(--line);font-family:var(--mono);
-    font-size:10px;color:var(--dim);letter-spacing:.5px}
+  #canvas3d{width:100%;height:340px;display:block;background:radial-gradient(circle at 50% 40%,#16202e 0%,#0a0e14 80%)}
+  .vp-foot{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1.1rem;
+    border-top:1px solid var(--line);font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.5px}
   .vp-foot .dot{color:var(--green)}
 
-  /* RESULTS */
   .results{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
-  .result{background:var(--panel);border:1px solid var(--line);border-radius:8px;
-    padding:1.1rem;position:relative;overflow:hidden}
-  .result::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;
-    background:linear-gradient(90deg,var(--blue),transparent)}
-  .result .k{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dim);
-    text-transform:uppercase;margin-bottom:.6rem}
+  .result{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:1.1rem;position:relative;overflow:hidden}
+  .result::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
+  .result .k{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dim);text-transform:uppercase;margin-bottom:.6rem}
   .result .v{font-family:var(--mono);font-size:30px;font-weight:700;line-height:1}
   .result .v small{font-size:13px;color:var(--dim);font-weight:400;margin-left:.2rem}
   .result.hl .v{color:var(--accent)}
   .result .sub{font-size:11px;color:var(--dim);margin-top:.5rem}
 
-  .breakdown{background:var(--panel);border:1px solid var(--line);border-radius:8px;
-    margin-top:1rem;overflow:hidden}
-  .bd-row{display:flex;justify-content:space-between;padding:.7rem 1.1rem;
-    border-bottom:1px solid var(--line);font-size:13px}
+  .breakdown{background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-top:1rem;overflow:hidden}
+  .bd-row{display:flex;justify-content:space-between;padding:.7rem 1.1rem;border-bottom:1px solid var(--line);font-size:13px}
   .bd-row:last-child{border-bottom:none}
   .bd-row .lbl{color:var(--dim)}
   .bd-row .val{font-family:var(--mono);font-weight:600}
 
   .cta{display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap}
-  .cta a{flex:1;min-width:160px;text-align:center;padding:.9rem;border-radius:7px;
-    font-weight:600;font-size:13px;text-decoration:none;transition:all .2s}
-  .cta .wa{background:#25D366;color:#fff}
-  .cta .wa:hover{background:#1faa53}
-  .cta .pdf{background:#0d121a;color:var(--txt);border:1px solid var(--line)}
-  .cta .pdf:hover{border-color:var(--blue)}
+  .cta a{flex:1;min-width:160px;text-align:center;padding:.9rem;border-radius:7px;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s}
+  .cta .wa{background:#25D366;color:#fff}.cta .wa:hover{background:#1faa53}
+  .cta .pdf{background:#0d121a;color:var(--txt);border:1px solid var(--line)}.cta .pdf:hover{border-color:var(--blue)}
 
-  .note{font-size:11px;color:var(--dim);margin-top:1rem;line-height:1.6;
-    padding:.8rem 1rem;border-left:2px solid var(--accent);background:rgba(240,180,41,.05)}
+  .note{font-size:11px;color:var(--dim);margin-top:1rem;line-height:1.6;padding:.8rem 1rem;border-left:2px solid var(--accent);background:rgba(240,180,41,.05)}
+  .back{display:inline-block;margin-bottom:1rem;color:var(--blue);font-size:13px;font-weight:600;text-decoration:none}
 
-  @media(max-width:880px){
-    .layout{grid-template-columns:1fr}
-    .results{grid-template-columns:1fr}
-    #canvas3d{height:280px}
-  }
+  @media(max-width:880px){.layout{grid-template-columns:1fr}.results{grid-template-columns:1fr}#canvas3d{height:280px}
+    .modes button .tx{font-size:11px}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+  <a href="index.html" class="back">← На главную</a>
+
   <div class="topbar">
     <div class="brand">
       <span class="brand-mark">ÇK</span>
-      <h1>CELKONSAN <span>/ Калькулятор ограждений</span></h1>
+      <h1>CELKONSAN <span>/ Инженерный калькулятор</span></h1>
     </div>
-    <span class="badge">ГОСТ 26804-2012</span>
+    <span class="badge" id="stdBadge">ГОСТ 26804-2012</span>
+  </div>
+
+  <!-- MODE SWITCHER -->
+  <div class="modes" id="modes">
+    <button class="on" data-m="barrier"><span class="ic">🛣️</span><span class="tx">Дорожные ограждения</span></button>
+    <button data-m="steel"><span class="ic">🏗️</span><span class="tx">Металлоконструкции</span></button>
   </div>
 
   <div class="layout">
 
     <!-- LEFT: INPUTS -->
     <div class="panel">
-      <div class="panel-h">Параметры</div>
+      <div class="panel-h" id="inpTitle">Параметры</div>
       <div class="panel-b">
 
-        <div class="field">
-          <label>Тип ограждения</label>
-          <div class="seg" id="type">
-            <button class="on" data-v="11ДО">Одностороннее</button>
-            <button data-v="11ДД">Двустороннее</button>
-            <button data-v="11МО">Мостовое</button>
-            <button data-v="11МД">Барьер двойной</button>
+        <!-- BARRIER INPUTS -->
+        <div id="inpBarrier">
+          <div class="field">
+            <label>Тип ограждения</label>
+            <div class="seg" id="bType">
+              <button class="on" data-v="11ДО">Одностороннее</button>
+              <button data-v="11ДД">Двустороннее</button>
+              <button data-v="11МО">Мостовое</button>
+              <button data-v="11МД">Барьер двойной</button>
+            </div>
+          </div>
+          <div class="field">
+            <label>Шаг стоек</label>
+            <div class="seg three" id="bStep">
+              <button data-v="2">2 м</button><button data-v="3">3 м</button><button class="on" data-v="4">4 м</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="slider-row"><label style="margin:0">Длина участка</label><div class="slider-val" id="bLenVal">100<small> м</small></div></div>
+            <input type="range" id="bLen" min="10" max="2000" step="10" value="100">
+          </div>
+          <div class="field">
+            <div class="slider-row"><label style="margin:0">Высота стойки</label><div class="slider-val" id="bHVal">1.5<small> м</small></div></div>
+            <input type="range" id="bH" min="1.1" max="2.5" step="0.1" value="1.5">
           </div>
         </div>
 
-        <div class="field">
-          <label>Шаг стоек</label>
-          <div class="seg three" id="step">
-            <button data-v="2">2 м</button>
-            <button data-v="3">3 м</button>
-            <button class="on" data-v="4">4 м</button>
+        <!-- STEEL INPUTS -->
+        <div id="inpSteel" style="display:none">
+          <div class="field">
+            <label>Тип сооружения</label>
+            <div class="seg col" id="sType">
+              <button class="on" data-v="naves">Навес / козырёк</button>
+              <button data-v="angar">Ангар</button>
+              <button data-v="sklad">Склад</button>
+              <button data-v="ceh">Производственный цех</button>
+              <button data-v="karkas">Многоэтажный каркас</button>
+            </div>
           </div>
-        </div>
-
-        <div class="field">
-          <div class="slider-row">
-            <label style="margin:0">Длина участка</label>
-            <div class="slider-val" id="lenVal">100<small> м</small></div>
+          <div class="field">
+            <div class="slider-row"><label style="margin:0">Площадь</label><div class="slider-val" id="sAreaVal">500<small> м²</small></div></div>
+            <input type="range" id="sArea" min="50" max="10000" step="50" value="500">
           </div>
-          <input type="range" id="len" min="10" max="2000" step="10" value="100">
-        </div>
-
-        <div class="field">
-          <div class="slider-row">
-            <label style="margin:0">Высота стойки</label>
-            <div class="slider-val" id="hVal">1.5<small> м</small></div>
+          <div class="field">
+            <div class="slider-row"><label style="margin:0">Высота</label><div class="slider-val" id="sHVal">6<small> м</small></div></div>
+            <input type="range" id="sH" min="3" max="24" step="0.5" value="6">
           </div>
-          <input type="range" id="height" min="1.1" max="2.5" step="0.1" value="1.5">
+          <div class="field">
+            <label>Этажность</label>
+            <div class="seg three" id="sFloors">
+              <button class="on" data-v="1">1 этаж</button><button data-v="2">2 этажа</button><button data-v="3">3+ этажа</button>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -181,29 +196,12 @@
       <div class="viewport">
         <canvas id="canvas3d"></canvas>
         <div class="vp-foot">
-          <span><span class="dot">●</span> 3D-модель — обновляется в реальном времени</span>
-          <span id="segInfo">сегментов: 0</span>
+          <span><span class="dot">●</span> 3D-модель — в реальном времени</span>
+          <span id="vpInfo">—</span>
         </div>
       </div>
 
-      <div class="results">
-        <div class="result hl">
-          <div class="k">Общий вес металла</div>
-          <div class="v"><span id="rTon">2.20</span><small>тонн</small></div>
-          <div class="sub" id="rKg">2 200 кг</div>
-        </div>
-        <div class="result">
-          <div class="k">Площадь цинкования</div>
-          <div class="v"><span id="rArea">42</span><small>м²</small></div>
-          <div class="sub">горячее цинкование</div>
-        </div>
-        <div class="result">
-          <div class="k">Кол-во стоек</div>
-          <div class="v"><span id="rPosts">26</span><small>шт</small></div>
-          <div class="sub" id="rBeams">балок: 24 шт</div>
-        </div>
-      </div>
-
+      <div class="results" id="results"></div>
       <div class="breakdown" id="breakdown"></div>
 
       <div class="cta">
@@ -211,165 +209,188 @@
         <a class="pdf" href="#" onclick="window.print();return false">⎙ Печать / PDF</a>
       </div>
 
-      <div class="note">
-        <strong>Предварительный расчёт.</strong> Значения основаны на типовых профилях ГОСТ 26804-2012
-        и носят оценочный характер. Точный вес, спецификацию и стоимость цинкования предоставит
-        инженер CELKONSAN после согласования чертежа.
-      </div>
+      <div class="note" id="note"></div>
     </div>
 
   </div>
 </div>
 
 <script>
-// ---- РАСЧЁТНАЯ МОДЕЛЬ (кг на 1 погонный метр + вес стойки) ----
-// Базовые удельные веса по типовым профилям ГОСТ 26804-2012
-const DATA = {
-  '11ДО': {beam:13.5, sides:1, label:'Одностороннее'},   // балка W-beam одинарная
-  '11ДД': {beam:27.0, sides:2, label:'Двустороннее'},     // балка с двух сторон
-  '11МО': {beam:16.0, sides:1, label:'Мостовое'},         // усиленный профиль
-  '11МД': {beam:32.0, sides:2, label:'Барьер двойной'}    // двойной усиленный
+/* ============ DATA ============ */
+const BARRIER = {
+  '11ДО':{beam:13.5,sides:1,label:'Одностороннее'},
+  '11ДД':{beam:27.0,sides:2,label:'Двустороннее'},
+  '11МО':{beam:16.0,sides:1,label:'Мостовое'},
+  '11МД':{beam:32.0,sides:2,label:'Барьер двойной'}
 };
-const POST_KG_PER_M = 6.8;   // С-образная стойка, кг/м профиля
-const CONSOLE_KG = 2.4;      // консоль-распорка на стойку
-const FIX_KG_PER_BEAM = 1.2; // крепёж на сегмент балки
-const BEAM_SEG = 4.0;        // длина одного сегмента балки, м
-const AREA_PER_KG = 0.019;   // м² поверхности на кг (оценка для тонколиста)
+const POST_KG_PER_M=6.8, CONSOLE_KG=2.4, FIX_KG_PER_BEAM=1.2, BEAM_SEG=4.0, B_AREA_PER_KG=0.019;
 
-let state = {type:'11ДО', step:4, len:100, height:1.5};
+// расход стали кг/м² по типу сооружения (оценка для каркаса + покрытие)
+const STEEL={
+  naves: {k:25,label:'Навес / козырёк'},
+  angar: {k:32,label:'Ангар'},
+  sklad: {k:45,label:'Склад'},
+  ceh:   {k:65,label:'Производственный цех'},
+  karkas:{k:90,label:'Многоэтажный каркас'}
+};
+const MH_FAB=30, MH_MONT=15, S_AREA_PER_KG=0.015; // нормо-часы/т (изгот/монтаж), м²/кг цинк
 
-function calc(){
-  const d = DATA[state.type];
-  const beamW = d.beam * state.len;                       // балка
-  const posts = Math.floor(state.len/state.step)+1;       // стойки
-  const postW = posts * state.height * POST_KG_PER_M * d.sides;
-  const consoleW = posts * CONSOLE_KG * d.sides;
-  const beams = Math.ceil(state.len/BEAM_SEG)*d.sides;
-  const fixW = beams * FIX_KG_PER_BEAM;
-  const totalKg = beamW + postW + consoleW + fixW;
-  const area = totalKg * AREA_PER_KG;
-  return {totalKg,beamW,postW,consoleW,fixW,posts,beams,area,sides:d.sides};
+let mode='barrier';
+let bs={type:'11ДО',step:4,len:100,h:1.5};
+let ss={type:'naves',area:500,h:6,floors:1};
+
+/* ============ CALC ============ */
+function calcBarrier(){
+  const d=BARRIER[bs.type];
+  const beamW=d.beam*bs.len;
+  const posts=Math.floor(bs.len/bs.step)+1;
+  const postW=posts*bs.h*POST_KG_PER_M*d.sides;
+  const consoleW=posts*CONSOLE_KG*d.sides;
+  const beams=Math.ceil(bs.len/BEAM_SEG)*d.sides;
+  const fixW=beams*FIX_KG_PER_BEAM;
+  const totalKg=beamW+postW+consoleW+fixW;
+  return {totalKg,beamW,postW,consoleW,fixW,posts,beams,area:totalKg*B_AREA_PER_KG,sides:d.sides};
+}
+function calcSteel(){
+  const d=STEEL[ss.type];
+  const hf=Math.max(0.85,Math.min(1.6,1+(ss.h-6)*0.03));
+  const ff=1+(ss.floors-1)*0.35; // этажность увеличивает каркас
+  const totalKg=ss.area*d.k*hf*ff;
+  const tons=totalKg/1000;
+  const fabH=tons*MH_FAB, montH=tons*MH_MONT, totH=fabH+montH;
+  const days=Math.ceil(totH/(8*6)); // бригада 6 чел
+  return {totalKg,tons,fabH,montH,totH,days,area:totalKg*S_AREA_PER_KG,k:d.k,hf,ff};
 }
 
+/* ============ RENDER ============ */
 function render(){
-  const r = calc();
-  document.getElementById('rTon').textContent = (r.totalKg/1000).toFixed(2);
-  document.getElementById('rKg').textContent = Math.round(r.totalKg).toLocaleString('ru-RU')+' кг';
-  document.getElementById('rArea').textContent = Math.round(r.area);
-  document.getElementById('rPosts').textContent = r.posts;
-  document.getElementById('rBeams').textContent = 'балок: '+r.beams+' шт';
-  document.getElementById('segInfo').textContent = 'сегментов: '+r.beams;
-
-  document.getElementById('breakdown').innerHTML = `
+  if(mode==='barrier') renderBarrier();
+  else renderSteel();
+}
+function renderBarrier(){
+  const r=calcBarrier();
+  document.getElementById('results').innerHTML=`
+    <div class="result hl"><div class="k">Вес металла</div><div class="v">${(r.totalKg/1000).toFixed(2)}<small>т</small></div><div class="sub">${Math.round(r.totalKg).toLocaleString('ru-RU')} кг</div></div>
+    <div class="result"><div class="k">Площадь цинкования</div><div class="v">${Math.round(r.area)}<small>м²</small></div><div class="sub">горячее цинкование</div></div>
+    <div class="result"><div class="k">Стойки</div><div class="v">${r.posts}<small>шт</small></div><div class="sub">балок: ${r.beams} шт</div></div>`;
+  document.getElementById('breakdown').innerHTML=`
     <div class="bd-row"><span class="lbl">Балка (направляющая планка)</span><span class="val">${Math.round(r.beamW).toLocaleString('ru-RU')} кг</span></div>
     <div class="bd-row"><span class="lbl">Стойки (${r.posts} шт)</span><span class="val">${Math.round(r.postW).toLocaleString('ru-RU')} кг</span></div>
     <div class="bd-row"><span class="lbl">Консоли-распорки</span><span class="val">${Math.round(r.consoleW).toLocaleString('ru-RU')} кг</span></div>
-    <div class="bd-row"><span class="lbl">Крепёж</span><span class="val">${Math.round(r.fixW).toLocaleString('ru-RU')} кг</span></div>
-  `;
-
-  const msg = `Здравствуйте, CELKONSAN! Нужен расчёт дорожного ограждения:%0A`+
-    `• Тип: ${DATA[state.type].label}%0A`+
-    `• Длина: ${state.len} м%0A`+
-    `• Шаг стоек: ${state.step} м%0A`+
-    `• Высота стойки: ${state.height} м%0A`+
-    `• Ориентировочный вес: ${(r.totalKg/1000).toFixed(2)} т%0A`+
-    `Прошу подготовить точную спецификацию и стоимость цинкования.`;
-  document.getElementById('waBtn').href = `https://wa.me/77477571465?text=${msg}`;
-
-  update3D(r);
+    <div class="bd-row"><span class="lbl">Крепёж</span><span class="val">${Math.round(r.fixW).toLocaleString('ru-RU')} кг</span></div>`;
+  const msg=`Здравствуйте, CELKONSAN! Расчёт дорожного ограждения:%0A• Тип: ${BARRIER[bs.type].label}%0A• Длина: ${bs.len} м%0A• Шаг стоек: ${bs.step} м%0A• Высота: ${bs.h} м%0A• Ориент. вес: ${(r.totalKg/1000).toFixed(2)} т%0AПрошу точную спецификацию и стоимость цинкования.`;
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=${msg}`;
+  document.getElementById('note').innerHTML=`<strong>Предварительный расчёт.</strong> Значения по типовым профилям ГОСТ 26804-2012, носят оценочный характер. Точную спецификацию предоставит инженер CELKONSAN после согласования чертежа.`;
+  document.getElementById('stdBadge').textContent='ГОСТ 26804-2012';
+  update3D_barrier(r);
+}
+function renderSteel(){
+  const r=calcSteel();
+  document.getElementById('results').innerHTML=`
+    <div class="result hl"><div class="k">Расход металла</div><div class="v">${r.tons.toFixed(1)}<small>т</small></div><div class="sub">${Math.round(r.totalKg).toLocaleString('ru-RU')} кг · ${r.k} кг/м²</div></div>
+    <div class="result"><div class="k">Трудозатраты</div><div class="v">${Math.round(r.totH).toLocaleString('ru-RU')}<small>н-ч</small></div><div class="sub">изготовление + монтаж</div></div>
+    <div class="result"><div class="k">Срок (оценка)</div><div class="v">${r.days}<small>дн</small></div><div class="sub">бригада 6 чел</div></div>`;
+  document.getElementById('breakdown').innerHTML=`
+    <div class="bd-row"><span class="lbl">Изготовление конструкций</span><span class="val">${Math.round(r.fabH).toLocaleString('ru-RU')} н-ч</span></div>
+    <div class="bd-row"><span class="lbl">Монтаж на объекте</span><span class="val">${Math.round(r.montH).toLocaleString('ru-RU')} н-ч</span></div>
+    <div class="bd-row"><span class="lbl">Площадь под цинкование</span><span class="val">${Math.round(r.area).toLocaleString('ru-RU')} м²</span></div>
+    <div class="bd-row"><span class="lbl">Удельный расход стали</span><span class="val">${r.k} кг/м²</span></div>`;
+  const msg=`Здравствуйте, CELKONSAN! Расчёт металлоконструкции:%0A• Тип: ${STEEL[ss.type].label}%0A• Площадь: ${ss.area} м²%0A• Высота: ${ss.h} м%0A• Этажность: ${ss.floors}%0A• Ориент. вес: ${r.tons.toFixed(1)} т%0A• Трудозатраты: ~${Math.round(r.totH)} н-ч%0AПрошу подготовить КМ/КМД и коммерческое предложение.`;
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=${msg}`;
+  document.getElementById('note').innerHTML=`<strong>Предварительная оценка.</strong> Расход металла зависит от пролётов, снеговой/ветровой нагрузки, кранов и норм. Точный вес по КМ/КМД и стоимость рассчитает конструкторский отдел CELKONSAN.`;
+  document.getElementById('stdBadge').textContent='СП РК / СНиП';
+  update3D_steel(r);
 }
 
-// ---- UI BINDINGS ----
-document.querySelectorAll('#type button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('#type button').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); state.type=b.dataset.v; render();
+/* ============ UI ============ */
+document.querySelectorAll('#modes button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#modes button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on'); mode=b.dataset.m;
+  document.getElementById('inpBarrier').style.display = mode==='barrier'?'block':'none';
+  document.getElementById('inpSteel').style.display   = mode==='steel'?'block':'none';
+  render();
 });
-document.querySelectorAll('#step button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('#step button').forEach(x=>x.classList.remove('on'));
-  b.classList.add('on'); state.step=+b.dataset.v; render();
-});
-document.getElementById('len').oninput=e=>{
-  state.len=+e.target.value;
-  document.getElementById('lenVal').innerHTML=state.len+'<small> м</small>'; render();
-};
-document.getElementById('height').oninput=e=>{
-  state.height=+e.target.value;
-  document.getElementById('hVal').innerHTML=state.height.toFixed(1)+'<small> м</small>'; render();
-};
+// barrier inputs
+document.querySelectorAll('#bType button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#bType button').forEach(x=>x.classList.remove('on'));b.classList.add('on');bs.type=b.dataset.v;render();});
+document.querySelectorAll('#bStep button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#bStep button').forEach(x=>x.classList.remove('on'));b.classList.add('on');bs.step=+b.dataset.v;render();});
+document.getElementById('bLen').oninput=e=>{bs.len=+e.target.value;document.getElementById('bLenVal').innerHTML=bs.len+'<small> м</small>';render();};
+document.getElementById('bH').oninput=e=>{bs.h=+e.target.value;document.getElementById('bHVal').innerHTML=bs.h.toFixed(1)+'<small> м</small>';render();};
+// steel inputs
+document.querySelectorAll('#sType button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sType button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ss.type=b.dataset.v;render();});
+document.querySelectorAll('#sFloors button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sFloors button').forEach(x=>x.classList.remove('on'));b.classList.add('on');ss.floors=+b.dataset.v;render();});
+document.getElementById('sArea').oninput=e=>{ss.area=+e.target.value;document.getElementById('sAreaVal').innerHTML=ss.area.toLocaleString('ru-RU')+'<small> м²</small>';render();};
+document.getElementById('sH').oninput=e=>{ss.h=+e.target.value;document.getElementById('sHVal').innerHTML=ss.h+'<small> м</small>';render();};
 
-// ---- THREE.JS 3D ----
+/* ============ THREE.JS ============ */
 let scene,camera,renderer,group;
 function init3D(){
   const cv=document.getElementById('canvas3d');
-  scene=new THREE.Scene();
-  scene.fog=new THREE.Fog(0x0a0e14,15,55);
-  camera=new THREE.PerspectiveCamera(50,cv.clientWidth/cv.clientHeight,0.1,200);
-  camera.position.set(14,9,16);
-  camera.lookAt(0,0,0);
+  scene=new THREE.Scene();scene.fog=new THREE.Fog(0x0a0e14,25,90);
+  camera=new THREE.PerspectiveCamera(50,cv.clientWidth/cv.clientHeight,0.1,400);
   renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
-  renderer.setSize(cv.clientWidth,cv.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-
+  renderer.setSize(cv.clientWidth,cv.clientHeight);renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
   scene.add(new THREE.AmbientLight(0x6688aa,0.7));
-  const d1=new THREE.DirectionalLight(0xffffff,0.9); d1.position.set(10,20,12); scene.add(d1);
-  const d2=new THREE.DirectionalLight(0x2f81f7,0.5); d2.position.set(-12,6,-8); scene.add(d2);
-
-  // grid floor
-  const grid=new THREE.GridHelper(60,30,0x1d2733,0x141b24);
-  grid.position.y=-0.01; scene.add(grid);
-
-  group=new THREE.Group(); scene.add(group);
+  const d1=new THREE.DirectionalLight(0xffffff,0.9);d1.position.set(20,30,20);scene.add(d1);
+  const d2=new THREE.DirectionalLight(0x2f81f7,0.5);d2.position.set(-20,10,-15);scene.add(d2);
+  const grid=new THREE.GridHelper(120,40,0x1d2733,0x141b24);grid.position.y=-0.01;scene.add(grid);
+  group=new THREE.Group();scene.add(group);
   animate();
 }
-function update3D(r){
-  if(!group)return;
-  while(group.children.length)group.remove(group.children[0]);
+function clearGroup(){while(group.children.length)group.remove(group.children[0]);}
+const steel=()=>new THREE.MeshStandardMaterial({color:0xb8c4d0,metalness:0.85,roughness:0.35});
+const steelD=()=>new THREE.MeshStandardMaterial({color:0x8896a4,metalness:0.8,roughness:0.4});
 
-  const steel=new THREE.MeshStandardMaterial({color:0xb8c4d0,metalness:0.85,roughness:0.35});
-  const steel2=new THREE.MeshStandardMaterial({color:0x8896a4,metalness:0.8,roughness:0.4});
-
-  const shown=Math.min(r.posts,40);        // ограничим для производительности
-  const spanShown=(shown-1)*state.step;
-  const offset=-spanShown/2;
-  const h=state.height;
-
-  for(let i=0;i<shown;i++){
-    const x=offset+i*state.step;
-    // стойка
-    const post=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),steel2);
-    post.position.set(x,h/2,0); group.add(post);
-    if(r.sides===2){
-      const p2=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),steel2);
-      p2.position.set(x,h/2,-0.6); group.add(p2);
-    }
-  }
-  // балка (W-beam) как длинная лента на высоте ~0.6h
+function fitCamera(span){
+  const d=span*1.4+8;
+  camera.position.set(d*0.7,d*0.5,d*0.8);camera.lookAt(0,span*0.05,0);
+}
+function update3D_barrier(r){
+  if(!group)return;clearGroup();
+  const shown=Math.min(r.posts,40),span=(shown-1)*bs.step,off=-span/2,h=bs.h;
+  for(let i=0;i<shown;i++){const x=off+i*bs.step;
+    const p=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),steelD());p.position.set(x,h/2,0);group.add(p);
+    if(r.sides===2){const p2=new THREE.Mesh(new THREE.BoxGeometry(0.12,h,0.12),steelD());p2.position.set(x,h/2,-0.6);group.add(p2);}}
   const by=h*0.62;
-  const beam=new THREE.Mesh(new THREE.BoxGeometry(spanShown+1,0.32,0.08),steel);
-  beam.position.set(0,by,0.1); group.add(beam);
-  const beamRidge=new THREE.Mesh(new THREE.BoxGeometry(spanShown+1,0.06,0.16),steel);
-  beamRidge.position.set(0,by,0.14); group.add(beamRidge);
-  if(r.sides===2){
-    const b2=new THREE.Mesh(new THREE.BoxGeometry(spanShown+1,0.32,0.08),steel);
-    b2.position.set(0,by,-0.7); group.add(b2);
+  const beam=new THREE.Mesh(new THREE.BoxGeometry(span+1,0.32,0.08),steel());beam.position.set(0,by,0.1);group.add(beam);
+  if(r.sides===2){const b2=new THREE.Mesh(new THREE.BoxGeometry(span+1,0.32,0.08),steel());b2.position.set(0,by,-0.7);group.add(b2);}
+  fitCamera(span);
+  document.getElementById('vpInfo').textContent='стоек: '+shown+'/'+r.posts;
+}
+function update3D_steel(r){
+  if(!group)return;clearGroup();
+  // footprint from area (assume rectangle ~1.5:1)
+  const W=Math.sqrt(ss.area*1.5), D=ss.area/W;
+  const bay=6; // 6m grid
+  const nx=Math.max(2,Math.min(12,Math.round(W/bay)+1));
+  const nz=Math.max(2,Math.min(10,Math.round(D/bay)+1));
+  const sx=W/(nx-1), sz=D/(nz-1), h=ss.h*ss.floors, ox=-W/2, oz=-D/2;
+  // columns
+  for(let i=0;i<nx;i++)for(let j=0;j<nz;j++){
+    const c=new THREE.Mesh(new THREE.BoxGeometry(0.2,h,0.2),steelD());
+    c.position.set(ox+i*sx,h/2,oz+j*sz);group.add(c);
   }
-  document.getElementById('segInfo').textContent='показано стоек: '+shown+' / '+r.posts;
+  // top beams along X
+  for(let j=0;j<nz;j++){const b=new THREE.Mesh(new THREE.BoxGeometry(W,0.22,0.14),steel());b.position.set(0,h,oz+j*sz);group.add(b);}
+  // top beams along Z
+  for(let i=0;i<nx;i++){const b=new THREE.Mesh(new THREE.BoxGeometry(0.14,0.22,D),steel());b.position.set(ox+i*sx,h,0);group.add(b);}
+  // floor beams for multi-storey
+  for(let f=1;f<ss.floors;f++){const y=ss.h*f;
+    for(let j=0;j<nz;j++){const b=new THREE.Mesh(new THREE.BoxGeometry(W,0.18,0.1),steelD());b.position.set(0,y,oz+j*sz);group.add(b);}}
+  // simple gable roof ridge (single storey only)
+  if(ss.floors===1){
+    const ridge=new THREE.Mesh(new THREE.BoxGeometry(W,0.16,0.1),steel());ridge.position.set(0,h+Math.min(D*0.12,2.5),0);group.add(ridge);
+    for(let i=0;i<nx;i++){const x=ox+i*sx;
+      const rf=new THREE.Mesh(new THREE.BoxGeometry(0.1,0.14,D*0.55),steelD());
+      rf.position.set(x,h+Math.min(D*0.06,1.25),0);rf.rotation.x=0.32;group.add(rf);}
+  }
+  fitCamera(Math.max(W,D));
+  document.getElementById('vpInfo').textContent=`каркас ${nx}×${nz} · ${Math.round(W)}×${Math.round(D)} м`;
 }
 let t=0;
-function animate(){
-  requestAnimationFrame(animate);
-  t+=0.0035;
-  if(group)group.rotation.y=Math.sin(t)*0.35+0.3;
-  renderer.render(scene,camera);
-}
-window.addEventListener('resize',()=>{
-  const cv=document.getElementById('canvas3d');
-  camera.aspect=cv.clientWidth/cv.clientHeight;camera.updateProjectionMatrix();
-  renderer.setSize(cv.clientWidth,cv.clientHeight);
-});
+function animate(){requestAnimationFrame(animate);t+=0.0035;if(group)group.rotation.y=Math.sin(t)*0.4+0.4;renderer.render(scene,camera);}
+window.addEventListener('resize',()=>{const cv=document.getElementById('canvas3d');camera.aspect=cv.clientWidth/cv.clientHeight;camera.updateProjectionMatrix();renderer.setSize(cv.clientWidth,cv.clientHeight);});
 
-init3D();
-render();
+init3D();render();
 </script>
 </body>
 </html>
