@@ -436,14 +436,22 @@ function update3D_steel(r){clearGroup();
   // стеновые ригели (girts) — пара линий
   beamBetween({x:-hw,y:h*0.5,z:ox},{x:-hw,y:h*0.5,z:ox+length},0.07);
   beamBetween({x:hw,y:h*0.5,z:ox},{x:hw,y:h*0.5,z:ox+length},0.07);
-  // связи (тонкие диагонали) в торце
-  const braceMat=new THREE.MeshStandardMaterial({color:0x9aa6b2,metalness:0.1,roughness:0.7});
+  // ===== СВЯЗИ (cross-bracing) — как на чертеже КМ =====
+  const braceMat=new THREE.MeshStandardMaterial({color:0x7fb0ff,metalness:0.1,roughness:0.6});
   const brace=(p1,p2)=>{const dx=p2.x-p1.x,dy=p2.y-p1.y,dz=p2.z-p1.z;const len=Math.sqrt(dx*dx+dy*dy+dz*dz);
-    const g=new THREE.Mesh(new THREE.BoxGeometry(len,0.03,0.03),braceMat);
+    const g=new THREE.Mesh(new THREE.BoxGeometry(len,0.05,0.05),braceMat);
     g.position.set((p1.x+p2.x)/2,(p1.y+p2.y)/2,(p1.z+p2.z)/2);
     g.rotation.z=Math.atan2(dy,dx);g.rotation.y=Math.atan2(-dz,Math.sqrt(dx*dx+dy*dy));group.add(g);};
-  brace({x:-hw,y:0,z:ox},{x:hw,y:h,z:ox+fs});
-  brace({x:hw,y:0,z:ox},{x:-hw,y:h,z:ox+fs});
+  // вертикальная X-связь между колоннами одной стены
+  const wallX=(x,z0,z1)=>{brace({x,y:0,z:z0},{x,y:h,z:z1});brace({x,y:h,z:z0},{x,y:0,z:z1});};
+  // связь покрытия (в плоскости ската) — X по бухте
+  const roofX=(z0,z1)=>{
+    brace({x:-hw,y:h,z:z0},{x:apex.x,y:apex.y,z:z1});brace({x:apex.x,y:apex.y,z:z0},{x:-hw,y:h,z:z1});
+    if(ss.roof!=='single'){brace({x:hw,y:h,z:z0},{x:apex.x,y:apex.y,z:z1});brace({x:apex.x,y:apex.y,z:z0},{x:hw,y:h,z:z1});}
+  };
+  // ставим связи в крайних бухтах (как в типовых решениях)
+  const bays=[[ox,ox+fs],[ox+length-fs,ox+length]];
+  bays.forEach(([z0,z1])=>{ wallX(-hw,z0,z1); wallX(hw,z0,z1); roofX(z0,z1); });
 
   fitCamera(Math.max(span,length)*1.05);
   document.getElementById('vpInfo').textContent=`${frames} рам · ${Math.round(span)}×${Math.round(length)} м · ${({gable:'двускат',single:'односкат',flat:'плоская'})[ss.roof]}`;
