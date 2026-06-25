@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О компании CELKONSAN — История и команда</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0a2540">
+
     <meta name="description" content="CELKONSAN — филиал промышленного предприятия в Казахстане с 2018 года. Команда профессионалов, опыт, сертификаты.">
     
     <style>
@@ -49,7 +55,7 @@
         
 
         /* MOBILE BOTTOM NAV */
-        .bottom-nav {
+        .bottom-nav { padding-bottom: env(safe-area-inset-bottom);
             display: none; position: fixed; bottom: 0; left: 0; right: 0;
             background: #fff; border-top: 1px solid #f0f0f0;
             z-index: 100; padding: 0.75rem 0;
@@ -318,6 +324,22 @@
     <nav class="bottom-nav" id="bottomNav">
         <div class="nav-items">
             <a href="/" class="nav-item">
+                <span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span>
+                <span class="nav-label">Главная</span>
+            </a>
+            <a href="galvanizaciya.html" class="nav-item">
+                <span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M12 3s5.5 5.7 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.7 12 3 12 3z"/><path d="M9.5 13.2a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
+                <span class="nav-label">Цинкование</span>
+            </a>
+            <a href="barieri.html" class="nav-item">
+                <span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M2 9h20M2 14h20"/><path d="M6 9v9M12 9v9M18 9v9"/></svg></span>
+                <span class="nav-label">Ограждения</span>
+            </a>
+            <a href="kalkulyator.html" class="nav-item">
+                <span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8.5 11h0M12 11h0M15.5 11h0M8.5 14h0M12 14h0M15.5 14h0M8.5 17h0M12 17h0"/></svg></span>
+                <span class="nav-label">Калькулятор</span>
+            </a>
+            <a href="tel:+77477571465" class="nav-item">
                 <span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M5 4h3.4l1.7 4.3-2.1 1.3a11 11 0 0 0 5 5l1.3-2.1L19.7 15.3V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a1 1 0 0 1 1-1z"/></svg></span>
                 <span class="nav-label">Звонить</span>
             </a>
