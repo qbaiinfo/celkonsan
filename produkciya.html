@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Анкерные блоки — Готовая продукция | CELKONSAN Алматы</title>
+<meta name="description" content="Анкерные блоки CELKONSAN — готовые фундаменты для опор освещения, дорожных знаков, барьерных ограждений и металлоконструкций. Оцинкованная анкерная группа. Алматы, склад.">
+<meta name="keywords" content="анкерные блоки, фундаментные блоки, анкерная группа, опоры освещения, фундамент под опору, оцинкованные анкера, Алматы, Казахстан">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0a2540">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #000; line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        
+        header { 
+            position: sticky; top: 0; z-index: 100; 
+            padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #f0f0f0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo img { height: 40px; width: auto; }
+        nav { display: flex; gap: 2rem; font-size: 13px; }
+        nav a { color: #666; transition: color 0.2s; }
+        nav a:hover { color: #000; }
+        nav a.active { color: #0052cc; font-weight: 700; }
+        
+        .hero { padding: 4rem 2rem; background: #f8f8f8; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 1rem; }
+        
+        section { padding: 4rem 2rem; }
+        h2 { font-size: 32px; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; }
+        h3 { font-size: 18px; font-weight: 700; margin: 2rem 0 1rem; }
+        p { font-size: 15px; line-height: 1.8; color: #666; margin-bottom: 1rem; }
+        
+        .types-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .type-card { padding: 2rem; border: 1px solid #e0e0e0; }
+        .type-title { font-size: 16px; font-weight: 700; margin-bottom: 1rem; }
+        
+        .specs { background: #f8f8f8; padding: 2rem; margin: 2rem 0; border-radius: 4px; }
+        .spec-item { padding: 1rem 0; border-bottom: 1px solid #ddd; }
+        
+        footer { padding: 2rem; background: #000; color: #fff; text-align: center; font-size: 12px; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: #0052cc; font-weight: 600; }
+        
+
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav { padding-bottom: env(safe-area-inset-bottom);
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s; text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; }
+            .bottom-nav { display: flex; }
+        }
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+            nav { flex-direction: column; gap: 0.5rem; }
+            .hero h1 { font-size: 28px; }
+
+        /* HAMBURGER MENU */
+        .hamburger { 
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 0.5rem; margin-left: 1rem;
+        }
+        .hamburger span { 
+            width: 24px; height: 2px; background: #000; 
+            transition: all 0.3s ease; display: block;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        
+        /* MOBILE NAV */
+        .nav-mobile { 
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; border-bottom: 1px solid #f0f0f0; flex-direction: column;
+            padding: 1rem 2rem; gap: 1rem; z-index: 99;
+        }
+        .nav-mobile.active { display: flex; }
+        .nav-mobile a { 
+            padding: 0.75rem 0; font-size: 14px; color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s; text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; }
+            .bottom-nav { display: flex; }
+        }
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .hamburger { display: flex; }
+        }
+        }
+    
+        @media(max-width:760px){
+          .hero > div{grid-template-columns:1fr !important;}
+          .hero svg{max-height:240px !important;}
+          .hero > div > div:first-child{padding:2rem 1.25rem !important;margin:0 !important;}
+        }
+    </style>
+
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-logo">
+            <a href="/"><img src="celkonsan_logo.png" alt="CELKONSAN" style="height: 45px; width: auto;"></a>
+        </div>
+        <nav class="nav-desktop">
+            <a href="/">Главная</a>
+            <a href="produkciya.html" style="color:#2f81f7;font-weight:700;">Продукция</a>
+            <a href="galvanizaciya.html">Горячее цинкование</a>
+            <a href="barieri.html">Дорожные ограждения</a>
+            <a href="kalkulyator.html">🧮 Калькулятор</a>
+            <a href="o-kompanii.html">О компании</a>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </header>
+    <nav class="nav-mobile" id="mobileMenu">
+        <a href="/">Главная</a>
+        <a href="produkciya.html" style="color:#2f81f7;font-weight:700;">Готовая продукция</a>
+        <a href="galvanizaciya.html">Горячее цинкование</a>
+        <a href="barieri.html">Дорожные ограждения</a>
+        <a href="kalkulyator.html">🧮 Калькулятор металла</a>
+        <a href="o-kompanii.html">О компании</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" style="background:#0b0d10;color:#fff;position:relative;overflow:hidden;padding:0;">
+      <div style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:380px;">
+        <div style="padding:3rem 2rem;position:relative;z-index:2;max-width:560px;margin-left:auto;">
+          <a href="/" class="back-link" style="color:#ff8a18;">← На главную</a>
+          <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;">ГОТОВАЯ ПРОДУКЦИЯ · СО СКЛАДА</div>
+          <h1 style="font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;">Анкерные<br/>блоки</h1>
+          <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;">Готовые фундаментные блоки с оцинкованной анкерной группой для опор освещения, дорожных знаков, барьеров и металлоконструкций. Быстрый монтаж, точная геометрия.</p>
+        </div>
+        <!-- SVG: ankraj bloğu (izometrik) -->
+        <svg viewBox="0 0 420 380" width="100%" height="100%" style="display:block;max-height:380px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="nut" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3e9f0"/><stop offset="1" stop-color="#8b97a4"/></linearGradient>
+    <radialGradient id="gl3" cx="50%" cy="100%" r="70%"><stop offset="0" stop-color="#ff8a18" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a18" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="420" height="380" fill="#0b0d10"/>
+  <ellipse cx="200" cy="330" rx="180" ry="55" fill="url(#gl3)"/>
+  <polygon points="95,285 245,285 300,230 150,230" fill="none" stroke="#7a8694" stroke-width="9" stroke-linejoin="round"/><polygon points="95,285 245,285 300,230 150,230" fill="none" stroke="#aeb8c4" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="95,215 245,215 300,160 150,160" fill="none" stroke="#7a8694" stroke-width="9" stroke-linejoin="round"/><polygon points="95,215 245,215 300,160 150,160" fill="none" stroke="#aeb8c4" stroke-width="3" stroke-linejoin="round"/>
+  <line x1="150" y1="45" x2="150" y2="256" stroke="#6b7682" stroke-width="7" stroke-linecap="round"/><line x1="150" y1="45" x2="150" y2="256" stroke="#cfd8e2" stroke-width="3" stroke-linecap="round"/><line x1="146" y1="53" x2="154" y2="51" stroke="#8b97a4" stroke-width="1.4"/><line x1="146" y1="60" x2="154" y2="58" stroke="#8b97a4" stroke-width="1.4"/><line x1="146" y1="67" x2="154" y2="65" stroke="#8b97a4" stroke-width="1.4"/><line x1="146" y1="74" x2="154" y2="72" stroke="#8b97a4" stroke-width="1.4"/><line x1="146" y1="81" x2="154" y2="79" stroke="#8b97a4" stroke-width="1.4"/><line x1="146" y1="88" x2="154" y2="86" stroke="#8b97a4" stroke-width="1.4"/><line x1="146" y1="95" x2="154" y2="93" stroke="#8b97a4" stroke-width="1.4"/><path d="M150 256 q0 14 -13 16" stroke="#6b7682" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M150 256 q0 14 -13 16" stroke="#cfd8e2" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="150" cy="47" rx="11" ry="4" fill="#9aa6b2" stroke="#5a6470" stroke-width="1"/><polygon points="150.0,34.1 156.1,36.5 156.1,41.5 150.0,43.9 143.9,41.5 143.9,36.5" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><polygon points="150.0,22.1 156.1,24.6 156.1,29.4 150.0,31.9 143.9,29.4 143.9,24.6" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><line x1="300" y1="45" x2="300" y2="256" stroke="#6b7682" stroke-width="7" stroke-linecap="round"/><line x1="300" y1="45" x2="300" y2="256" stroke="#cfd8e2" stroke-width="3" stroke-linecap="round"/><line x1="296" y1="53" x2="304" y2="51" stroke="#8b97a4" stroke-width="1.4"/><line x1="296" y1="60" x2="304" y2="58" stroke="#8b97a4" stroke-width="1.4"/><line x1="296" y1="67" x2="304" y2="65" stroke="#8b97a4" stroke-width="1.4"/><line x1="296" y1="74" x2="304" y2="72" stroke="#8b97a4" stroke-width="1.4"/><line x1="296" y1="81" x2="304" y2="79" stroke="#8b97a4" stroke-width="1.4"/><line x1="296" y1="88" x2="304" y2="86" stroke="#8b97a4" stroke-width="1.4"/><line x1="296" y1="95" x2="304" y2="93" stroke="#8b97a4" stroke-width="1.4"/><path d="M300 256 q0 14 -13 16" stroke="#6b7682" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M300 256 q0 14 -13 16" stroke="#cfd8e2" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="300" cy="47" rx="11" ry="4" fill="#9aa6b2" stroke="#5a6470" stroke-width="1"/><polygon points="300.0,34.1 306.1,36.5 306.1,41.5 300.0,43.9 293.9,41.5 293.9,36.5" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><polygon points="300.0,22.1 306.1,24.6 306.1,29.4 300.0,31.9 293.9,29.4 293.9,24.6" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><line x1="95" y1="100" x2="95" y2="311" stroke="#6b7682" stroke-width="7" stroke-linecap="round"/><line x1="95" y1="100" x2="95" y2="311" stroke="#cfd8e2" stroke-width="3" stroke-linecap="round"/><line x1="91" y1="108" x2="99" y2="106" stroke="#8b97a4" stroke-width="1.4"/><line x1="91" y1="115" x2="99" y2="113" stroke="#8b97a4" stroke-width="1.4"/><line x1="91" y1="122" x2="99" y2="120" stroke="#8b97a4" stroke-width="1.4"/><line x1="91" y1="129" x2="99" y2="127" stroke="#8b97a4" stroke-width="1.4"/><line x1="91" y1="136" x2="99" y2="134" stroke="#8b97a4" stroke-width="1.4"/><line x1="91" y1="143" x2="99" y2="141" stroke="#8b97a4" stroke-width="1.4"/><line x1="91" y1="150" x2="99" y2="148" stroke="#8b97a4" stroke-width="1.4"/><path d="M95 311 q0 14 -13 16" stroke="#6b7682" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M95 311 q0 14 -13 16" stroke="#cfd8e2" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="95" cy="102" rx="11" ry="4" fill="#9aa6b2" stroke="#5a6470" stroke-width="1"/><polygon points="95.0,89.1 101.1,91.5 101.1,96.5 95.0,98.9 88.9,96.5 88.9,91.5" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><polygon points="95.0,77.1 101.1,79.5 101.1,84.5 95.0,86.9 88.9,84.5 88.9,79.5" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><line x1="245" y1="100" x2="245" y2="311" stroke="#6b7682" stroke-width="7" stroke-linecap="round"/><line x1="245" y1="100" x2="245" y2="311" stroke="#cfd8e2" stroke-width="3" stroke-linecap="round"/><line x1="241" y1="108" x2="249" y2="106" stroke="#8b97a4" stroke-width="1.4"/><line x1="241" y1="115" x2="249" y2="113" stroke="#8b97a4" stroke-width="1.4"/><line x1="241" y1="122" x2="249" y2="120" stroke="#8b97a4" stroke-width="1.4"/><line x1="241" y1="129" x2="249" y2="127" stroke="#8b97a4" stroke-width="1.4"/><line x1="241" y1="136" x2="249" y2="134" stroke="#8b97a4" stroke-width="1.4"/><line x1="241" y1="143" x2="249" y2="141" stroke="#8b97a4" stroke-width="1.4"/><line x1="241" y1="150" x2="249" y2="148" stroke="#8b97a4" stroke-width="1.4"/><path d="M245 311 q0 14 -13 16" stroke="#6b7682" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M245 311 q0 14 -13 16" stroke="#cfd8e2" stroke-width="3" fill="none" stroke-linecap="round"/><ellipse cx="245" cy="102" rx="11" ry="4" fill="#9aa6b2" stroke="#5a6470" stroke-width="1"/><polygon points="245.0,89.1 251.1,91.5 251.1,96.5 245.0,98.9 238.9,96.5 238.9,91.5" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/><polygon points="245.0,77.1 251.1,79.5 251.1,84.5 245.0,86.9 238.9,84.5 238.9,79.5" fill="url(#nut)" stroke="#5a6470" stroke-width="1"/>
+  <text x="115" y="362" fill="#7d8896" font-family="monospace" font-size="12">Анкерный блок (закладная корзина)</text>
+</svg>
+      </div>
+    </section>
+
+    <!-- ÜRÜN AÇIKLAMA -->
+    <section>
+      <div class="container">
+        <h2>Что такое анкерный блок?</h2>
+        <p>Анкерный блок (закладная анкерная корзина) — это готовая сварная конструкция из анкерных болтов, объединённых обоймами-шаблонами. Закладывается в фундамент и обеспечивает точную установку опор и металлоконструкций.</p>
+        <p>Анкерная группа изготавливается из стали и проходит <strong>горячее цинкование</strong> — защита от коррозии на весь срок службы конструкции.</p>
+        <h3>Преимущества:</h3>
+        <p>✓ Готовое решение — монтаж за часы, а не дни<br/>
+        ✓ Точная геометрия анкеров (кондуктор)<br/>
+        ✓ Горячее цинкование 80+ мкм (ГОСТ 9.307-89)<br/>
+        ✓ Высокая несущая способность<br/>
+        ✓ Складская программа — быстрая отгрузка</p>
+      </div>
+    </section>
+
+    <!-- UYGULAMA -->
+    <section style="background:#f8f8f8;">
+      <div class="container">
+        <h2>Применение</h2>
+        <p>• Опоры освещения и мачты<br/>
+        • Дорожные знаки и светофоры<br/>
+        • Барьерные и пешеходные ограждения<br/>
+        • Стойки рекламных конструкций (билборды)<br/>
+        • Колонны лёгких металлоконструкций (навесы, павильоны)<br/>
+        • Опоры ЛЭП и связи</p>
+      </div>
+    </section>
+
+    <!-- TEKNİK -->
+    <section>
+      <div class="container">
+        <h2>Технические характеристики</h2>
+        <div class="specs">
+          <div class="spec-item"><strong>Конструкция:</strong> сварная корзина (болты + обоймы-шаблоны)</div>
+          <div class="spec-item"><strong>Анкерные болты:</strong> М16–М48 (фундаментные, тип по ГОСТ 24379)</div>
+          <div class="spec-item"><strong>Покрытие:</strong> горячее цинкование 80+ мкм (ГОСТ 9.307-89)</div>
+          <div class="spec-item"><strong>Кол-во анкеров:</strong> 4 / 6 / 8 (по типу опоры)</div>
+          <div class="spec-item"><strong>Геометрия:</strong> по кондуктору заказчика или типовая</div>
+          <div class="spec-item"><strong>Изготовление:</strong> типовые и по чертежу КМ/КМД</div>
+        </div>
+        <p style="margin-top:1rem;font-size:13px;color:#999;">* Точные размеры, класс бетона и тип анкеров подбираются под вашу опору/нагрузку.</p>
+      </div>
+    </section>
+
+    <!-- SİPARİŞ -->
+    <section style="background:#0b0d10;color:#fff;">
+      <div class="container">
+        <h2 style="color:#fff;">Заказать анкерные блоки</h2>
+        <p style="color:rgba(255,255,255,.7);">Пришлите тип опоры, нагрузку или чертёж — подготовим спецификацию и стоимость.</p>
+        <p style="margin-top:1rem;"><strong>Телефон:</strong> +7 747 757 1465<br/><strong>Адрес:</strong> 7-я улица, 130а/5, Алматы</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a href="https://wa.me/77477571465?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20CELKONSAN!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B0%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B5%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8.%20%D0%9F%D1%80%D0%BE%D1%88%D1%83%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D0%B8%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C." target="_blank" style="padding:1rem 2rem;background:#25D366;color:#fff;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">💬 Заказать в WhatsApp</a>
+          <a href="kalkulyator.html" style="padding:1rem 2rem;background:#ff8a18;color:#0b0d10;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">🧮 Калькулятор металла</a>
+        </div>
+      </div>
+    </section>
+
+    <footer><p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p></footer>
+
+    <!-- MOBILE BOTTOM NAV -->
+    <nav class="bottom-nav" id="bottomNav">
+        <div class="nav-items">
+            <a href="/" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span><span class="nav-label">Главная</span></a>
+            <a href="produkciya.html" class="nav-item active"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span><span class="nav-label">Продукция</span></a>
+            <a href="galvanizaciya.html" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M12 3s5.5 5.7 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.7 12 3 12 3z"/><path d="M9.5 13.2a2.5 2.5 0 0 0 2.5 2.5"/></svg></span><span class="nav-label">Цинкование</span></a>
+            <a href="barieri.html" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M2 9h20M2 14h20"/><path d="M6 9v9M12 9v9M18 9v9"/></svg></span><span class="nav-label">Ограждения</span></a>
+            <a href="kalkulyator.html" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8.5 11h0M12 11h0M15.5 11h0M8.5 14h0M12 14h0M15.5 14h0M8.5 17h0M12 17h0"/></svg></span><span class="nav-label">Калькулятор</span></a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu(){document.querySelector('.hamburger').classList.toggle('active');document.getElementById('mobileMenu').classList.toggle('active');}
+        document.querySelectorAll('.nav-mobile a').forEach(l=>l.addEventListener('click',()=>{document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileMenu').classList.remove('active');}));
+    </script>
+</body>
+</html>
