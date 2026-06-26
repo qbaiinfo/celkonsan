@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Инженерный калькулятор — CELKONSAN | Ограждения, металлоконструкции, цинкование</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0a2540">
+
 <meta name="description" content="Онлайн-калькулятор: вес дорожных ограждений, металлоконструкций и площадь горячего цинкования своего металла (трубы, профиль, лист, уголок). CELKONSAN Алматы.">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
@@ -288,7 +294,7 @@ function renderBarrier(){const r=calcBarrier();
     <div class="bd-row"><span class="lbl">Стойки (${r.posts} шт)</span><span class="val">${Math.round(r.postW).toLocaleString('ru-RU')} кг</span></div>
     <div class="bd-row"><span class="lbl">Консоли-распорки</span><span class="val">${Math.round(r.consoleW).toLocaleString('ru-RU')} кг</span></div>
     <div class="bd-row"><span class="lbl">Крепёж</span><span class="val">${Math.round(r.fixW).toLocaleString('ru-RU')} кг</span></div>`;
-  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`Здравствуйте, CELKONSAN! Расчёт ограждения:\n• Тип: ${BARRIER[bs.type].label}\n• Длина: ${bs.len} м\n• Шаг стоек: ${bs.step} м\n• Высота: ${bs.h} м\n• Ориент. вес: ${(r.totalKg/1000).toFixed(2)} т\nПрошу точную спецификацию.`);
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`[📲 САЙТ celkonsan.kz · Калькулятор] Здравствуйте, CELKONSAN! Расчёт ограждения:\n• Тип: ${BARRIER[bs.type].label}\n• Длина: ${bs.len} м\n• Шаг стоек: ${bs.step} м\n• Высота: ${bs.h} м\n• Ориент. вес: ${(r.totalKg/1000).toFixed(2)} т\nПрошу точную спецификацию.`);
   document.getElementById('note').innerHTML=`<strong>Предварительный расчёт.</strong> По типовым профилям ГОСТ 26804-2012, оценочно. Точную спецификацию даёт инженер CELKONSAN.`;
   document.getElementById('stdBadge').textContent='ГОСТ 26804-2012';
   update3D_barrier(r);
@@ -303,7 +309,7 @@ function renderSteel(){const r=calcSteel();
     <div class="bd-row"><span class="lbl">Монтаж на объекте</span><span class="val">${Math.round(r.montH).toLocaleString('ru-RU')} н-ч</span></div>
     <div class="bd-row"><span class="lbl">Площадь кровли (по скату)</span><span class="val">${Math.round(r.roofArea).toLocaleString('ru-RU')} м²</span></div>
     <div class="bd-row"><span class="lbl">Площадь под цинкование</span><span class="val">${Math.round(r.area).toLocaleString('ru-RU')} м²</span></div>`;
-  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`Здравствуйте, CELKONSAN! Расчёт металлоконструкции:\n• Тип: ${STEEL[ss.type].label}\n• Площадь: ${ss.area} м²\n• Высота: ${ss.h} м\n• Этажность: ${ss.floors}\n• Кровля: ${({gable:'двускатная',single:'односкатная',flat:'плоская'})[ss.roof]}\n• Ориент. вес: ${r.tons.toFixed(1)} т\nПрошу КМ/КМД и КП.`);
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`[📲 САЙТ celkonsan.kz · Калькулятор] Здравствуйте, CELKONSAN! Расчёт металлоконструкции:\n• Тип: ${STEEL[ss.type].label}\n• Площадь: ${ss.area} м²\n• Высота: ${ss.h} м\n• Этажность: ${ss.floors}\n• Кровля: ${({gable:'двускатная',single:'односкатная',flat:'плоская'})[ss.roof]}\n• Ориент. вес: ${r.tons.toFixed(1)} т\nПрошу КМ/КМД и КП.`);
   document.getElementById('note').innerHTML=`<strong>Предварительная оценка.</strong> Расход зависит от пролётов, нагрузок и норм. Точный вес — по КМ/КМД.`;
   document.getElementById('stdBadge').textContent='СП РК / СНиП';
   update3D_steel(r);
@@ -330,7 +336,7 @@ function renderGalv(){
   let waList = positions.length
     ? positions.map((p,i)=>`${i+1}. ${p.label} — ${p.area.toFixed(1)} м²`).join('\n')+`\nИТОГО: ${totA.toFixed(1)} м² / ${(totW/1000).toFixed(2)} т`
     : `${cur.label} — ${cur.area.toFixed(1)} м²`;
-  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`Здравствуйте, CELKONSAN! Нужно горячее цинкование своего металла:\n${waList}\nПрошу рассчитать стоимость цинкования.`);
+  document.getElementById('waBtn').href=`https://wa.me/77477571465?text=`+encodeURIComponent(`[📲 САЙТ celkonsan.kz · Калькулятор] Здравствуйте, CELKONSAN! Нужно горячее цинкование своего металла:\n${waList}\nПрошу рассчитать стоимость цинкования.`);
   document.getElementById('note').innerHTML=`<strong>Оценка площади.</strong> Учтены наружная и внутренняя поверхности (для труб/профиля), торцы не учитываются. Точную площадь и стоимость определит CELKONSAN по факту.`;
   document.getElementById('stdBadge').textContent='ГОСТ 9.307-89';
   update3D_galv(cur);
