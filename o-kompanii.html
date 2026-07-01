@@ -168,6 +168,7 @@
             <a href="o-kompanii.html">О компании</a>
         </nav>
         
+        <div class="nav-lang"></div>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -186,15 +187,15 @@
 
     <section class="hero">
         <div class="container">
-            <a href="/" class="back-link">← Вернуться на главную</a>
-            <h1>О CELKONSAN</h1>
+            <a href="/" class="back-link" data-i18n="back">← Вернуться на главную</a>
+            <h1 data-i18n="h1">О CELKONSAN</h1>
             <p style="font-size: 16px;">Профессионалы горячего цинкования и дорожной безопасности в Казахстане.</p>
         </div>
     </section>
 
     <section>
         <div class="container">
-            <h2>История</h2>
+            <h2 data-i18n="hist">История</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <span class="year">2018</span>
@@ -222,8 +223,8 @@
 
     <section style="background: #f8f8f8;">
         <div class="container">
-            <h2>Команда</h2>
-            <p>Компания CELKONSAN объединяет более 20 специалистов высокой квалификации.</p>
+            <h2 data-i18n="team">Команда</h2>
+            <p data-i18n="team_p">Компания CELKONSAN объединяет более 20 специалистов высокой квалификации.</p>
             
             <div class="team-grid">
                 <div class="team-member">
@@ -252,7 +253,7 @@
 
     <section>
         <div class="container">
-            <h2>Сертификаты и стандарты</h2>
+            <h2 data-i18n="certs">Сертификаты и стандарты</h2>
             <div class="cert-grid">
                 <div class="cert-item">
                     <strong>ISO 9001:2015</strong>
@@ -276,7 +277,7 @@
 
     <section style="background: #f8f8f8;">
         <div class="container">
-            <h2>Производственные мощности</h2>
+            <h2 data-i18n="cap">Производственные мощности</h2>
             <p><strong>Локация:</strong> 7-я улица, 130а/5, Алматы (Industrial Zone)<br/>
             <strong>Площадь:</strong> 1000 м² (открытых площадей)<br/>
             <strong>Производительность:</strong> 1000 т/месяц<br/>
@@ -286,7 +287,7 @@
 
     <section>
         <div class="container">
-            <h2>Почему выбирают CELKONSAN?</h2>
+            <h2 data-i18n="why">Почему выбирают CELKONSAN?</h2>
             <p>✓ <strong>Опыт:</strong> 6+ лет на казахстанском рынке<br/>
             ✓ <strong>Качество:</strong> Сертификация ISO 9001 и международные стандарты<br/>
             ✓ <strong>Производительность:</strong> 1000 т/месяц — одна из крупнейших в регионе<br/>
@@ -298,7 +299,7 @@
 
     <section>
         <div class="container">
-            <h2>Контакты</h2>
+            <h2 data-i18n="contacts">Контакты</h2>
             <p><strong>Менеджер:</strong> +7 700 600 1465 · <strong>Офис:</strong> +7 747 179 14 31<br/>
             <strong>Email:</strong> info@celkonsan.kz<br/>
             <strong>Адрес:</strong> 7-я улица, 130а/5, Алтай м-н, Алатауский р-н, Алматы<br/>
@@ -307,7 +308,7 @@
     </section>
 
     <footer>
-        <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p>
+        <p>© ТОО «Celkonsan» 2024 | Филиал в Казахстане</p>
     </footer>
 
     <script>
@@ -363,6 +364,22 @@
             e.target.closest('.nav-item').classList.add('active');
         }
     </script>
+
+
+<script>
+window.PAGE_I18N={
+ en:{back:"← Back to home",h1:"About CELKONSAN",hist:"History",team:"Team",
+  team_p:"CELKONSAN brings together more than 20 highly qualified specialists.",
+  certs:"Certificates and standards",cap:"Production capacity",why:"Why choose CELKONSAN?",contacts:"Contacts"},
+ kz:{back:"← Басты бетке оралу",h1:"CELKONSAN туралы",hist:"Тарих",team:"Команда",
+  team_p:"CELKONSAN компаниясы 20-дан астам жоғары білікті маманды біріктіреді.",
+  certs:"Сертификаттар мен стандарттар",cap:"Өндірістік қуат",why:"Неге CELKONSAN таңдайды?",contacts:"Байланыс"},
+ zh:{back:"← 返回首页",h1:"关于CELKONSAN",hist:"发展历程",team:"团队",
+  team_p:"CELKONSAN汇聚了20多名高素质专业人员。",
+  certs:"证书与标准",cap:"生产能力",why:"为什么选择CELKONSAN？",contacts:"联系方式"}
+};
+</script>
+<script src="i18n.js"></script>
 
 </body>
 </html>

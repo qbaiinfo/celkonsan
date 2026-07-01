@@ -160,6 +160,7 @@
             <a href="kalkulyator.html">🧮 Калькулятор</a>
             <a href="o-kompanii.html">О компании</a>
         </nav>
+        <div class="nav-lang"></div>
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </header>
     <nav class="nav-mobile" id="mobileMenu">
@@ -167,7 +168,7 @@
         <a href="produkciya.html" style="color:#2f81f7;font-weight:700;">Готовая продукция</a>
         <a href="galvanizaciya.html">Горячее цинкование</a>
         <a href="barieri.html">Дорожные ограждения</a>
-        <a href="kalkulyator.html">🧮 Калькулятор металла</a>
+        <a href="kalkulyator.html" data-i18n="order_calc">🧮 Калькулятор металла</a>
         <a href="o-kompanii.html">О компании</a>
     </nav>
 
@@ -175,10 +176,10 @@
     <section class="hero" style="background:#0b0d10;color:#fff;position:relative;overflow:hidden;padding:0;">
       <div style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:380px;">
         <div style="padding:3rem 2rem;position:relative;z-index:2;max-width:560px;margin-left:auto;">
-          <a href="/" class="back-link" style="color:#ff8a18;">← На главную</a>
-          <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;">ГОТОВАЯ ПРОДУКЦИЯ · СО СКЛАДА</div>
-          <h1 style="font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;">Анкерные<br/>блоки</h1>
-          <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;">Готовые фундаментные блоки с оцинкованной анкерной группой для опор освещения, дорожных знаков, барьеров и металлоконструкций. Быстрый монтаж, точная геометрия.</p>
+          <a href="/" class="back-link" style="color:#ff8a18;" data-i18n="back">← На главную</a>
+          <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;" data-i18n="hero_tag">ГОТОВАЯ ПРОДУКЦИЯ · СО СКЛАДА</div>
+          <h1 style="font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;" data-i18n-html="hero_h1">Анкерные<br/>блоки</h1>
+          <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;"><span data-i18n="hero_sub">Готовые фундаментные блоки с оцинкованной анкерной группой для опор освещения, дорожных знаков, барьеров и металлоконструкций. Быстрый монтаж, точная геометрия.</span></p>
         </div>
         <!-- SVG: ankraj bloğu (izometrik) -->
         <svg viewBox="0 0 420 380" width="100%" height="100%" style="display:block;max-height:380px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -199,11 +200,11 @@
     <!-- ÜRÜN AÇIKLAMA -->
     <section>
       <div class="container">
-        <h2>Что такое анкерный блок?</h2>
-        <p>Анкерный блок (закладная анкерная корзина) — это готовая сварная конструкция из анкерных болтов, объединённых обоймами-шаблонами. Закладывается в фундамент и обеспечивает точную установку опор и металлоконструкций.</p>
-        <p>Анкерная группа изготавливается из стали и проходит <strong>горячее цинкование</strong> — защита от коррозии на весь срок службы конструкции.</p>
-        <h3>Преимущества:</h3>
-        <p>✓ Готовое решение — монтаж за часы, а не дни<br/>
+        <h2 data-i18n="s1_title">Что такое анкерный блок?</h2>
+        <p data-i18n="s1_p1">Анкерный блок (закладная анкерная корзина) — это готовая сварная конструкция из анкерных болтов, объединённых обоймами-шаблонами. Закладывается в фундамент и обеспечивает точную установку опор и металлоконструкций.</p>
+        <p data-i18n-html="s1_p2">Анкерная группа изготавливается из стали и проходит <strong>горячее цинкование</strong> — защита от коррозии на весь срок службы конструкции.</p>
+        <h3 data-i18n="adv_title">Преимущества:</h3>
+        <p data-i18n-html="adv_list">✓ Готовое решение — монтаж за часы, а не дни<br/>
         ✓ Точная геометрия анкеров (кондуктор)<br/>
         ✓ Горячее цинкование 80+ мкм (ГОСТ 9.307-89)<br/>
         ✓ Высокая несущая способность<br/>
@@ -214,8 +215,8 @@
     <!-- UYGULAMA -->
     <section style="background:#f8f8f8;">
       <div class="container">
-        <h2>Применение</h2>
-        <p>• Опоры освещения и мачты<br/>
+        <h2 data-i18n="app_title">Применение</h2>
+        <p data-i18n-html="app_list">• Опоры освещения и мачты<br/>
         • Дорожные знаки и светофоры<br/>
         • Барьерные и пешеходные ограждения<br/>
         • Стойки рекламных конструкций (билборды)<br/>
@@ -227,7 +228,7 @@
     <!-- TEKNİK -->
     <section>
       <div class="container">
-        <h2>Технические характеристики</h2>
+        <h2 data-i18n="spec_title">Технические характеристики</h2>
         <div class="specs">
           <div class="spec-item"><strong>Конструкция:</strong> сварная корзина (болты + обоймы-шаблоны)</div>
           <div class="spec-item"><strong>Анкерные болты:</strong> М16–М48 (фундаментные, тип по ГОСТ 24379)</div>
@@ -243,17 +244,17 @@
     <!-- SİPARİŞ -->
     <section style="background:#0b0d10;color:#fff;">
       <div class="container">
-        <h2 style="color:#fff;">Заказать анкерные блоки</h2>
-        <p style="color:rgba(255,255,255,.7);">Пришлите тип опоры, нагрузку или чертёж — подготовим спецификацию и стоимость.</p>
+        <h2 style="color:#fff;" data-i18n="order_title">Заказать анкерные блоки</h2>
+        <p style="color:rgba(255,255,255,.7);" data-i18n="order_desc">Пришлите тип опоры, нагрузку или чертёж — подготовим спецификацию и стоимость.</p>
         <p style="margin-top:1rem;"><strong>Менеджер:</strong> +7 700 600 1465 · <strong>Офис:</strong> +7 747 179 14 31<br/><strong>Адрес:</strong> 7-я улица, 130а/5, Алматы</p>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
-          <a href="https://wa.me/77477571465?text=%5B%F0%9F%93%B2%20%D0%A1%D0%90%D0%99%D0%A2%20celkonsan.kz%20%C2%B7%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F%5D%20%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20CELKONSAN!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B0%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B5%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8.%20%D0%9F%D1%80%D0%BE%D1%88%D1%83%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D0%B8%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C." target="_blank" style="padding:1rem 2rem;background:#25D366;color:#fff;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">💬 Заказать в WhatsApp</a>
+          <a href="https://wa.me/77477571465?text=%5B%F0%9F%93%B2%20%D0%A1%D0%90%D0%99%D0%A2%20celkonsan.kz%20%C2%B7%20%D0%9F%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%86%D0%B8%D1%8F%5D%20%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20CELKONSAN!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B0%D0%BD%D0%BA%D0%B5%D1%80%D0%BD%D1%8B%D0%B5%20%D0%B1%D0%BB%D0%BE%D0%BA%D0%B8.%20%D0%9F%D1%80%D0%BE%D1%88%D1%83%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D0%B8%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C." target="_blank" style="padding:1rem 2rem;background:#25D366;color:#fff;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;" data-i18n="order_wa">💬 Заказать в WhatsApp</a>
           <a href="kalkulyator.html" style="padding:1rem 2rem;background:#ff8a18;color:#0b0d10;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;">🧮 Калькулятор металла</a>
         </div>
       </div>
     </section>
 
-    <footer><p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p></footer>
+    <footer><p>© ТОО «Celkonsan» 2024 | Филиал в Казахстане</p></footer>
 
     <!-- MOBILE BOTTOM NAV -->
     <nav class="bottom-nav" id="bottomNav">
@@ -270,5 +271,60 @@
         function toggleMenu(){document.querySelector('.hamburger').classList.toggle('active');document.getElementById('mobileMenu').classList.toggle('active');}
         document.querySelectorAll('.nav-mobile a').forEach(l=>l.addEventListener('click',()=>{document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileMenu').classList.remove('active');}));
     </script>
+
+<script>
+window.PAGE_I18N={
+ en:{
+  back:"← Home", hero_tag:"IN-STOCK PRODUCTS · FROM WAREHOUSE",
+  hero_h1:"Anchor<br/>blocks",
+  hero_sub:"Ready-made foundation blocks with a galvanized anchor group for lighting poles, road signs, barriers and steel structures. Fast installation, precise geometry.",
+  s1_title:"What is an anchor block?",
+  s1_p1:"An anchor block (embedded anchor cage) is a ready-made welded assembly of anchor bolts joined by template frames. It is set into the foundation and ensures precise installation of poles and steel structures.",
+  s1_p2:"The anchor group is made of steel and undergoes <strong>hot-dip galvanizing</strong> — corrosion protection for the entire service life of the structure.",
+  adv_title:"Advantages:",
+  adv_list:"✓ Ready solution — installation in hours, not days<br/>✓ Precise anchor geometry (template)<br/>✓ Hot-dip galvanizing 80+ µm (GOST 9.307-89)<br/>✓ High load capacity<br/>✓ In-stock program — fast shipment",
+  app_title:"Applications",
+  app_list:"• Lighting poles and masts<br/>• Road signs and traffic lights<br/>• Barrier and pedestrian fencing<br/>• Billboard and advertising supports<br/>• Columns of light steel structures (canopies, pavilions)<br/>• Power line and communication supports",
+  spec_title:"Technical specifications",
+  order_title:"Order anchor blocks",
+  order_desc:"Send us the pole type, load or drawing — we will prepare a specification and price.",
+  order_wa:"💬 Order via WhatsApp", order_calc:"🧮 Metal calculator"
+ },
+ kz:{
+  back:"← Басты бет", hero_tag:"ДАЙЫН ӨНІМ · ҚОЙМАДАН",
+  hero_h1:"Анкерлік<br/>блоктар",
+  hero_sub:"Жарық бағаналары, жол белгілері, қоршаулар мен металл конструкциялар үшін мырышталған анкерлік топтамасы бар дайын іргетас блоктары. Жылдам монтаж, дәл геометрия.",
+  s1_title:"Анкерлік блок дегеніміз не?",
+  s1_p1:"Анкерлік блок (салынатын анкерлік себет) — ұстағыш-шаблондармен біріктірілген анкерлік болттардан тұратын дайын дәнекерленген конструкция. Іргетасқа салынып, бағаналар мен металл конструкцияларды дәл орнатуды қамтамасыз етеді.",
+  s1_p2:"Анкерлік топтама болаттан жасалып, <strong>ыстық мырыштаудан</strong> өтеді — конструкцияның бүкіл қызмет мерзіміне коррозиядан қорғаныс.",
+  adv_title:"Артықшылықтары:",
+  adv_list:"✓ Дайын шешім — монтаж күндер емес, сағаттар ішінде<br/>✓ Дәл анкер геометриясы (кондуктор)<br/>✓ Ыстық мырыштау 80+ мкм (GOST 9.307-89)<br/>✓ Жоғары көтергіштік қабілеті<br/>✓ Қойма бағдарламасы — жылдам жөнелту",
+  app_title:"Қолданылуы",
+  app_list:"• Жарық бағаналары мен мачталар<br/>• Жол белгілері мен бағдаршамдар<br/>• Барьерлік және жаяу жүргінші қоршаулары<br/>• Жарнама конструкцияларының тіректері (билбордтар)<br/>• Жеңіл металл конструкциялардың бағандары (қалқалар, павильондар)<br/>• ЭБЖ және байланыс тіректері",
+  spec_title:"Техникалық сипаттамалар",
+  order_title:"Анкерлік блоктарға тапсырыс беру",
+  order_desc:"Бағана түрін, жүктемені немесе сызбаны жіберіңіз — спецификация мен бағаны дайындаймыз.",
+  order_wa:"💬 WhatsApp арқылы тапсырыс", order_calc:"🧮 Металл калькуляторы"
+ },
+ zh:{
+  back:"← 首页", hero_tag:"现货产品 · 仓库直供",
+  hero_h1:"地脚<br/>螺栓笼",
+  hero_sub:"用于灯杆、道路标志、护栏及钢结构的成品基础预埋件，配镀锌地脚螺栓组。安装快速，几何精准。",
+  s1_title:"什么是地脚螺栓笼？",
+  s1_p1:"地脚螺栓笼（预埋锚笼）是由定位模板连接地脚螺栓的成品焊接构件。预埋于基础中，确保灯杆和钢结构的精确安装。",
+  s1_p2:"锚固组由钢材制成并经过<strong>热镀锌处理</strong>——在构件的整个使用寿命内防腐蚀。",
+  adv_title:"优势：",
+  adv_list:"✓ 成品方案——数小时即可安装，而非数天<br/>✓ 精确的螺栓几何（定位模板）<br/>✓ 热镀锌80+微米（GOST 9.307-89）<br/>✓ 高承载能力<br/>✓ 现货供应——快速发货",
+  app_title:"应用领域",
+  app_list:"• 照明灯杆和桅杆<br/>• 道路标志和交通信号灯<br/>• 护栏和人行道围栏<br/>• 广告牌支架<br/>• 轻型钢结构立柱（雨棚、亭子）<br/>• 电力线路和通信支架",
+  spec_title:"技术参数",
+  order_title:"订购地脚螺栓笼",
+  order_desc:"发送灯杆类型、荷载或图纸——我们将准备规格和报价。",
+  order_wa:"💬 通过WhatsApp订购", order_calc:"🧮 金属计算器"
+ }
+};
+</script>
+<script src="i18n.js"></script>
+
 </body>
 </html>

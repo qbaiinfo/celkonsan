@@ -168,6 +168,7 @@
             <a href="o-kompanii.html">О компании</a>
         </nav>
         
+        <div class="nav-lang"></div>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -187,9 +188,9 @@
     <section class="hero" style="background:#0b0d10;color:#fff;position:relative;overflow:hidden;padding:0;">
         <div style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:380px;">
           <div style="padding:3rem 2rem;position:relative;z-index:2;max-width:560px;margin-left:auto;">
-            <a href="/" class="back-link" style="color:#ff8a18;">← На главную</a>
-            <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;">ST RK 1278-2004 · W-BEAM · GUARD RAIL</div>
-            <h1 style="font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;">Дорожные<br/>ограждения</h1>
+            <a href="/" class="back-link" style="color:#ff8a18;" data-i18n="back">← На главную</a>
+            <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;" data-i18n="hero_tag">ST RK 1278-2004 · W-BEAM · GUARD RAIL</div>
+            <h1 style="font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;" data-i18n-html="hero_h1">Дорожные<br/>ограждения</h1>
             <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;">Производство и монтаж барьерных ограждений W-beam и Guard rail. Оцинкованная сталь — защита движения на 50&nbsp;лет.</p>
           </div>
           <!-- SVG: W-beam yol bariyeri -->
@@ -229,23 +230,23 @@
 
     <section>
         <div class="container">
-            <h2>Типы ограждений</h2>
+            <h2 data-i18n="t_title">Типы ограждений</h2>
             <div class="types-grid">
                 <div class="type-card">
                     <div class="type-title">W-beam</div>
-                    <p>Волнообразная конструкция для защиты от боковых столкновений. Стандартная высота 750 мм, толщина 3 мм.</p>
+                    <p data-i18n="t1">Волнообразная конструкция для защиты от боковых столкновений. Стандартная высота 750 мм, толщина 3 мм.</p>
                 </div>
                 <div class="type-card">
                     <div class="type-title">Guard Rail</div>
-                    <p>Тяжелая конструкция для критических участков. Повышенная прочность, высота 1100 мм.</p>
+                    <p data-i18n="t2">Тяжелая конструкция для критических участков. Повышенная прочность, высота 1100 мм.</p>
                 </div>
                 <div class="type-card">
                     <div class="type-title">Барьеры</div>
-                    <p>Металлические барьеры для разделения транспортных потоков и защиты пешеходов.</p>
+                    <p data-i18n="t3">Металлические барьеры для разделения транспортных потоков и защиты пешеходов.</p>
                 </div>
                 <div class="type-card">
                     <div class="type-title">Столбики</div>
-                    <p>Опорные столбики для крепления ограждений. Шаг установки 4 м. Гальванизированные.</p>
+                    <p data-i18n="t4">Опорные столбики для крепления ограждений. Шаг установки 4 м. Гальванизированные.</p>
                 </div>
             </div>
         </div>
@@ -253,7 +254,7 @@
 
     <section style="background: #f8f8f8;">
         <div class="container">
-            <h2>Стандарты и сертификаты</h2>
+            <h2 data-i18n="std_title">Стандарты и сертификаты</h2>
             <p><strong>ST RK 1278-2004</strong> — Казахстанский стандарт для дорожных ограждений<br/>
             <strong>GOST 9.307-89</strong> — Горячее цинкование покрытий<br/>
             <strong>ISO 9001:2015</strong> — Система управления качеством</p>
@@ -264,7 +265,7 @@
 
     <section>
         <div class="container">
-            <h2>Технические характеристики</h2>
+            <h2 data-i18n="spec_title">Технические характеристики</h2>
             <div class="specs">
                 <div class="spec-item">
                     <strong>Материал:</strong> Сталь высокой прочности (SPFC590)
@@ -293,7 +294,7 @@
 
     <section style="background: #f8f8f8;">
         <div class="container">
-            <h2>Применение</h2>
+            <h2 data-i18n="app_title">Применение</h2>
             <p>• Магистральные дороги и автомагистрали<br/>
             • Мосты и путепроводы<br/>
             • Горные дороги и серпантины<br/>
@@ -305,8 +306,8 @@
 
     <section>
         <div class="container">
-            <h2>Монтажные работы</h2>
-            <p>CELKONSAN обеспечивает полный цикл установки:</p>
+            <h2 data-i18n="mont_title">Монтажные работы</h2>
+            <p data-i18n="mont_intro">CELKONSAN обеспечивает полный цикл установки:</p>
             <p>✓ Доставка материалов на объект<br/>
             ✓ Подготовка основания<br/>
             ✓ Установка опорных столбиков<br/>
@@ -318,7 +319,7 @@
 
     <section>
         <div class="container">
-            <h2>Получить предложение</h2>
+            <h2 data-i18n="offer_title">Получить предложение</h2>
             <p><strong>Менеджер:</strong> +7 700 600 1465 · <strong>Офис:</strong> +7 747 179 14 31<br/>
             <strong>Email:</strong> info@celkonsan.kz<br/>
             <strong>Адрес:</strong> 7-я улица, 130а/5, Алматы</p>
@@ -327,7 +328,7 @@
     </section>
 
     <footer>
-        <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p>
+        <p>© ТОО «Celkonsan» 2024 | Филиал в Казахстане</p>
     </footer>
 
     <script>
@@ -383,6 +384,37 @@
             e.target.closest('.nav-item').classList.add('active');
         }
     </script>
+
+
+<script>
+window.PAGE_I18N={
+ en:{back:"← Home",hero_tag:"ST RK 1278-2004 · W-BEAM · GUARD RAIL",hero_h1:"Road<br/>barriers",
+  t_title:"Types of barriers",
+  t1:"Corrugated profile protecting against side impacts. Standard height 750 mm, thickness 3 mm.",
+  t2:"Heavy-duty design for critical sections. Increased strength, height 1100 mm.",
+  t3:"Metal barriers for separating traffic flows and protecting pedestrians.",
+  t4:"Support posts for mounting barriers. Installation step 4 m. Galvanized.",
+  std_title:"Standards and certificates",spec_title:"Technical specifications",app_title:"Applications",
+  mont_title:"Installation works",mont_intro:"CELKONSAN provides a full installation cycle:",offer_title:"Request a quote"},
+ kz:{back:"← Басты бет",hero_tag:"ST RK 1278-2004 · W-BEAM · GUARD RAIL",hero_h1:"Жол<br/>қоршаулары",
+  t_title:"Қоршау түрлері",
+  t1:"Бүйірлік соқтығыстан қорғайтын толқынды профиль. Стандартты биіктігі 750 мм, қалыңдығы 3 мм.",
+  t2:"Маңызды учаскелерге арналған ауыр конструкция. Жоғары беріктік, биіктігі 1100 мм.",
+  t3:"Көлік ағынын бөлуге және жаяу жүргіншілерді қорғауға арналған металл барьерлер.",
+  t4:"Қоршауларды бекітуге арналған тірек бағаналары. Орнату қадамы 4 м. Мырышталған.",
+  std_title:"Стандарттар мен сертификаттар",spec_title:"Техникалық сипаттамалар",app_title:"Қолданылуы",
+  mont_title:"Монтаж жұмыстары",mont_intro:"CELKONSAN толық орнату циклін қамтамасыз етеді:",offer_title:"Ұсыныс алу"},
+ zh:{back:"← 首页",hero_tag:"ST RK 1278-2004 · W型梁 · 护栏",hero_h1:"道路<br/>护栏",
+  t_title:"护栏类型",
+  t1:"防止侧向碰撞的波形结构。标准高度750毫米，厚度3毫米。",
+  t2:"用于关键路段的重型结构。强度更高，高度1100毫米。",
+  t3:"用于分隔交通流和保护行人的金属护栏。",
+  t4:"用于固定护栏的支撑立柱。安装间距4米。已镀锌。",
+  std_title:"标准与认证",spec_title:"技术参数",app_title:"应用领域",
+  mont_title:"安装工程",mont_intro:"CELKONSAN提供完整的安装流程：",offer_title:"获取报价"}
+};
+</script>
+<script src="i18n.js"></script>
 
 </body>
 </html>

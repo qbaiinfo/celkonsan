@@ -170,6 +170,7 @@
             <a href="o-kompanii.html">О компании</a>
         </nav>
         
+        <div class="nav-lang"></div>
         <div class="hamburger" onclick="toggleMenu()">
             <span></span>
             <span></span>
@@ -189,10 +190,10 @@
     <section class="hero" style="background:#0b0d10;color:#fff;position:relative;overflow:hidden;padding:0;">
         <div style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:380px;">
           <div style="padding:3rem 2rem;position:relative;z-index:2;max-width:560px;margin-left:auto;">
-            <a href="/" class="back-link" style="color:#ff8a18;">← На главную</a>
-            <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;">ГОСТ 9.307-89 · ЗАЩИТА ДО 50 ЛЕТ</div>
-            <h1 style="font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;">Горячее<br/>цинкование</h1>
-            <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;">Погружение стали в расплавленный цинк при 450&nbsp;°C. Прочный железо-цинковый слой 80+&nbsp;мкм — надёжная защита от коррозии.</p>
+            <a href="/" class="back-link" style="color:#ff8a18;" data-i18n="back">← На главную</a>
+            <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;" data-i18n="hero_tag">ГОСТ 9.307-89 · ЗАЩИТА ДО 50 ЛЕТ</div>
+            <h1 style="font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;" data-i18n-html="hero_h1">Горячее<br/>цинкование</h1>
+            <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;"><span data-i18n="hero_sub">Погружение стали в расплавленный цинк при 450&nbsp;°C. Прочный железо-цинковый слой 80+&nbsp;мкм — надёжная защита от коррозии.</span></p>
           </div>
           <!-- SVG: erimiş çinko banyosu -->
           <svg viewBox="0 0 420 380" width="100%" height="100%" style="display:block;max-height:380px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -237,13 +238,13 @@
 
     <section>
         <div class="container">
-            <h2>Что такое горячее цинкование?</h2>
-            <p>Горячее цинкование (гальванизация) — это метод антикоррозионной защиты, при котором стальные или железные изделия погружаются в ванну с расплавленным цинком при температуре около 450–460 °C.</p>
+            <h2 data-i18n="s1_title">Что такое горячее цинкование?</h2>
+            <p data-i18n="s1_p1">Горячее цинкование (гальванизация) — это метод антикоррозионной защиты, при котором стальные или железные изделия погружаются в ванну с расплавленным цинком при температуре около 450–460 °C.</p>
             
-            <p>В результате химической реакции образуется прочный железо-цинковый сплав толщиной от 60 до 100 мкм, который обеспечивает надежную защиту от ржавчины на срок до 50 лет.</p>
+            <p data-i18n="s1_p2">В результате химической реакции образуется прочный железо-цинковый сплав толщиной от 60 до 100 мкм, который обеспечивает надежную защиту от ржавчины на срок до 50 лет.</p>
             
-            <h3>Преимущества:</h3>
-            <p>✓ Долговечность (50+ лет защиты)<br/>
+            <h3 data-i18n="adv_title">Преимущества:</h3>
+            <p data-i18n-html="adv_list">✓ Долговечность (50+ лет защиты)<br/>
             ✓ Экономичность (низкие затраты на обслуживание)<br/>
             ✓ Универсальность (любые размеры конструкций)<br/>
             ✓ Высокое качество (GOST 9.307-89)<br/>
@@ -253,27 +254,27 @@
 
     <section style="background: #f8f8f8;">
         <div class="container">
-            <h2>Процесс цинкования</h2>
+            <h2 data-i18n="proc_title">Процесс цинкования</h2>
             <div class="process-grid">
                 <div class="process-item">
                     <div class="process-num">1</div>
-                    <h3 style="margin-top: 0;">Подготовка</h3>
-                    <p>Очистка от грязи, масел, травления в кислоте и флюсование для идеального спецификации.</p>
+                    <h3 style="margin-top: 0;" data-i18n="p1h">Подготовка</h3>
+                    <p data-i18n="p1p">Очистка от грязи, масел, травления в кислоте и флюсование для идеального спецификации.</p>
                 </div>
                 <div class="process-item">
                     <div class="process-num">2</div>
-                    <h3 style="margin-top: 0;">Погружение</h3>
-                    <p>Полное погружение конструкции в ванну расплавленного цинка при 450–460 °C.</p>
+                    <h3 style="margin-top: 0;" data-i18n="p2h">Погружение</h3>
+                    <p data-i18n="p2p">Полное погружение конструкции в ванну расплавленного цинка при 450–460 °C.</p>
                 </div>
                 <div class="process-item">
                     <div class="process-num">3</div>
-                    <h3 style="margin-top: 0;">Охлаждение</h3>
-                    <p>Контролируемое охлаждение образует прочный металлургический слой.</p>
+                    <h3 style="margin-top: 0;" data-i18n="p3h">Охлаждение</h3>
+                    <p data-i18n="p3p">Контролируемое охлаждение образует прочный металлургический слой.</p>
                 </div>
                 <div class="process-item">
                     <div class="process-num">4</div>
-                    <h3 style="margin-top: 0;">Проверка</h3>
-                    <p>Контроль качества покрытия и выдача технических паспортов по стандартам.</p>
+                    <h3 style="margin-top: 0;" data-i18n="p4h">Проверка</h3>
+                    <p data-i18n="p4p">Контроль качества покрытия и выдача технических паспортов по стандартам.</p>
                 </div>
             </div>
         </div>
@@ -281,7 +282,7 @@
 
     <section>
         <div class="container">
-            <h2>Технические характеристики</h2>
+            <h2 data-i18n="spec_title">Технические характеристики</h2>
             <div class="specs">
                 <div class="spec-item">
                     <span>Толщина покрытия:</span>
@@ -313,8 +314,8 @@
 
     <section style="background: #f8f8f8;">
         <div class="container">
-            <h2>Области применения</h2>
-            <p>Горячее цинкование применяется для защиты конструкций в:</p>
+            <h2 data-i18n="app_title">Области применения</h2>
+            <p data-i18n="app_intro">Горячее цинкование применяется для защиты конструкций в:</p>
             <p>• Дорожной инфраструктуре (барьеры, опоры, мосты)<br/>
             • Промышленном строительстве (каркасы, фасады)<br/>
             • Энергетике (опоры ЛЭП, трубопроводы)<br/>
@@ -325,16 +326,16 @@
 
     <section>
         <div class="container">
-            <h2>Свяжитесь с нами</h2>
+            <h2 data-i18n="contact_title">Свяжитесь с нами</h2>
             <p><strong>Менеджер:</strong> +7 700 600 1465 · <strong>Офис:</strong> +7 747 179 14 31<br/>
             <strong>Email:</strong> info@celkonsan.kz<br/>
             <strong>Адрес:</strong> 7-я улица, 130а/5, Алматы</p>
-            <p style="margin-top: 2rem;">Получите бесплатную консультацию о цинковании вашей конструкции!</p>
+            <p style="margin-top: 2rem;" data-i18n="contact_cta">Получите бесплатную консультацию о цинковании вашей конструкции!</p>
         </div>
     </section>
 
     <footer>
-        <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане</p>
+        <p>© ТОО «Celkonsan» 2024 | Филиал в Казахстане</p>
     </footer>
 
     <script>
@@ -390,6 +391,76 @@
             e.target.closest('.nav-item').classList.add('active');
         }
     </script>
+
+
+<script>
+window.PAGE_I18N={
+ en:{
+  back:"← Home",
+  hero_tag:"GOST 9.307-89 · PROTECTION UP TO 50 YEARS",
+  hero_h1:"Hot-dip<br/>galvanizing",
+  hero_sub:"Immersion of steel in molten zinc at 450&nbsp;°C. A durable iron-zinc layer of 80+&nbsp;µm — reliable corrosion protection.",
+  s1_title:"What is hot-dip galvanizing?",
+  s1_p1:"Hot-dip galvanizing is a method of anti-corrosion protection in which steel or iron products are immersed in a bath of molten zinc at about 450–460 °C.",
+  s1_p2:"The chemical reaction forms a durable iron-zinc alloy 60 to 100 µm thick, providing reliable protection against rust for up to 50 years.",
+  adv_title:"Advantages:",
+  adv_list:"✓ Durability (50+ years of protection)<br/>✓ Cost efficiency (low maintenance)<br/>✓ Versatility (structures of any size)<br/>✓ High quality (GOST 9.307-89)<br/>✓ Fast turnaround",
+  proc_title:"Galvanizing process",
+  p1h:"Preparation", p1p:"Cleaning of dirt and oils, acid pickling and fluxing for a perfect surface.",
+  p2h:"Immersion", p2p:"Full immersion of the structure in the molten zinc bath at 450–460 °C.",
+  p3h:"Cooling", p3p:"Controlled cooling forms a strong metallurgical layer.",
+  p4h:"Inspection", p4p:"Coating quality control and issuance of technical certificates to standards.",
+  spec_title:"Technical specifications",
+  app_title:"Applications",
+  app_intro:"Hot-dip galvanizing is used to protect structures in:",
+  contact_title:"Contact us",
+  contact_cta:"Get a free consultation on galvanizing your structure!"
+ },
+ kz:{
+  back:"← Басты бет",
+  hero_tag:"ГОСТ 9.307-89 · 50 ЖЫЛҒА ДЕЙІН ҚОРҒАУ",
+  hero_h1:"Ыстық<br/>мырыштау",
+  hero_sub:"Болатты 450&nbsp;°C балқыған мырышқа батыру. 80+&nbsp;мкм берік темір-мырыш қабаты — коррозиядан сенімді қорғаныс.",
+  s1_title:"Ыстық мырыштау дегеніміз не?",
+  s1_p1:"Ыстық мырыштау — болат немесе темір бұйымдарды шамамен 450–460 °C температурада балқыған мырыш ваннасына батыратын коррозияға қарсы қорғау әдісі.",
+  s1_p2:"Химиялық реакция нәтижесінде қалыңдығы 60–100 мкм берік темір-мырыш қорытпасы түзіліп, тоттан 50 жылға дейін сенімді қорғайды.",
+  adv_title:"Артықшылықтары:",
+  adv_list:"✓ Ұзақ мерзімділік (50+ жыл қорғаныс)<br/>✓ Үнемділік (қызмет көрсету шығыны аз)<br/>✓ Әмбебаптық (кез келген өлшем)<br/>✓ Жоғары сапа (GOST 9.307-89)<br/>✓ Жылдам орындау",
+  proc_title:"Мырыштау процесі",
+  p1h:"Дайындау", p1p:"Кірден, майдан тазарту, қышқылмен өңдеу және флюстеу.",
+  p2h:"Батыру", p2p:"Конструкцияны 450–460 °C балқыған мырыш ваннасына толық батыру.",
+  p3h:"Салқындату", p3p:"Бақыланатын салқындату берік металлургиялық қабат түзеді.",
+  p4h:"Тексеру", p4p:"Жабын сапасын бақылау және стандарт бойынша техникалық паспорт беру.",
+  spec_title:"Техникалық сипаттамалар",
+  app_title:"Қолдану салалары",
+  app_intro:"Ыстық мырыштау мына салаларда конструкцияларды қорғауға қолданылады:",
+  contact_title:"Бізбен байланысыңыз",
+  contact_cta:"Конструкцияңызды мырыштау туралы тегін кеңес алыңыз!"
+ },
+ zh:{
+  back:"← 首页",
+  hero_tag:"GOST 9.307-89 · 防护长达50年",
+  hero_h1:"热镀锌",
+  hero_sub:"将钢材浸入450&nbsp;°C的熔融锌中。80+&nbsp;微米坚固的铁锌层——可靠的防腐蚀保护。",
+  s1_title:"什么是热镀锌？",
+  s1_p1:"热镀锌是一种防腐保护方法，将钢铁制品浸入约450–460 °C的熔融锌槽中。",
+  s1_p2:"化学反应形成60至100微米厚的坚固铁锌合金层，可提供长达50年的可靠防锈保护。",
+  adv_title:"优势：",
+  adv_list:"✓ 耐久性（50+年防护）<br/>✓ 经济性（维护成本低）<br/>✓ 通用性（适用任何尺寸）<br/>✓ 高品质（GOST 9.307-89）<br/>✓ 快速交付",
+  proc_title:"镀锌工艺",
+  p1h:"预处理", p1p:"清除污垢和油脂，酸洗和助镀，获得完美表面。",
+  p2h:"浸锌", p2p:"将构件完全浸入450–460 °C的熔融锌槽中。",
+  p3h:"冷却", p3p:"受控冷却形成坚固的冶金层。",
+  p4h:"检验", p4p:"镀层质量检测并按标准出具技术证书。",
+  spec_title:"技术参数",
+  app_title:"应用领域",
+  app_intro:"热镀锌用于保护以下领域的构件：",
+  contact_title:"联系我们",
+  contact_cta:"免费获取您构件的镀锌咨询！"
+ }
+};
+</script>
+<script src="i18n.js"></script>
 
 </body>
 </html>
