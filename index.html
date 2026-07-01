@@ -16,7 +16,7 @@
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "CELKONSAN A.S.",
+      "name": "Celkonsan",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "7-я улица, 130а/5",
@@ -241,6 +241,14 @@
         .bottom-nav .nav-label{font-size:9px !important;}
         .bottom-nav .nav-item{padding-left:2px;padding-right:2px;}
         
+    
+        /* LANG SWITCHER */
+        .nav-lang{display:flex !important;gap:5px;align-items:center;}
+        .nav-lang button{background:none;border:1px solid #ddd;color:#888;font-size:12px;font-weight:700;padding:4px 9px;border-radius:6px;cursor:pointer;font-family:inherit;line-height:1;transition:all .15s;}
+        .nav-lang button:hover{border-color:#0b0d10;color:#0b0d10;}
+        .nav-lang button.active{background:#0b0d10;color:#fff;border-color:#0b0d10;}
+        @media(max-width:768px){.nav-lang{display:flex !important;order:2;}.nav-lang button{padding:3px 7px;font-size:11px;}}
+
     </style>
 </head>
 <body>
@@ -260,9 +268,10 @@
         </nav>
         
         <div class="nav-lang">
-            <span>РУ</span>
-            <a href="#kz">КЗ</a>
-            <a href="#en">EN</a>
+            <button data-lang="ru" class="active" onclick="setLang('ru')">РУ</button>
+            <button data-lang="kz" onclick="setLang('kz')">ҚАЗ</button>
+            <button data-lang="zh" onclick="setLang('zh')">中文</button>
+            <button data-lang="en" onclick="setLang('en')">EN</button>
         </div>
         
         <div class="hamburger" onclick="toggleMenu()">
@@ -312,26 +321,26 @@
             </svg>
 
             <div class="hero-content">
-                <span class="hero-tag"><span class="dot"></span>Алматы · Горячее цинкование с 2018</span>
-                <h1>
+                <span class="hero-tag"><span class="dot"></span><span data-i18n="hero_tag">Алматы · Горячее цинкование с 2018</span></span>
+                <h1 data-i18n-html="hero_h1">
                     Сталь,<br/>
                     <span class="accent">защищённая</span>
                     на 50 лет
                     <span class="red-line"></span>
                 </h1>
-                <p class="hero-subtitle">Горячее цинкование, металлоконструкции и дорожные ограждения. Промышленные мощности 1000 тонн в месяц — для инфраструктуры Казахстана.</p>
+                <p class="hero-subtitle" data-i18n="hero_sub">Горячее цинкование, металлоконструкции и дорожные ограждения. Промышленные мощности 1000 тонн в месяц — для инфраструктуры Казахстана.</p>
                 <div class="hero-cta">
-                    <a class="primary" href="kalkulyator.html">🧮 Рассчитать вес металла</a>
-                    <a class="ghost" href="https://wa.me/77477571465?text=%5B%F0%9F%93%B2%20%D0%A1%D0%90%D0%99%D0%A2%20celkonsan.kz%20%C2%B7%20%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F%5D%20%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0." target="_blank">💬 Получить консультацию</a>
+                    <a class="primary" href="kalkulyator.html" data-i18n="cta_calc">🧮 Рассчитать вес металла</a>
+                    <a class="ghost" href="https://wa.me/77477571465?text=%5B%F0%9F%93%B2%20%D0%A1%D0%90%D0%99%D0%A2%20celkonsan.kz%20%C2%B7%20%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F%5D%20%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%B8%D1%88%D1%83%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0." target="_blank" data-i18n="cta_consult">💬 Получить консультацию</a>
                 </div>
             </div>
 
             <!-- industrial credentials strip -->
             <div class="hero-strip">
-                <div class="item"><span class="num">1000<span class="u"> т/мес</span></span><span class="lbl">Производственная мощность</span></div>
-                <div class="item"><span class="num">80+<span class="u"> мкм</span></span><span class="lbl">Толщина цинкового слоя</span></div>
-                <div class="item"><span class="num">ISO<span class="u"> 9001</span></span><span class="lbl">Сертификат качества</span></div>
-                <div class="item"><span class="num">50+<span class="u"> лет</span></span><span class="lbl">Защита от коррозии</span></div>
+                <div class="item"><span class="num">1000<span class="u"> т/мес</span></span><span class="lbl" data-i18n="hs1">Производственная мощность</span></div>
+                <div class="item"><span class="num">80+<span class="u"> мкм</span></span><span class="lbl" data-i18n="hs2">Толщина цинкового слоя</span></div>
+                <div class="item"><span class="num">ISO<span class="u"> 9001</span></span><span class="lbl" data-i18n="hs3">Сертификат качества</span></div>
+                <div class="item"><span class="num">50+<span class="u"> лет</span></span><span class="lbl" data-i18n="hs4">Защита от коррозии</span></div>
             </div>
         </section>
 
@@ -340,19 +349,19 @@
             <div class="container">
                 <div class="stat">
                     <div class="stat-num">50+</div>
-                    <div class="stat-label">реализованных проектов</div>
+                    <div class="stat-label" data-i18n="st1">реализованных проектов</div>
                 </div>
                 <div class="stat">
                     <div class="stat-num">6+</div>
-                    <div class="stat-label">лет в Казахстане</div>
+                    <div class="stat-label" data-i18n="st2">лет в Казахстане</div>
                 </div>
                 <div class="stat">
                     <div class="stat-num">3</div>
-                    <div class="stat-label">страны Центр. Азии</div>
+                    <div class="stat-label" data-i18n="st3">страны Центр. Азии</div>
                 </div>
                 <div class="stat">
                     <div class="stat-num">20+</div>
-                    <div class="stat-label">специалистов</div>
+                    <div class="stat-label" data-i18n="st4">специалистов</div>
                 </div>
             </div>
         </section>
@@ -360,29 +369,29 @@
         <!-- SERVICES -->
         <section class="services">
             <div class="container">
-                <h2 class="section-title">Услуги</h2>
+                <h2 class="section-title" data-i18n="sv_title">Услуги</h2>
                 <div class="service-grid">
                     <div class="service-card">
-                        <h3>🔥 Горячее цинкование</h3>
-                        <p>Защитное гальванопокрытие толщиной 80+ микрон. Современная линия обработки конструкций любых размеров.</p>
+                        <h3 data-i18n="sv1h">🔥 Горячее цинкование</h3>
+                        <p data-i18n="sv1p">Защитное гальванопокрытие толщиной 80+ микрон. Современная линия обработки конструкций любых размеров.</p>
                         <a href="galvanizaciya.html" class="service-link">Подробнее →</a>
                     </div>
 
                     <div class="service-card">
-                        <h3>🛣️ Дорожные ограждения</h3>
-                        <p>Производство W-beam, Guard rail и барьеров безопасности. Полное решение для инфраструктуры.</p>
+                        <h3 data-i18n="sv2h">🛣️ Дорожные ограждения</h3>
+                        <p data-i18n="sv2p">Производство W-beam, Guard rail и барьеров безопасности. Полное решение для инфраструктуры.</p>
                         <a href="barieri.html" class="service-link">Подробнее →</a>
                     </div>
 
                     <div class="service-card">
-                        <h3>🔧 Монтажные работы</h3>
-                        <p>Полный цикл установки и инженерная поддержка. Техническая сертификация и гарантия.</p>
+                        <h3 data-i18n="sv3h">🔧 Монтажные работы</h3>
+                        <p data-i18n="sv3p">Полный цикл установки и инженерная поддержка. Техническая сертификация и гарантия.</p>
                         <a href="o-kompanii.html" class="service-link">Подробнее →</a>
                     </div>
 
                     <div class="service-card" style="border-color:#0052cc;">
-                        <h3>🧱 Готовая продукция: анкерные блоки</h3>
-                        <p>Готовые анкерные корзины (болты + обоймы) с горячим цинкованием для опор, знаков, ограждений и металлоконструкций. Со склада.</p>
+                        <h3 data-i18n="sv4h">🧱 Готовая продукция: анкерные блоки</h3>
+                        <p data-i18n="sv4p">Готовые анкерные корзины (болты + обоймы) с горячим цинкованием для опор, знаков, ограждений и металлоконструкций. Со склада.</p>
                         <a href="produkciya.html" class="service-link">Смотреть продукцию →</a>
                     </div>
                 </div>
@@ -393,11 +402,11 @@
         <section style="padding: 4rem 2rem; background: linear-gradient(135deg, #0a0e14 0%, #11161f 100%); position: relative; overflow: hidden;">
             <div style="position: absolute; inset: 0; background-image: linear-gradient(#15202e 1px, transparent 1px), linear-gradient(90deg, #15202e 1px, transparent 1px); background-size: 32px 32px; opacity: 0.5;"></div>
             <div class="container" style="position: relative; z-index: 2; text-align: center;">
-                <div style="font-family: 'SF Mono', monospace; font-size: 11px; letter-spacing: 2px; color: #2f81f7; margin-bottom: 1rem;">⚙ ONLINE ИНСТРУМЕНТ</div>
-                <h2 style="color: #fff; font-size: clamp(28px, 5vw, 44px); font-weight: 700; margin-bottom: 1rem; letter-spacing: -1px;">Калькулятор металла</h2>
-                <p style="color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto 2rem; font-size: 16px; line-height: 1.7;">Рассчитайте вес дорожных ограждений или металлоконструкций онлайн. Введите параметры — получите тоннаж, трудозатраты и 3D-модель за секунды.</p>
+                <div style="font-family: 'SF Mono', monospace; font-size: 11px; letter-spacing: 2px; color: #2f81f7; margin-bottom: 1rem;" data-i18n="cb_tag">⚙ ONLINE ИНСТРУМЕНТ</div>
+                <h2 style="color: #fff; font-size: clamp(28px, 5vw, 44px); font-weight: 700; margin-bottom: 1rem; letter-spacing: -1px;" data-i18n="cb_title">Калькулятор металла</h2>
+                <p style="color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto 2rem; font-size: 16px; line-height: 1.7;" data-i18n="cb_desc">Рассчитайте вес дорожных ограждений или металлоконструкций онлайн. Введите параметры — получите тоннаж, трудозатраты и 3D-модель за секунды.</p>
                 <a href="kalkulyator.html" style="display: inline-flex; align-items: center; gap: 0.75rem; padding: 1.1rem 2.5rem; background: #2f81f7; color: #fff; font-weight: 700; font-size: 15px; border-radius: 8px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px rgba(47,129,247,0.4);" onmouseover="this.style.background='#1f6feb'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#2f81f7'; this.style.transform='translateY(0)'">
-                    🧮 Открыть калькулятор →
+                    <span data-i18n="cb_btn">🧮 Открыть калькулятор →</span>
                 </a>
                 <div style="display: flex; justify-content: center; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap;">
                     <div style="text-align: center;">
@@ -419,10 +428,10 @@
         <!-- CONTACT -->
         <section class="contact">
             <div class="container">
-                <h2 class="section-title">Контакт</h2>
+                <h2 class="section-title" data-i18n="ct_title">Контакт</h2>
                 <div class="contact-grid">
                     <div>
-                        <div class="contact-label">📞 Телефон</div>
+                        <div class="contact-label" data-i18n="ct_phone">📞 Телефон</div>
                         <div class="contact-value">+7 700 600 1465<br><span style="font-size:13px;color:#666;">Офис (Orken): +7 747 179 14 31</span></div>
                     </div>
                     <div>
@@ -430,7 +439,7 @@
                         <div class="contact-value">info@celkonsan.kz</div>
                     </div>
                     <div>
-                        <div class="contact-label">📍 Адрес</div>
+                        <div class="contact-label" data-i18n="ct_addr">📍 Адрес</div>
                         <div class="contact-value">
                             <a href="https://2gis.kz/almaty/geo/70030077061627028" target="_blank" style="color: #fff; text-decoration: underline;">
                                 7-я улица, 130а/5<br/>Алматы
@@ -449,7 +458,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>© CELKONSAN A.S. 2024 | Филиал в Казахстане с 2018 года</p>
+        <p>© ТОО «Celkonsan» 2024 | Филиал в Казахстане с 2018 года</p>
     </footer>
 
     <!-- MOBILE BOTTOM NAV (APP-LIKE) -->
@@ -538,5 +547,84 @@
             }
         });
     </script>
+
+<script>
+const I18N={
+ kz:{
+  hero_tag:"Алматы · 2018 жылдан бері ыстық мырыштау",
+  hero_sub:"Ыстық мырыштау, металл конструкциялар және жол қоршаулары. Айына 1000 тонна өнеркәсіптік қуат — Қазақстан мен Орталық Азия инфрақұрылымы үшін.",
+  cta_calc:"🧮 Металл салмағын есептеу",
+  cta_consult:"💬 Кеңес алу",
+  hs1:"Өндірістік қуат", hs2:"Мырыш қабатының қалыңдығы", hs3:"Сапа сертификаты", hs4:"Коррозиядан қорғау",
+  st1:"жүзеге асырылған жоба", st2:"Қазақстанда жыл", st3:"Орталық Азия елі", st4:"маман",
+  sv_title:"Қызметтер",
+  sv1h:"🔥 Ыстық мырыштау", sv1p:"Қалыңдығы 80+ микрон қорғаныш мырыш жабыны. Кез келген өлшемдегі конструкцияларды өңдеудің заманауи желісі.",
+  sv2h:"🛣️ Жол қоршаулары", sv2p:"W-beam, Guard rail және қауіпсіздік қоршауларын өндіру. Инфрақұрылым үшін толық шешім.",
+  sv3h:"🔧 Монтаж жұмыстары", sv3p:"Толық орнату циклі және инженерлік қолдау. Техникалық сертификаттау және кепілдік.",
+  sv4h:"🧱 Дайын өнім: анкерлік блоктар", sv4p:"Тіректер, белгілер, қоршаулар мен металл конструкциялар үшін ыстық мырышталған дайын анкерлік себеттер (болттар + ұстағыштар). Қоймадан.",
+  cb_tag:"⚙ ONLINE ҚҰРАЛ", cb_title:"Металл калькуляторы",
+  cb_desc:"Жол қоршаулары немесе металл конструкциялардың салмағын онлайн есептеңіз. Параметрлерді енгізіңіз — секундтарда тоннаж, еңбек шығыны және 3D-модель алыңыз.",
+  cb_btn:"🧮 Калькуляторды ашу →",
+  ct_title:"Байланыс", ct_phone:"📞 Телефон", ct_addr:"📍 Мекенжай"
+ },
+ en:{
+  hero_tag:"Almaty · Hot-dip galvanizing since 2018",
+  hero_sub:"Hot-dip galvanizing, steel structures and road barriers. Industrial capacity of 1000 tons per month — for the infrastructure of Kazakhstan and Central Asia.",
+  cta_calc:"🧮 Calculate metal weight",
+  cta_consult:"💬 Get a consultation",
+  hs1:"Production capacity", hs2:"Zinc coating thickness", hs3:"Quality certificate", hs4:"Corrosion protection",
+  st1:"completed projects", st2:"years in Kazakhstan", st3:"Central Asian countries", st4:"specialists",
+  sv_title:"Services",
+  sv1h:"🔥 Hot-dip galvanizing", sv1p:"Protective zinc coating 80+ microns thick. Modern line for treating structures of any size.",
+  sv2h:"🛣️ Road barriers", sv2p:"Production of W-beam, Guard rail and safety barriers. Complete solution for infrastructure.",
+  sv3h:"🔧 Installation works", sv3p:"Full installation cycle and engineering support. Technical certification and warranty.",
+  sv4h:"🧱 In-stock: anchor blocks", sv4p:"Ready-made anchor cages (bolts + templates) with hot-dip galvanizing for poles, signs, barriers and steel structures. From stock.",
+  cb_tag:"⚙ ONLINE TOOL", cb_title:"Metal Calculator",
+  cb_desc:"Calculate the weight of road barriers or steel structures online. Enter parameters — get tonnage, labor and a 3D model in seconds.",
+  cb_btn:"🧮 Open calculator →",
+  ct_title:"Contact", ct_phone:"📞 Phone", ct_addr:"📍 Address"
+ },
+ zh:{
+  hero_tag:"阿拉木图 · 2018年起提供热镀锌",
+  hero_sub:"热镀锌、钢结构和道路护栏。月产能达1000吨——服务于哈萨克斯坦及中亚的基础设施建设。",
+  cta_calc:"🧮 计算金属重量",
+  cta_consult:"💬 获取咨询",
+  hs1:"生产能力", hs2:"锌层厚度", hs3:"质量认证", hs4:"防腐蚀保护",
+  st1:"已完成项目", st2:"在哈萨克斯坦经营年数", st3:"个中亚国家", st4:"专业人员",
+  sv_title:"服务项目",
+  sv1h:"🔥 热镀锌", sv1p:"锌层厚度80+微米的防腐镀层。现代化生产线，可处理各种尺寸的构件。",
+  sv2h:"🛣️ 道路护栏", sv2p:"生产W型梁、护栏及安全护栏。基础设施的完整解决方案。",
+  sv3h:"🔧 安装工程", sv3p:"完整的安装流程和工程技术支持。技术认证与质保。",
+  sv4h:"🧱 现货供应：地脚螺栓笼", sv4p:"成品地脚螺栓笼（螺栓+定位模板），热镀锌处理，用于灯杆、标志、护栏及钢结构。现货供应。",
+  cb_tag:"⚙ 在线工具", cb_title:"金属计算器",
+  cb_desc:"在线计算道路护栏或钢结构的重量。输入参数——数秒内获得吨位、工时和3D模型。",
+  cb_btn:"🧮 打开计算器 →",
+  ct_title:"联系方式", ct_phone:"📞 电话", ct_addr:"📍 地址"
+ }
+};
+(function(){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{el.dataset.ru=el.textContent;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{el.dataset.ruHtml=el.innerHTML;});
+})();
+function setLang(lang){
+  document.documentElement.lang = (lang==='zh')?'zh-Hans':(lang==='kz'?'kk':lang);
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    el.textContent = (lang==='ru') ? el.dataset.ru : ((I18N[lang]&&I18N[lang][k]!==undefined)?I18N[lang][k]:el.dataset.ru);
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-html');
+    el.innerHTML = (lang==='ru') ? el.dataset.ruHtml : ((I18N[lang]&&I18N[lang][k]!==undefined)?I18N[lang][k]:el.dataset.ruHtml);
+  });
+  document.querySelectorAll('.nav-lang button').forEach(b=>b.classList.toggle('active', b.getAttribute('data-lang')===lang));
+  try{localStorage.setItem('celk_lang',lang);}catch(e){}
+}
+// H1 çevirileri (innerHTML)
+I18N.en.hero_h1='Steel<br/><span class="accent">protected</span> for 50 years <span class="red-line"></span>';
+I18N.kz.hero_h1='<span class="accent">Қорғалған</span> болат — 50 жылға <span class="red-line"></span>';
+I18N.zh.hero_h1='<span class="accent">防护</span>长达50年的钢材 <span class="red-line"></span>';
+document.addEventListener('DOMContentLoaded',()=>{let l='ru';try{l=localStorage.getItem('celk_lang')||'ru';}catch(e){}if(l!=='ru')setLang(l);else document.querySelectorAll('.nav-lang button').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')==='ru'));});
+</script>
+
 </body>
 </html>
