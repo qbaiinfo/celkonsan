@@ -10,7 +10,7 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#0a2540">
 
-    <meta name="description" content="CELKONSAN — услуги горячего цинкования (гальванизация) металла, производство дорожных ограждений W-beam и барьеров безопасности.">
+    <meta name="description" content="CELKONSAN — услуги горячего цинкования (гальванизация) металла, производство дорожных ограждений и барьеров безопасности. Алматы.">
     
     <script type="application/ld+json">
     {
@@ -323,9 +323,9 @@
             <div class="hero-content">
                 <span class="hero-tag"><span class="dot"></span><span data-i18n="hero_tag">Алматы · Горячее цинкование с 2018</span></span>
                 <h1 data-i18n-html="hero_h1">
-                    Сталь,<br/>
-                    <span class="accent">защищённая</span>
-                    на 50 лет
+                    Стальная<br/>
+                    <span class="accent">защита</span>
+                    стали
                     <span class="red-line"></span>
                 </h1>
                 <p class="hero-subtitle" data-i18n="hero_sub">Горячее цинкование, металлоконструкции и дорожные ограждения. Промышленные мощности 1000 тонн в месяц — для инфраструктуры Казахстана.</p>
@@ -379,7 +379,7 @@
 
                     <div class="service-card">
                         <h3 data-i18n="sv2h">🛣️ Дорожные ограждения</h3>
-                        <p data-i18n="sv2p">Производство W-beam, Guard rail и барьеров безопасности. Полное решение для инфраструктуры.</p>
+                        <p data-i18n="sv2p">Производство В-образных секций, барьерных ограждений и барьеров безопасности. Полное решение для инфраструктуры.</p>
                         <a href="barieri.html" class="service-link">Подробнее →</a>
                     </div>
 
@@ -436,7 +436,7 @@
                     </div>
                     <div>
                         <div class="contact-label">✉️ Email</div>
-                        <div class="contact-value">info@celkonsan.kz</div>
+                        <div class="contact-value">orken@celkonsan.com</div>
                     </div>
                     <div>
                         <div class="contact-label" data-i18n="ct_addr">📍 Адрес</div>
@@ -559,7 +559,7 @@ const I18N={
   st1:"жүзеге асырылған жоба", st2:"Қазақстанда жыл", st3:"Орталық Азия елі", st4:"маман",
   sv_title:"Қызметтер",
   sv1h:"🔥 Ыстық мырыштау", sv1p:"Қалыңдығы 80+ микрон қорғаныш мырыш жабыны. Кез келген өлшемдегі конструкцияларды өңдеудің заманауи желісі.",
-  sv2h:"🛣️ Жол қоршаулары", sv2p:"W-beam, Guard rail және қауіпсіздік қоршауларын өндіру. Инфрақұрылым үшін толық шешім.",
+  sv2h:"🛣️ Жол қоршаулары", sv2p:"В-тәрізді секциялар, барьерлік қоршаулар және қауіпсіздік қоршауларын өндіру. Инфрақұрылым үшін толық шешім.",
   sv3h:"🔧 Монтаж жұмыстары", sv3p:"Толық орнату циклі және инженерлік қолдау. Техникалық сертификаттау және кепілдік.",
   sv4h:"🧱 Дайын өнім: анкерлік блоктар", sv4p:"Тіректер, белгілер, қоршаулар мен металл конструкциялар үшін ыстық мырышталған дайын анкерлік себеттер (болттар + ұстағыштар). Қоймадан.",
   cb_tag:"⚙ ONLINE ҚҰРАЛ", cb_title:"Металл калькуляторы",
@@ -620,9 +620,9 @@ function setLang(lang){
   try{localStorage.setItem('celk_lang',lang);}catch(e){}
 }
 // H1 çevirileri (innerHTML)
-I18N.en.hero_h1='Steel<br/><span class="accent">protected</span> for 50 years <span class="red-line"></span>';
-I18N.kz.hero_h1='<span class="accent">Қорғалған</span> болат — 50 жылға <span class="red-line"></span>';
-I18N.zh.hero_h1='<span class="accent">防护</span>长达50年的钢材 <span class="red-line"></span>';
+I18N.en.hero_h1='Steel<br/><span class="accent">protection</span> for steel <span class="red-line"></span>';
+I18N.kz.hero_h1='Болатқа<br/><span class="accent">болат</span> қорғаныс <span class="red-line"></span>';
+I18N.zh.hero_h1='钢铁的<br/><span class="accent">钢铁</span>防护 <span class="red-line"></span>';
 document.addEventListener('DOMContentLoaded',()=>{let l='ru';try{l=localStorage.getItem('celk_lang')||'ru';}catch(e){}if(l!=='ru')setLang(l);else document.querySelectorAll('.nav-lang button').forEach(b=>b.classList.toggle('active',b.getAttribute('data-lang')==='ru'));});
 </script>
 
