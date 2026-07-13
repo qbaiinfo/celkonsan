@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Металлоконструкции — производство и монтаж | CELKONSAN Алматы</title>
+<meta name="description" content="Производство металлоконструкций в Алматы: ангары, склады, навесы, производственные цеха, каркасы зданий. Изготовление по чертежам КМ/КМД, горячее цинкование, монтаж. CELKONSAN.">
+<meta name="keywords" content="металлоконструкции, металлоконструкции Алматы, ангары, склады, навесы, производственные цеха, каркас здания, КМ КМД, стальные конструкции, Казахстан, steel structures Almaty">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0a2540">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fff; color: #000; line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        
+        header { 
+            position: sticky; top: 0; z-index: 100; 
+            padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #f0f0f0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo img { height: 40px; width: auto; }
+        nav { display: flex; gap: 2rem; font-size: 13px; }
+        nav a { color: #666; transition: color 0.2s; }
+        nav a:hover { color: #000; }
+        nav a.active { color: #0052cc; font-weight: 700; }
+        
+        .hero { padding: 4rem 2rem; background: #f8f8f8; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 1rem; }
+        
+        section { padding: 4rem 2rem; }
+        h2 { font-size: 32px; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; }
+        h3 { font-size: 18px; font-weight: 700; margin: 2rem 0 1rem; }
+        p { font-size: 15px; line-height: 1.8; color: #666; margin-bottom: 1rem; }
+        
+        .types-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .type-card { padding: 2rem; border: 1px solid #e0e0e0; }
+        .type-title { font-size: 16px; font-weight: 700; margin-bottom: 1rem; }
+        
+        .specs { background: #f8f8f8; padding: 2rem; margin: 2rem 0; border-radius: 4px; }
+        .spec-item { padding: 1rem 0; border-bottom: 1px solid #ddd; }
+        
+        footer { padding: 2rem; background: #000; color: #fff; text-align: center; font-size: 12px; }
+        .back-link { display: inline-block; margin-bottom: 2rem; color: #0052cc; font-weight: 600; }
+        
+
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav { padding-bottom: env(safe-area-inset-bottom);
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s; text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; }
+            .bottom-nav { display: flex; }
+        }
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+            nav { flex-direction: column; gap: 0.5rem; }
+            .hero h1 { font-size: 28px; }
+
+        /* HAMBURGER MENU */
+        .hamburger { 
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 0.5rem; margin-left: 1rem;
+        }
+        .hamburger span { 
+            width: 24px; height: 2px; background: #000; 
+            transition: all 0.3s ease; display: block;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        
+        /* MOBILE NAV */
+        .nav-mobile { 
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: #fff; border-bottom: 1px solid #f0f0f0; flex-direction: column;
+            padding: 1rem 2rem; gap: 1rem; z-index: 99;
+        }
+        .nav-mobile.active { display: flex; }
+        .nav-mobile a { 
+            padding: 0.75rem 0; font-size: 14px; color: #666;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+
+        /* MOBILE BOTTOM NAV */
+        .bottom-nav {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: #fff; border-top: 1px solid #f0f0f0;
+            z-index: 100; padding: 0.75rem 0;
+        }
+        
+        .nav-items { 
+            display: flex; justify-content: space-around; align-items: center;
+            width: 100%; gap: 1rem;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+            padding: 0.5rem; flex: 1; cursor: pointer;
+            text-align: center; font-size: 10px; letter-spacing: 0.5px;
+            color: #999; transition: all 0.2s; text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            color: #0052cc;
+        }
+        .nav-icon { font-size: 24px; display: block; }
+        .nav-label { font-weight: 600; font-size: 10px; }
+        
+        @media (max-width: 768px) {
+            body { padding-bottom: 80px; }
+            .bottom-nav { display: flex; }
+        }
+        @media (max-width: 768px) {
+            .nav-desktop { display: none; }
+            .hamburger { display: flex; }
+        }
+        }
+    
+        @media(max-width:760px){
+          .hero > div{grid-template-columns:1fr !important;}
+          .hero svg{max-height:240px !important;}
+          .hero > div > div:first-child{padding:2rem 1.25rem !important;margin:0 !important;}
+        }
+    
+        /* 6nav */
+        .bottom-nav .nav-label{font-size:9px !important;}
+        .bottom-nav .nav-item{padding-left:2px;padding-right:2px;}
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="/"><img src="celkonsan_logo.png" alt="CELKONSAN — металлоконструкции Алматы" style="height: 45px; width: auto;"></a>
+        </div>
+        <nav class="nav-desktop">
+            <a href="/">Главная</a>
+            <a href="metallokonstrukcii.html" style="color:#2f81f7;font-weight:700;">Металлоконструкции</a>
+            <a href="produkciya.html">Продукция</a>
+            <a href="galvanizaciya.html">Горячее цинкование</a>
+            <a href="barieri.html">Дорожные ограждения</a>
+            <a href="kalkulyator.html">🧮 Калькулятор</a>
+            <a href="o-kompanii.html">О компании</a>
+        </nav>
+        <div class="nav-lang"></div>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </header>
+    <nav class="nav-mobile" id="mobileMenu">
+        <a href="/">Главная</a>
+        <a href="metallokonstrukcii.html" style="color:#2f81f7;font-weight:700;">Металлоконструкции</a>
+        <a href="produkciya.html">Готовая продукция</a>
+        <a href="galvanizaciya.html">Горячее цинкование</a>
+        <a href="barieri.html">Дорожные ограждения</a>
+        <a href="kalkulyator.html">🧮 Калькулятор металла</a>
+        <a href="o-kompanii.html">О компании</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" style="background:#0b0d10;color:#fff;position:relative;overflow:hidden;padding:0;">
+      <div style="position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:380px;">
+        <div style="padding:3rem 2rem;position:relative;z-index:2;max-width:560px;margin-left:auto;">
+          <a href="/" class="back-link" style="color:#ff8a18;" data-i18n="back">← На главную</a>
+          <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#ff8a18;margin:.5rem 0 1rem;" data-i18n="hero_tag">КМ / КМД · ИЗГОТОВЛЕНИЕ · МОНТАЖ</div>
+          <h1 style="font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.05;text-transform:uppercase;letter-spacing:-1px;margin-bottom:1rem;" data-i18n-html="hero_h1">Металло<br/>конструкции</h1>
+          <p style="color:rgba(255,255,255,.7);font-size:16px;line-height:1.7;max-width:440px;" data-i18n="hero_sub">Ангары, склады, навесы, производственные цеха и каркасы зданий. Изготовление по чертежам КМ/КМД с горячим цинкованием и монтажом «под ключ».</p>
+        </div>
+        <!-- SVG: çelik portal çerçeve (beşik çatı) -->
+        <svg viewBox="0 0 420 380" width="100%" height="100%" style="display:block;max-height:380px;" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="stl2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3e9f0"/><stop offset=".5" stop-color="#8b97a4"/><stop offset="1" stop-color="#4c5661"/></linearGradient>
+            <radialGradient id="gl4" cx="50%" cy="100%" r="70%"><stop offset="0" stop-color="#ff8a18" stop-opacity=".22"/><stop offset="1" stop-color="#ff8a18" stop-opacity="0"/></radialGradient>
+          </defs>
+          <rect width="420" height="380" fill="#0b0d10"/>
+          <ellipse cx="210" cy="330" rx="190" ry="55" fill="url(#gl4)"/>
+          <!-- zemin -->
+          <line x1="30" y1="310" x2="390" y2="310" stroke="#2a323c" stroke-width="2"/>
+          <!-- arka çerçeve (derinlik) -->
+          <g opacity=".45">
+            <path d="M110 300 V150 L210 95 L310 150 V300" stroke="url(#stl2)" stroke-width="7" fill="none" stroke-linejoin="round"/>
+          </g>
+          <!-- orta çerçeve -->
+          <g opacity=".7">
+            <path d="M90 305 V145 L200 85 L310 145 V305" stroke="url(#stl2)" stroke-width="8" fill="none" stroke-linejoin="round"/>
+          </g>
+          <!-- ön portal çerçeve -->
+          <path d="M70 310 V140 L190 75 L310 140 V310" stroke="url(#stl2)" stroke-width="10" fill="none" stroke-linejoin="round"/>
+          <!-- konёk (ridge) -->
+          <line x1="190" y1="75" x2="210" y2="95" stroke="#aeb8c4" stroke-width="4"/>
+          <!-- прогоны (purlins) -->
+          <line x1="130" y1="118" x2="150" y2="130" stroke="#9aa6b2" stroke-width="3"/>
+          <line x1="250" y1="118" x2="270" y2="130" stroke="#9aa6b2" stroke-width="3"/>
+          <!-- yatay ригели -->
+          <line x1="70" y1="200" x2="310" y2="200" stroke="#6b7682" stroke-width="3"/>
+          <line x1="70" y1="255" x2="310" y2="255" stroke="#6b7682" stroke-width="3"/>
+          <!-- связи (mavi çapraz) -->
+          <line x1="70" y1="310" x2="190" y2="200" stroke="#5b9dff" stroke-width="2.5"/>
+          <line x1="190" y1="310" x2="70" y2="200" stroke="#5b9dff" stroke-width="2.5"/>
+          <line x1="190" y1="310" x2="310" y2="200" stroke="#5b9dff" stroke-width="2.5"/>
+          <line x1="310" y1="310" x2="190" y2="200" stroke="#5b9dff" stroke-width="2.5"/>
+          <!-- kolon taban plakaları -->
+          <rect x="58" y="306" width="26" height="7" fill="#aeb8c4"/>
+          <rect x="298" y="306" width="26" height="7" fill="#aeb8c4"/>
+          <text x="115" y="352" fill="#7d8896" font-family="monospace" font-size="11">Портальная рама · КМ/КМД</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- NE ÜRETİYORUZ -->
+    <section>
+      <div class="container">
+        <h2 data-i18n="what_title">Что мы производим</h2>
+        <div class="types-grid">
+          <div class="type-card">
+            <div class="type-title" data-i18n="c1t">Ангары и склады</div>
+            <p data-i18n="c1p">Быстровозводимые здания из стальных портальных рам. Пролёты до 30 м без внутренних колонн.</p>
+          </div>
+          <div class="type-card">
+            <div class="type-title" data-i18n="c2t">Навесы и козырьки</div>
+            <p data-i18n="c2p">Автонавесы, перроны, козырьки над входами. Лёгкие конструкции с оцинкованным покрытием.</p>
+          </div>
+          <div class="type-card">
+            <div class="type-title" data-i18n="c3t">Производственные цеха</div>
+            <p data-i18n="c3p">Каркасы цехов с кран-балками, антресолями и технологическими площадками.</p>
+          </div>
+          <div class="type-card">
+            <div class="type-title" data-i18n="c4t">Каркасы зданий</div>
+            <p data-i18n="c4p">Многоэтажные стальные каркасы: колонны, балки, фермы, связи, перекрытия.</p>
+          </div>
+          <div class="type-card">
+            <div class="type-title" data-i18n="c5t">Фермы и балки</div>
+            <p data-i18n="c5p">Сварные и решётчатые фермы, балки двутаврового сечения по проекту заказчика.</p>
+          </div>
+          <div class="type-card">
+            <div class="type-title" data-i18n="c6t">Нестандартные изделия</div>
+            <p data-i18n="c6p">Лестницы, площадки, ограждения, опорные конструкции — по чертежам КМ/КМД.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SÜREÇ -->
+    <section style="background:#f8f8f8;">
+      <div class="container">
+        <h2 data-i18n="proc_title">Процесс работы</h2>
+        <div class="process">
+          <div class="process-step">
+            <h3 style="margin-top:0;" data-i18n="s1h">1. Проектирование</h3>
+            <p data-i18n="s1p">Разработка чертежей КМ/КМД или работа по проекту заказчика. Расчёт нагрузок.</p>
+          </div>
+          <div class="process-step">
+            <h3 style="margin-top:0;" data-i18n="s2h">2. Изготовление</h3>
+            <p data-i18n="s2p">Резка, сверление, сварка на производстве. Контроль геометрии и швов.</p>
+          </div>
+          <div class="process-step">
+            <h3 style="margin-top:0;" data-i18n="s3h">3. Горячее цинкование</h3>
+            <p data-i18n="s3p">Защита от коррозии 80+ мкм по ГОСТ 9.307-89 — срок службы до 50 лет.</p>
+          </div>
+          <div class="process-step">
+            <h3 style="margin-top:0;" data-i18n="s4h">4. Монтаж</h3>
+            <p data-i18n="s4p">Доставка на объект, сборка, техническая приёмка и гарантия.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEKNİK -->
+    <section>
+      <div class="container">
+        <h2 data-i18n="spec_title">Технические возможности</h2>
+        <div class="specs">
+          <div class="spec-item"><strong data-i18n="sp1">Материал:</strong> Ст3, 09Г2С</div>
+          <div class="spec-item"><strong data-i18n="sp2">Производительность:</strong> 1000 т/месяц</div>
+          <div class="spec-item"><strong data-i18n="sp3">Покрытие:</strong> Горячее цинкование 80+ мкм</div>
+          <div class="spec-item"><strong data-i18n="sp4">Максимальная длина цинкования:</strong> 6 метров</div>
+          <div class="spec-item"><strong data-i18n="sp5">Документация:</strong> КМ / КМД, паспорта качества</div>
+          <div class="spec-item"><strong data-i18n="sp6">Монтаж:</strong> Болтовое соединение или сварка</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KALKÜLATÖR -->
+    <section style="background:#0b0d10;color:#fff;">
+      <div class="container">
+        <div style="font-family:'SF Mono',monospace;font-size:11px;letter-spacing:2px;color:#2f81f7;margin-bottom:1rem;" data-i18n="cb_tag">⚙ ONLINE ИНСТРУМЕНТ</div>
+        <h2 style="color:#fff;" data-i18n="cb_title">Рассчитайте вес металлоконструкции</h2>
+        <p style="color:rgba(255,255,255,.7);" data-i18n="cb_desc">Введите тип здания, площадь, высоту и тип кровли — получите тоннаж, трудозатраты, площадь кровли и 3D-модель за секунды.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a href="kalkulyator.html" style="padding:1rem 2rem;background:#ff8a18;color:#0b0d10;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;" data-i18n="cb_btn">🧮 Открыть калькулятор →</a>
+          <a href="https://wa.me/77477571465?text=%5B%F0%9F%93%B2%20%D0%A1%D0%90%D0%99%D0%A2%20celkonsan.kz%20%C2%B7%20%D0%9C%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%BE%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8%5D%20%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9D%D1%83%D0%B6%D0%BD%D1%8B%20%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%BE%D0%BA%D0%BE%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D0%B8%D0%B8." target="_blank" style="padding:1rem 2rem;background:#25D366;color:#fff;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;" data-i18n="cb_wa">💬 Получить расчёт в WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- İLETİŞİM -->
+    <section>
+      <div class="container">
+        <h2 data-i18n="contact_title">Свяжитесь с нами</h2>
+        <p><strong>Менеджер:</strong> +7 700 600 1465 · <strong>Офис:</strong> +7 747 179 14 31<br/>
+        <strong>Email:</strong> orken@celkonsan.com<br/>
+        <strong data-i18n="addr">Адрес:</strong> 7-я улица, 130а/5, Алгабас, Алатауский район, Алматы</p>
+      </div>
+    </section>
+
+    <footer><p>© ТОО «Celkonsan» 2024 | Филиал в Казахстане</p></footer>
+
+    <nav class="bottom-nav" id="bottomNav">
+        <div class="nav-items">
+            <a href="/" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></span><span class="nav-label">Главная</span></a>
+            <a href="metallokonstrukcii.html" class="nav-item active"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M4 4h16"/><path d="M4 20h16"/><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 8l12 8"/><path d="M18 8L6 16"/></svg></span><span class="nav-label">Металлоконструкции</span></a>
+            <a href="galvanizaciya.html" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M12 3s5.5 5.7 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.7 12 3 12 3z"/><path d="M9.5 13.2a2.5 2.5 0 0 0 2.5 2.5"/></svg></span><span class="nav-label">Цинкование</span></a>
+            <a href="barieri.html" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M2 9h20M2 14h20"/><path d="M6 9v9M12 9v9M18 9v9"/></svg></span><span class="nav-label">Ограждения</span></a>
+            <a href="kalkulyator.html" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8"/><path d="M8.5 11h0M12 11h0M15.5 11h0M8.5 14h0M12 14h0M15.5 14h0M8.5 17h0M12 17h0"/></svg></span><span class="nav-label">Калькулятор</span></a>
+            <a href="tel:+77006001465" class="nav-item"><span class="nav-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M5 4h3.4l1.7 4.3-2.1 1.3a11 11 0 0 0 5 5l1.3-2.1L19.7 15.3V19a2 2 0 0 1-2 2A16 16 0 0 1 3 5a1 1 0 0 1 1-1z"/></svg></span><span class="nav-label">Менеджер</span></a>
+        </div>
+    </nav>
+
+    <script>
+        function toggleMenu(){document.querySelector('.hamburger').classList.toggle('active');document.getElementById('mobileMenu').classList.toggle('active');}
+        document.querySelectorAll('.nav-mobile a').forEach(l=>l.addEventListener('click',()=>{document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileMenu').classList.remove('active');}));
+    </script>
+
+<script>
+window.PAGE_I18N={
+ en:{back:"← Home",hero_tag:"KM / KMD · FABRICATION · INSTALLATION",hero_h1:"Steel<br/>structures",
+  hero_sub:"Hangars, warehouses, canopies, production workshops and building frames. Fabrication to KM/KMD drawings with hot-dip galvanizing and turnkey installation.",
+  what_title:"What we produce",
+  c1t:"Hangars & warehouses", c1p:"Pre-engineered buildings from steel portal frames. Spans up to 30 m without internal columns.",
+  c2t:"Canopies & shelters", c2p:"Car canopies, platforms, entrance shelters. Lightweight structures with galvanized coating.",
+  c3t:"Production workshops", c3p:"Workshop frames with crane beams, mezzanines and technological platforms.",
+  c4t:"Building frames", c4p:"Multi-storey steel frames: columns, beams, trusses, bracing, floor structures.",
+  c5t:"Trusses & beams", c5p:"Welded and lattice trusses, I-section beams to the customer's design.",
+  c6t:"Custom fabrication", c6p:"Stairs, platforms, railings, support structures — to KM/KMD drawings.",
+  proc_title:"Our process",
+  s1h:"1. Design", s1p:"Development of KM/KMD drawings or work to the customer's project. Load calculations.",
+  s2h:"2. Fabrication", s2p:"Cutting, drilling, welding in our shop. Geometry and weld inspection.",
+  s3h:"3. Hot-dip galvanizing", s3p:"Corrosion protection 80+ µm to GOST 9.307-89 — service life up to 50 years.",
+  s4h:"4. Installation", s4p:"Delivery to site, assembly, technical acceptance and warranty.",
+  spec_title:"Technical capabilities",
+  sp1:"Material:", sp2:"Capacity:", sp3:"Coating:", sp4:"Max galvanizing length:", sp5:"Documentation:", sp6:"Assembly:",
+  cb_tag:"⚙ ONLINE TOOL", cb_title:"Calculate your steel structure weight",
+  cb_desc:"Enter building type, area, height and roof type — get tonnage, labor, roof area and a 3D model in seconds.",
+  cb_btn:"🧮 Open calculator →", cb_wa:"💬 Get a quote via WhatsApp",
+  contact_title:"Contact us", addr:"Address:"},
+ kz:{back:"← Басты бет",hero_tag:"КМ / КМД · ДАЙЫНДАУ · МОНТАЖ",hero_h1:"Металл<br/>конструкциялар",
+  hero_sub:"Ангарлар, қоймалар, қалқалар, өндірістік цехтар және ғимарат қаңқалары. КМ/КМД сызбалары бойынша дайындау, ыстық мырыштау және «кілт тапсыру» монтажы.",
+  what_title:"Біз не өндіреміз",
+  c1t:"Ангарлар мен қоймалар", c1p:"Болат портальды рамалардан жылдам тұрғызылатын ғимараттар. Ішкі бағанасыз 30 м-ге дейінгі аралық.",
+  c2t:"Қалқалар мен күнқағарлар", c2p:"Автоқалқалар, перрондар, кіреберіс күнқағарлары. Мырышталған жеңіл конструкциялар.",
+  c3t:"Өндірістік цехтар", c3p:"Кран арқалықтары, антресольдер және технологиялық алаңдары бар цех қаңқалары.",
+  c4t:"Ғимарат қаңқалары", c4p:"Көпқабатты болат қаңқалар: бағандар, арқалықтар, фермалар, байланыстар, жабындар.",
+  c5t:"Фермалар мен арқалықтар", c5p:"Дәнекерленген және торлы фермалар, тапсырыс беруші жобасы бойынша қоставр арқалықтар.",
+  c6t:"Стандартты емес бұйымдар", c6p:"Баспалдақтар, алаңдар, қоршаулар, тірек конструкциялары — КМ/КМД сызбалары бойынша.",
+  proc_title:"Жұмыс процесі",
+  s1h:"1. Жобалау", s1p:"КМ/КМД сызбаларын әзірлеу немесе тапсырыс беруші жобасы бойынша жұмыс. Жүктемелерді есептеу.",
+  s2h:"2. Дайындау", s2p:"Өндірісте кесу, бұрғылау, дәнекерлеу. Геометрия мен жіктерді бақылау.",
+  s3h:"3. Ыстық мырыштау", s3p:"ГОСТ 9.307-89 бойынша 80+ мкм коррозиядан қорғау — 50 жылға дейін қызмет мерзімі.",
+  s4h:"4. Монтаж", s4p:"Нысанға жеткізу, құрастыру, техникалық қабылдау және кепілдік.",
+  spec_title:"Техникалық мүмкіндіктер",
+  sp1:"Материал:", sp2:"Өнімділік:", sp3:"Жабын:", sp4:"Макс. мырыштау ұзындығы:", sp5:"Құжаттама:", sp6:"Монтаж:",
+  cb_tag:"⚙ ONLINE ҚҰРАЛ", cb_title:"Металл конструкция салмағын есептеңіз",
+  cb_desc:"Ғимарат түрін, ауданын, биіктігін және шатыр түрін енгізіңіз — секундтарда тоннаж, еңбек шығыны, шатыр ауданы және 3D-модель алыңыз.",
+  cb_btn:"🧮 Калькуляторды ашу →", cb_wa:"💬 WhatsApp арқылы есеп алу",
+  contact_title:"Бізбен байланысыңыз", addr:"Мекенжай:"},
+ zh:{back:"← 首页",hero_tag:"КМ / КМД · 制造 · 安装",hero_h1:"钢结构",
+  hero_sub:"机库、仓库、雨棚、生产车间和建筑框架。按КМ/КМД图纸制造，热镀锌处理，交钥匙安装。",
+  what_title:"我们的产品",
+  c1t:"机库与仓库", c1p:"钢制门式刚架快速建造建筑。跨度可达30米，无内部立柱。",
+  c2t:"雨棚与遮阳棚", c2p:"车棚、站台、入口雨棚。镀锌涂层的轻型结构。",
+  c3t:"生产车间", c3p:"配备吊车梁、夹层和工艺平台的车间框架。",
+  c4t:"建筑框架", c4p:"多层钢框架：立柱、横梁、桁架、支撑、楼板结构。",
+  c5t:"桁架与钢梁", c5p:"焊接和格构式桁架，按客户设计制造的工字梁。",
+  c6t:"非标制品", c6p:"楼梯、平台、栏杆、支撑结构——按КМ/КМД图纸制造。",
+  proc_title:"工作流程",
+  s1h:"1. 设计", s1p:"制定КМ/КМД图纸或按客户项目施工。荷载计算。",
+  s2h:"2. 制造", s2p:"在车间进行切割、钻孔、焊接。几何尺寸和焊缝检验。",
+  s3h:"3. 热镀锌", s3p:"按GOST 9.307-89标准，80+微米防腐保护——使用寿命长达50年。",
+  s4h:"4. 安装", s4p:"运送至现场、组装、技术验收和质保。",
+  spec_title:"技术能力",
+  sp1:"材料：", sp2:"产能：", sp3:"涂层：", sp4:"最大镀锌长度：", sp5:"文件：", sp6:"装配：",
+  cb_tag:"⚙ 在线工具", cb_title:"计算您的钢结构重量",
+  cb_desc:"输入建筑类型、面积、高度和屋顶类型——数秒内获得吨位、工时、屋面面积和3D模型。",
+  cb_btn:"🧮 打开计算器 →", cb_wa:"💬 通过WhatsApp获取报价",
+  contact_title:"联系我们", addr:"地址："}
+};
+</script>
+<script src="i18n.js"></script>
+
+</body>
+</html>
